@@ -86,4 +86,28 @@ class Main {
 
 class userUI {
     
+    public function centerDIV($obj) {
+        echo '<div align="center">';
+        foreach ($obj as $data) {
+            echo $data;
+        }
+        echo '</div>';
+    }
+    
+    public function inputText($type, $class, $idname, $name) {
+        return '<input type="'.$type.'" class="'.$class.'" id="'.$idname.'" name="'.$name.'" />';
+    }
+    
+    public function areaText() {
+        return '<textarea></textarea>';
+    }
+
+    public function pushBtn($type, $class, $idname, $val) {
+        return '<button type="'.$type.'" class="'.$class.'" id="'.$idname.'">'.$val.'</button>';
+    }        
+
+    public function selectOption($class, $idname, $name) {
+        return '<select class="'.$class.'" id="'.$idname.'" name="'.$name.'"></select>';
+    }
+    
 }
