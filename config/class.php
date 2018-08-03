@@ -26,10 +26,12 @@ class dbObj {
 
 class Main {
 
-    function get_page() {
+    function get_page() {                
+        
         if (!isset($_GET['page'])) {
-            include_once 'view/home.php';
-        } else {
+            $url = "view/home.php";
+            include_once $url;
+        } else {            
             $pages = htmlentities($_GET['page']);
             $page_root = "view/" . $pages . ".php";
 
@@ -68,7 +70,8 @@ class Main {
         include_once 'model/login.php';
     }
 
-    function getActScript() {
+    function getActScript() {        
+        
         if (isset($_GET['page'])) {
             $page = htmlentities($_GET['page']);
             $actRoot = "application/" . $page . "/script.js";
@@ -94,20 +97,19 @@ class userUI {
         echo '</div>';
     }
     
-    public function inputText($type, $class, $idname, $name) {
-        return '<input type="'.$type.'" class="'.$class.'" id="'.$idname.'" name="'.$name.'" />';
+    public function inputText($type, $class, $idname, $name, $placeholder) {
+        return '<input type="'.$type.'" class="'.$class.'" '
+                . 'id="'.$idname.'" name="'.$name.'"'
+                . 'placeholder="'.$placeholder.'" />';
     }
     
-    public function areaText() {
-        return '<textarea></textarea>';
+    public function closeTags($tags, $class, $idname, $name) {
+        return '<'.$tags.' class="'.$class.'" id="'.$idname.'" name="'.$name.'"></'.$tags.'>';
     }
 
     public function pushBtn($type, $class, $idname, $val) {
         return '<button type="'.$type.'" class="'.$class.'" id="'.$idname.'">'.$val.'</button>';
-    }        
-
-    public function selectOption($class, $idname, $name) {
-        return '<select class="'.$class.'" id="'.$idname.'" name="'.$name.'"></select>';
-    }
-    
+    }    
 }
+
+?>
