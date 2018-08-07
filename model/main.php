@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <?=$main->get_head()?>
+    <?= $main->get_head() ?>
 
     <body>
 
