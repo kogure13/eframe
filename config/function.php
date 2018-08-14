@@ -1,5 +1,4 @@
 <?php
-
 //set default time
 date_default_timezone_set('Asia/Jakarta');
 //define 
