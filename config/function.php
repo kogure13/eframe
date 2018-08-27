@@ -15,6 +15,7 @@ $week_indo = array("Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu
 $hari = date('w');
 $hari_ini = $week_indo[$hari];
 //format tanggal
+$nospace_date = date('Ymd');
 $tgl_sekarang = date('d-m-Y');
 $jam_sekarang = date('H:i:s');
 ?>

@@ -35,7 +35,8 @@ body {
 html {
   position: relative;
   min-height: 100%;
-  background: #dce3e8;
+  background: #dce3e8 url(../images/pattern-2.jpg);
+  background-attachment: fixed;  
 }
 h1,
 h2,
