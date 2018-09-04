@@ -112,4 +112,14 @@ class userUI {
     }    
 }
 
+class menu {
+    
+    protected $conn;
+    protected $data = [];
+    
+    function __construct($connString) {
+        $this->conn = $connString;
+    }
+}
+
 ?>
