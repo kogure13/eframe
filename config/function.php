@@ -1,21 +1,19 @@
 <?php
-//set default time
 date_default_timezone_set('Asia/Jakarta');
-//define 
-define('app_title', '');
-define('app_name', '');
-define('cp_name', '');
-define('cp_name_short', '');
-//bulan
-$nama_bln = array(1 => "Januari", "Februari", "Maret", "April", "Mei",
-    "Juni", "Juli", "Agustus", "September",
-    "Oktober", "November", "Desember");
-//minggu
-$week_indo = array("Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu");
-$hari = date('w');
-$hari_ini = $week_indo[$hari];
-//format tanggal
-$nospace_date = date('Ymd');
-$tgl_sekarang = date('d-m-Y');
-$jam_sekarang = date('H:i:s');
-?>
+
+define('company_name', 'Al-Irsyad Satya Islamic School');
+define('apps_name', 'e-Vote System');
+
+$seminggu = array("Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu");
+$hari = date("w");
+$hari_ini = $seminggu[$hari];
+
+$tgl_sekarang = date("Ymd");
+$tgl_skrg     = date("d");
+$bln_sekarang = date("m");
+$thn_sekarang = date("Y");
+$jam_sekarang = date("H:i:s");
+
+$nama_bln=array(1=> "Januari", "Februari", "Maret", "April", "Mei", 
+                    "Juni", "Juli", "Agustus", "September", 
+                    "Oktober", "November", "Desember");

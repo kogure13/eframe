@@ -1,8 +1,41 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+include_once '../../../config/class.php';
+$db = new dbObj();
+$connString = $db->getConstring();
+$editClass = new edit($connString);
 
+if (!isset($_GET['id'])) {
+    exit();
+} else {
+    $params = $_GET['id'];
+    $tb_name = $_GET['tb_name'];
+}
+if ($params > 0) {
+    $editClass->getData($params, $tb_name);
+} else {
+    mysql_errno();
+}
+
+class edit {
+
+    protected $conn;
+    protected $data = [];
+
+    function __construct($connString) {
+        $this->conn = $connString;
+    }
+
+    function getData($params, $tb_name) {
+        $sql = "SELECT * FROM " . $tb_name;
+        $sql .= " WHERE id = $params";
+
+        $result = mysqli_query($this->conn, $sql) or die();
+
+        while ($row = mysqli_fetch_assoc($result)) {
+            $data = $row;
+        }
+        echo json_encode($data);
+    }
+
+}

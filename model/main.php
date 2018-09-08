@@ -1,720 +1,1129 @@
 <!DOCTYPE html>
 <html>
-    <?= $main->get_head() ?>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+        <title>
+            Home
+            | Welcome to Josh Frontend
+
+        </title>
+        <!--global css starts-->
+        <!--
+        <link rel="stylesheet" type="text/css" href="http://demo.joshadmin.com/assets/css/lib.css">
+        <link rel="stylesheet" type="text/css" href="http://demo.joshadmin.com/assets/css/custom.css">
+        -->
+        <link rel="stylesheet" type="text/css" href="assets/css/lib.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/custom.css">
+        <style>
+            .dropdown-item:active{
+                background-color: transparent !important;
+            }
+            .indexpage.navbar-nav >.nav-item .nav-link:hover {
+                color: #01bc8c;
+            }
+        </style>
+        <!--end of global css-
+        <!--page level css-->
+        <!--page level css starts-->
+        <!--
+        <link rel="stylesheet" type="text/css" href="http://demo.joshadmin.com/assets/css/frontend/tabbular.css">
+        <link rel="stylesheet" type="text/css" href="http://demo.joshadmin.com/assets/vendors/animate/animate.min.css"/>
+        <link rel="stylesheet" type="text/css" href="http://demo.joshadmin.com/assets/css/frontend/jquery.circliful.css">
+        <link rel="stylesheet" type="text/css" href="http://demo.joshadmin.com/assets/vendors/owl_carousel/css/owl.carousel.css">
+        <link rel="stylesheet" type="text/css" href="http://demo.joshadmin.com/assets/vendors/owl_carousel/css/owl.theme.css">
+        -->
+        <link rel="stylesheet" type="text/css" href="assets/css/frontend/tabbular.css">
+        <link rel="stylesheet" type="text/css" href="assets/vendors/animate/animate.min.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/css/frontend/jquery.circliful.css">
+        <link rel="stylesheet" type="text/css" href="assets/vendors/owl_carousel/css/owl.carousel.css">
+        <link rel="stylesheet" type="text/css" href="assets/vendors/owl_carousel/css/owl.theme.css">
+
+        <style>
+            .box{
+                margin-top:53px !important;
+            }
+
+        </style>
+
+        <!--end of page level css-->
+        <!--end of page level css-->
+    </head>
 
     <body>
-
-        <!-- Navigation Bar-->
-        <header id="topnav">
-            <div class="topbar-main">
+        <!-- Header Start -->
+        <header>
+            <!--Icon Section Start-->
+            <div class="icon-section">
                 <div class="container">
-
-                    <!-- Logo container-->
-                    <div class="logo">
-                        <a href="index.html" class="logo">
-                            <span>Ub<i class="md md-album"></i>ld</span>
-                        </a>
-                    </div>
-                    <!-- End Logo container-->
-
-                    <div class="menu-extras">
-
-                        <ul class="nav navbar-nav navbar-right pull-right">
-                            <li class="navbar-c-items">
-                                <form role="search" class="navbar-left app-search pull-left hidden-xs">
-                                    <input type="text" placeholder="Search..." class="form-control">
-                                    <a href=""><i class="fa fa-search"></i></a>
-                                </form>
-                            </li>
-                            <li class="dropdown navbar-c-items">
-                                <a href="#" data-target="#" class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-expanded="true">
-                                    <i class="icon-bell"></i> <span class="badge badge-xs badge-danger">3</span>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-lg">
-                                    <li class="notifi-title"><span class="label label-default pull-right">New 3</span>Notification</li>
-                                    <li class="list-group slimscroll-noti notification-list">
-                                        <!-- list item-->
-                                        <a href="javascript:void(0);" class="list-group-item">
-                                            <div class="media">
-                                                <div class="pull-left p-r-10">
-                                                    <em class="fa fa-diamond noti-primary"></em>
-                                                </div>
-                                                <div class="media-body">
-                                                    <h5 class="media-heading">A new order has been placed A new order has been placed</h5>
-                                                    <p class="m-0">
-                                                        <small>There are new settings available</small>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </a>
-
-                                        <!-- list item-->
-                                        <a href="javascript:void(0);" class="list-group-item">
-                                            <div class="media">
-                                                <div class="pull-left p-r-10">
-                                                    <em class="fa fa-cog noti-warning"></em>
-                                                </div>
-                                                <div class="media-body">
-                                                    <h5 class="media-heading">New settings</h5>
-                                                    <p class="m-0">
-                                                        <small>There are new settings available</small>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </a>
-
-                                        <!-- list item-->
-                                        <a href="javascript:void(0);" class="list-group-item">
-                                            <div class="media">
-                                                <div class="pull-left p-r-10">
-                                                    <em class="fa fa-bell-o noti-custom"></em>
-                                                </div>
-                                                <div class="media-body">
-                                                    <h5 class="media-heading">Updates</h5>
-                                                    <p class="m-0">
-                                                        <small>There are <span class="text-primary font-600">2</span> new updates available</small>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </a>
-
-                                        <!-- list item-->
-                                        <a href="javascript:void(0);" class="list-group-item">
-                                            <div class="media">
-                                                <div class="pull-left p-r-10">
-                                                    <em class="fa fa-user-plus noti-pink"></em>
-                                                </div>
-                                                <div class="media-body">
-                                                    <h5 class="media-heading">New user registered</h5>
-                                                    <p class="m-0">
-                                                        <small>You have 10 unread messages</small>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </a>
-
-                                        <!-- list item-->
-                                        <a href="javascript:void(0);" class="list-group-item">
-                                            <div class="media">
-                                                <div class="pull-left p-r-10">
-                                                    <em class="fa fa-diamond noti-primary"></em>
-                                                </div>
-                                                <div class="media-body">
-                                                    <h5 class="media-heading">A new order has been placed A new order has been placed</h5>
-                                                    <p class="m-0">
-                                                        <small>There are new settings available</small>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </a>
-
-                                        <!-- list item-->
-                                        <a href="javascript:void(0);" class="list-group-item">
-                                            <div class="media">
-                                                <div class="pull-left p-r-10">
-                                                    <em class="fa fa-cog noti-warning"></em>
-                                                </div>
-                                                <div class="media-body">
-                                                    <h5 class="media-heading">New settings</h5>
-                                                    <p class="m-0">
-                                                        <small>There are new settings available</small>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);" class="list-group-item text-right">
-                                            <small class="font-600">See all notifications</small>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown navbar-c-items">
-                                <a href="" class="dropdown-toggle waves-effect waves-light profile" data-toggle="dropdown" aria-expanded="true"><img src="assets/images/users/avatar-1.jpg" alt="user-img" class="img-circle"> </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="javascript:void(0)"><i class="ti-user text-custom m-r-10"></i> Profile</a></li>
-                                    <li><a href="javascript:void(0)"><i class="ti-settings text-custom m-r-10"></i> Settings</a></li>
-                                    <li><a href="javascript:void(0)"><i class="ti-lock text-custom m-r-10"></i> Lock screen</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="javascript:void(0)"><i class="ti-power-off text-danger m-r-10"></i> Logout</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <div class="menu-item">
-                            <!-- Mobile menu toggle-->
-                            <a class="navbar-toggle">
-                                <div class="lines">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                            </a>
-                            <!-- End mobile menu toggle-->
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="navbar-custom">
-                <div class="container">
-                    <div id="navigation">
-                        <!-- Navigation Menu-->
-                        <ul class="navigation-menu">
-                            <li class="has-submenu">
-                                <a href="#"><i class="md md-dashboard"></i>Dashboard</a>
-                                <ul class="submenu">
-                                    <li>
-                                        <a href="index.html">Dashboard 01</a>
-                                    </li>
-                                    <li>
-                                        <a href="dashboard_2.html">Dashboard 02</a>
-                                    </li>
-                                    <li>
-                                        <a href="dashboard_3.html">Dashboard 03</a>
-                                    </li>
-                                    <li>
-                                        <a href="dashboard_4.html">Dashboard 04</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="has-submenu">
-                                <a href="#"><i class="md md-color-lens"></i>UI Kit</a>
-                                <ul class="submenu">
-                                    <li><a href="ui-buttons.html">Buttons</a></li>
-                                    <li><a href="ui-loading-buttons.html">Loading Buttons</a></li>
-                                    <li><a href="ui-panels.html">Panels</a></li>
-                                    <li><a href="ui-portlets.html">Portlets</a></li>
-                                    <li><a href="ui-checkbox-radio.html">Checkboxs-Radios</a></li>
-                                    <li><a href="ui-tabs.html">Tabs</a></li>
-                                    <li><a href="ui-modals.html">Modals</a></li>
-                                    <li><a href="ui-progressbars.html">Progress Bars</a></li>
-                                    <li><a href="ui-notification.html">Notification</a></li>
-                                    <li><a href="ui-images.html">Images</a></li>
-                                    <li><a href="ui-carousel.html">Carousel</a>
-                                    <li><a href="ui-video.html">Video</a>
-                                    <li><a href="ui-bootstrap.html">Bootstrap UI</a></li>
-                                    <li><a href="ui-typography.html">Typography</a></li>
-                                </ul>
-                            </li>
-
-
-                            <li class="has-submenu">
-                                <a href="#"><i class="md md-layers"></i>Components</a>
-                                <ul class="submenu megamenu">
-                                    <li>
-                                        <ul>
-                                            <li>
-                                                <span>Elements</span>
-                                            </li>
-                                            <li><a href="components-grid.html">Grid</a></li>
-                                            <li><a href="components-widgets.html">Widgets</a></li>
-                                            <li><a href="components-nestable-list.html">Nesteble</a></li>
-                                            <li><a href="components-range-sliders.html">Range sliders</a></li>
-                                            <li><a href="components-masonry.html">Masonry</a></li>
-                                            <li><a href="components-animation.html">Animation</a></li>
-                                            <li><a href="components-sweet-alert.html">Sweet Alerts</a></li>
-                                            <li><a href="components-treeview.html">Tree view</a></li>
-                                            <li><a href="components-tour.html">Tour</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <ul>
-                                            <li>
-                                                <span>Forms</span>
-                                            </li>
-                                            <li><a href="form-elements.html">General Elements</a></li>
-                                            <li><a href="form-advanced.html">Advanced Form</a></li>
-                                            <li><a href="form-validation.html">Form Validation</a></li>
-                                            <li><a href="form-pickers.html">Form Pickers</a></li>
-                                            <li><a href="form-wizard.html">Form Wizard</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li>
-                                        <ul>
-                                            <li>
-                                                <span>Forms</span>
-                                            </li>
-                                            <li><a href="form-mask.html">Form Masks</a></li>
-                                            <li><a href="form-summernote.html">Summernote</a></li>
-                                            <li><a href="form-wysiwig.html">Wysiwig Editors</a></li>
-                                            <li><a href="form-code-editor.html">Code Editor</a></li>
-                                            <li><a href="form-uploads.html">Multiple File Upload</a></li>
-                                            <li><a href="form-xeditable.html">X-editable</a></li>
-                                            <li><a href="form-image-crop.html">Image Crop</a></li>
-                                        </ul>
-                                    </li>
-
-
-                                </ul>
-                            </li>
-                            <li class="has-submenu">
-                                <a href="#"><i class="md md-class"></i>Other</a>
-                                <ul class="submenu">
-                                    <li class="has-submenu">
-                                        <a href="#">Tables</a>
-                                        <ul class="submenu">
-                                            <li><a href="tables-basic.html">Basic Tables</a></li>
-                                            <li><a href="tables-datatable.html">Data Table</a></li>
-                                            <li><a href="tables-editable.html">Editable Table</a></li>
-                                            <li><a href="tables-responsive.html">Responsive Table</a></li>
-                                            <li><a href="tables-foo-tables.html">FooTable</a></li>
-                                            <li><a href="tables-bootstrap.html">Bootstrap Tables</a></li>
-                                            <li><a href="tables-tablesaw.html">Tablesaw Tables</a></li>
-                                            <li><a href="tables-jsgrid.html">JsGrid Tables</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-submenu">
-                                        <a href="#">Charts</a>
-                                        <ul class="submenu">
-                                            <li><a href="chart-flot.html">Flot Chart</a></li>
-                                            <li><a href="chart-morris.html">Morris Chart</a></li>
-                                            <li><a href="chart-chartjs.html">Chartjs</a></li>
-                                            <li><a href="chart-peity.html">Peity Charts</a></li>
-                                            <li><a href="chart-chartist.html">Chartist Charts</a></li>
-                                            <li><a href="chart-c3.html">C3 Charts</a></li>
-                                            <li><a href="chart-nvd3.html"> Nvd3 Charts</a></li>
-                                            <li><a href="chart-sparkline.html">Sparkline charts</a></li>
-                                            <li><a href="chart-radial.html">Radial charts</a></li>
-                                            <li><a href="chart-other.html">Other Chart</a></li>
-                                            <li><a href="chart-ricksaw.html">Ricksaw Chart</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-submenu">
-                                        <a href="#">Icons</a>
-                                        <ul class="submenu">
-                                            <li><a href="icons-glyphicons.html">Glyphicons</a></li>
-                                            <li><a href="icons-materialdesign.html">Material Design</a></li>
-                                            <li><a href="icons-ionicons.html">Ion Icons</a></li>
-                                            <li><a href="icons-fontawesome.html">Font awesome</a></li>
-                                            <li><a href="icons-themifyicon.html">Themify Icons</a></li>
-                                            <li><a href="icons-simple-line.html">Simple line Icons</a></li>
-                                            <li><a href="icons-weather.html">Weather Icons</a></li>
-                                            <li><a href="icons-typicons.html">Typicons</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-submenu">
-                                        <a href="#">Maps</a>
-                                        <ul class="submenu">
-                                            <li><a href="map-google.html"> Google Map</a></li>
-                                            <li><a href="map-vector.html"> Vector Map</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-submenu">
-                                        <a href="#">Email</a>
-                                        <ul class="submenu">
-                                            <li><a href="email-inbox.html"> Inbox</a></li>
-                                            <li><a href="email-read.html"> Read Mail</a></li>
-                                            <li><a href="email-compose.html"> Compose Mail</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="has-submenu">
-                                <a href="#"><i class="md md-pages"></i>Pages</a>
-                                <ul class="submenu megamenu">
-                                    <li>
-                                        <ul>
-                                            <li><a href="page-starter.html">Starter Page</a></li>
-                                            <li><a href="page-login.html">Login</a></li>
-                                            <li><a href="page-login-v2.html">Login v2</a></li>
-                                            <li><a href="page-register.html">Register</a></li>
-                                            <li><a href="page-register-v2.html">Register v2</a></li>
-                                            <li><a href="page-signup-signin.html">Signin - Signup</a></li>
-                                            <li><a href="page-recoverpw.html">Recover Password</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <ul>
-                                            <li><a href="page-lock-screen.html">Lock Screen</a></li>
-                                            <li><a href="page-400.html">Error 400</a></li>
-                                            <li><a href="page-403.html">Error 403</a></li>
-                                            <li><a href="page-404.html">Error 404</a></li>
-                                            <li><a href="page-404_alt.html">Error 404-alt</a></li>
-                                            <li><a href="page-500.html">Error 500</a></li>
-                                            <li><a href="page-503.html">Error 503</a></li>
-                                        </ul>
-                                    </li>
-
-                                </ul>
-                            </li>
-
-
-                            <li class="has-submenu">
-                                <a href="#"><i class="md md-folder-special"></i>Extras</a>
-                                <ul class="submenu megamenu">
-                                    <li>
-                                        <ul>
-                                            <li><a href="extra-profile.html">Profile</a></li>
-                                            <li><a href="extra-timeline.html">Timeline</a></li>
-                                            <li><a href="extra-sitemap.html">Site map</a></li>
-                                            <li><a href="extra-invoice.html">Invoice</a></li>
-                                            <li><a href="extra-email-template.html">Email template</a></li>
-                                            <li><a href="extra-maintenance.html">Maintenance</a></li>
-                                            <li><a href="extra-coming-soon.html">Coming-soon</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <ul>
-                                            <li><a href="extra-faq.html">FAQ</a></li>
-                                            <li><a href="extra-search-result.html">Search result</a></li>
-                                            <li><a href="extra-gallery.html">Gallery</a></li>
-                                            <li><a href="extra-pricing.html">Pricing</a></li>
-                                            <li><a href="apps-calendar.html"> Calendar</a></li>
-                                            <li><a href="apps-contact.html"> Contact</a></li>
-                                            <li><a href="apps-taskboard.html"> Taskboard</a></li>
-                                        </ul>
-                                    </li>
-
-
-                                </ul>
-                            </li>
-
-                            <li class="has-submenu">
-                                <a href="#"><i class="md md-account-circle"></i>CRM</a>
-                                <ul class="submenu">
-                                    <li><a href="crm-dashboard.html"> Dashboard </a></li>
-                                    <li><a href="crm-contact.html"> Contacts </a></li>
-                                    <li><a href="crm-opportunities.html"> Opportunities </a></li>
-                                    <li><a href="crm-leads.html"> Leads </a></li>
-                                    <li><a href="crm-customers.html"> Customers </a></li>
-                                </ul>
-                            </li>
-                            <li class="has-submenu">
-                                <a href="#"><i class="md md-shopping-cart"></i>eCommerce</a>
-                                <ul class="submenu">
-                                    <li><a href="ecommerce-dashboard.html"> Dashboard</a></li>
-                                    <li><a href="ecommerce-products.html"> Products</a></li>
-                                    <li><a href="ecommerce-product-detail.html"> Product Detail</a></li>
-                                    <li><a href="ecommerce-product-edit.html"> Product Edit</a></li>
-                                    <li><a href="ecommerce-orders.html"> Orders</a></li>
-                                    <li><a href="ecommerce-sellers.html"> Sellers</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <!-- End navigation menu        -->
-                    </div>
-                </div> <!-- end container -->
-            </div> <!-- end navbar-custom -->
-        </header>
-        <!-- End Navigation Bar-->
-
-
-        <div class="wrapper">
-            <div class="container">
-
-                <!-- Page-Title -->
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="btn-group pull-right m-t-15">
-                            <button type="button" class="btn btn-default dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-expanded="false">Settings <span class="m-l-5"><i class="fa fa-cog"></i></span></button>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
+                    <div class="row">
+                        <div class="col-lg-4 col-8 col-md-4 mt10">
+                            <ul class="list-inline">
+                                <li>
+                                    <a href="#"> <i class="livicon" data-name="facebook" data-size="18" data-loop="true" data-c="#fff"
+                                                    data-hc="#757b87"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#"> <i class="livicon" data-name="twitter" data-size="18" data-loop="true" data-c="#fff"
+                                                    data-hc="#757b87"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#"> <i class="livicon" data-name="google-plus" data-size="18" data-loop="true"
+                                                    data-c="#fff" data-hc="#757b87"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#"> <i class="livicon" data-name="linkedin" data-size="18" data-loop="true" data-c="#fff"
+                                                    data-hc="#757b87"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#"> <i class="livicon" data-name="rss" data-size="18" data-loop="true" data-c="#fff"
+                                                    data-hc="#757b87"></i>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
-                        <h4 class="page-title">Dashboard</h4>
-                        <p class="text-muted page-title-alt">Welcome to Ubold admin panel !</p>
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="col-md-6 col-lg-3">
-                        <div class="widget-bg-color-icon card-box fadeInDown animated">
-                            <div class="bg-icon bg-icon-info pull-left">
-                                <i class="md md-attach-money text-info"></i>
-                            </div>
-                            <div class="text-right">
-                                <h3 class="text-dark"><b class="counter">31,570</b></h3>
-                                <p class="text-muted">Total Revenue</p>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-3">
-                        <div class="widget-bg-color-icon card-box">
-                            <div class="bg-icon bg-icon-pink pull-left">
-                                <i class="md md-add-shopping-cart text-pink"></i>
-                            </div>
-                            <div class="text-right">
-                                <h3 class="text-dark"><b class="counter">280</b></h3>
-                                <p class="text-muted">Today's Sales</p>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-3">
-                        <div class="widget-bg-color-icon card-box">
-                            <div class="bg-icon bg-icon-purple pull-left">
-                                <i class="md md-equalizer text-purple"></i>
-                            </div>
-                            <div class="text-right">
-                                <h3 class="text-dark"><b class="counter">0.16</b>%</h3>
-                                <p class="text-muted">Conversion</p>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-3">
-                        <div class="widget-bg-color-icon card-box">
-                            <div class="bg-icon bg-icon-success pull-left">
-                                <i class="md md-remove-red-eye text-success"></i>
-                            </div>
-                            <div class="text-right">
-                                <h3 class="text-dark"><b class="counter">64,570</b></h3>
-                                <p class="text-muted">Today's Visits</p>
-                            </div>
-                            <div class="clearfix"></div>
+                        <div class="col-lg-8 col-4 col-md-8 text-right mt10">
+                            <ul class="list-inline">
+                                <li>
+                                    <a href="mailto:"><i class="livicon" data-name="mail" data-size="18" data-loop="true"
+                                                         data-c="#fff"
+                                                         data-hc="#fff"></i></a>
+                                    <label class="d-none d-md-inline-block d-lg-inline-block d-xl-inline-block"><a
+                                            href="mailto:"
+                                            class="text-white">info@joshadmin.com</a></label>
+                                </li>
+                                <li>
+                                    <a href="tel:"><i class="livicon" data-name="phone" data-size="18" data-loop="true"
+                                                      data-c="#fff"
+                                                      data-hc="#fff"></i></a>
+                                    <label class="d-none d-md-inline-block d-lg-inline-block d-xl-inline-block"><a href="tel:"
+                                                                                                                   class="text-white">(703)
+                                            717-4200</a></label>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="container indexpage">
 
-                <div class="row">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="http://demo.joshadmin.com"><img src="http://demo.joshadmin.com/assets/images/logo.png"
+                                                                                  alt="logo"></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-                    <div class="col-lg-4">
-                        <div class="card-box">
-                            <h4 class="text-dark header-title m-t-0 m-b-30">Total Revenue</h4>
-
-                            <div class="widget-chart text-center">
-                                <input class="knob" data-width="150" data-height="150" data-linecap=round data-fgColor="#fb6d9d" value="80" data-skin="tron" data-angleOffset="180" data-readOnly=true data-thickness=".15"/>
-                                <h5 class="text-muted m-t-20">Total sales made today</h5>
-                                <h2 class="font-600">$75</h2>
-                                <ul class="list-inline m-t-15">
-                                    <li>
-                                        <h5 class="text-muted m-t-20">Target</h5>
-                                        <h4 class="m-b-0">$1000</h4>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto  margin_right">
+                            <li  class="nav-item active">
+                                <a href="#" id="index" class="nav-link"> Home</a>
+                            </li>
+                            <li class=" nav-item dropdown  ">
+                                <a href="#" aria-expanded="false" class="nav-link"> Features</a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="http://demo.joshadmin.com/typography" class="dropdown-item">Typography</a>
                                     </li>
-                                    <li>
-                                        <h5 class="text-muted m-t-20">Last week</h5>
-                                        <h4 class="m-b-0">$523</h4>
+                                    <li><a href="http://demo.joshadmin.com/advancedfeatures" class="dropdown-item">Advanced Features</a>
                                     </li>
-                                    <li>
-                                        <h5 class="text-muted m-t-20">Last Month</h5>
-                                        <h4 class="m-b-0">$965</h4>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="col-lg-8">
-                        <div class="card-box">
-                            <h4 class="text-dark header-title m-t-0">Sales Analytics</h4>
-                            <div class="text-center">
-                                <ul class="list-inline chart-detail-list">
-                                    <li>
-                                        <h5><i class="fa fa-circle m-r-5" style="color: #5fbeaa;"></i>Desktops</h5>
-                                    </li>
-                                    <li>
-                                        <h5><i class="fa fa-circle m-r-5" style="color: #5d9cec;"></i>Tablets</h5>
-                                    </li>
-                                    <li>
-                                        <h5><i class="fa fa-circle m-r-5" style="color: #dcdcdc;"></i>Mobiles</h5>
+                                    <li><a href="http://demo.joshadmin.com/grid" class="dropdown-item">Grid System</a>
                                     </li>
                                 </ul>
-                            </div>
-                            <div id="morris-bar-stacked" style="height: 303px;"></div>
-                        </div>
-                    </div>
-
-
-
-                </div>
-                <!-- end row -->
-
-
-                <div class="row">
-
-                    <div class="col-lg-6">
-                        <div class="card-box">
-                            <h4 class="text-dark header-title m-t-0">Total Sales</h4>
-
-                            <div class="text-center">
-                                <ul class="list-inline chart-detail-list">
-                                    <li>
-                                        <h5><i class="fa fa-circle m-r-5" style="color: #5fbeaa;"></i>Desktops</h5>
+                            </li>
+                            <li class=" nav-item dropdown ">
+                                <a href="#" class="nav-link"> Pages</a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="http://demo.joshadmin.com/aboutus" class="dropdown-item">About Us</a>
                                     </li>
-                                    <li>
-                                        <h5><i class="fa fa-circle m-r-5" style="color: #5d9cec;"></i>Tablets</h5>
+                                    <li><a href="http://demo.joshadmin.com/timeline" class="dropdown-item">Timeline</a></li>
+                                    <li><a href="http://demo.joshadmin.com/price" class="dropdown-item">Price</a>
                                     </li>
-                                    <li>
-                                        <h5><i class="fa fa-circle m-r-5" style="color: #ebeff2;"></i>Mobiles</h5>
+                                    <li><a href="http://demo.joshadmin.com/404" class="dropdown-item">404 Error</a>
+                                    </li>
+                                    <li><a href="http://demo.joshadmin.com/500" class="dropdown-item">500 Error</a>
+                                    </li>
+                                    <li><a href="http://demo.joshadmin.com/faq" class="dropdown-item">FAQ</a>
+                                    </li>
+                                    <li><a href="http://demo.joshadmin.com/blank_page" class="dropdown-item">Blank</a>
                                     </li>
                                 </ul>
-                            </div>
-
-                            <div id="morris-area-with-dotted" style="height: 300px;"></div>
-
-                        </div>
-
-                    </div>
-
-                    <!-- col -->
-
-                    <div class="col-lg-6">
-                        <div class="card-box">
-                            <a href="#" class="pull-right btn btn-default btn-sm waves-effect waves-light">View All</a>
-                            <h4 class="text-dark header-title m-t-0">Recent Orders</h4>
-                            <p class="text-muted m-b-30 font-13">
-                                Use the button classes on an element.
-                            </p>
-
-                            <div class="table-responsive">
-                                <table class="table table-actions-bar m-b-0">
-                                    <thead>
-                                        <tr>
-                                            <th></th>
-                                            <th>Item Name</th>
-                                            <th>Up-Down</th>
-                                            <th style="min-width: 80px;">Manage</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><span data-plugin="peity-bar" data-colors="#5fbeaa,#5fbeaa" data-width="80" data-height="30">5,3,9,6,5,9,7,3,5,2</span></td>
-                                            <td><img src="assets/images/products/iphone.jpg" class="thumb-sm pull-left m-r-10" alt=""> Apple iPhone </td>
-                                            <td><span class="text-custom">+$230</span></td>
-                                            <td>
-                                                <a href="#" class="table-action-btn"><i class="md md-edit"></i></a>
-                                                <a href="#" class="table-action-btn"><i class="md md-close"></i></a>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td><span data-plugin="peity-line" data-fill="#5fbeaa" data-stroke="#5fbeaa" data-width="80" data-height="30">0,-3,-6,-4,-5,-4,-7,-3,-5,-2</span></td>
-                                            <td><img src="assets/images/products/samsung.jpg" class="thumb-sm pull-left m-r-10" alt=""> Samsung Phone </td>
-                                            <td><span class="text-danger">-$154</span></td>
-                                            <td>
-                                                <a href="#" class="table-action-btn"><i class="md md-edit"></i></a>
-                                                <a href="#" class="table-action-btn"><i class="md md-close"></i></a>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td><span data-plugin="peity-line" data-fill="#fff" data-stroke="#5fbeaa" data-width="80" data-height="30">5,3,9,6,5,9,7,3,5,2</span>
-                                            <td><img src="assets/images/products/imac.jpg" class="thumb-sm pull-left m-r-10" alt=""> Apple iPhone </td>
-                                            <td><span class="text-custom">+$1850</span></td>
-                                            <td>
-                                                <a href="#" class="table-action-btn"><i class="md md-edit"></i></a>
-                                                <a href="#" class="table-action-btn"><i class="md md-close"></i></a>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td><span data-plugin="peity-pie" data-colors="#5fbeaa,#ebeff2" data-width="30" data-height="30">1/5</span></td>
-                                            <td><img src="assets/images/products/macbook.jpg" class="thumb-sm pull-left m-r-10" alt=""> Apple iPhone </td>
-                                            <td><span class="text-danger">-$560</span></td>
-                                            <td>
-                                                <a href="#" class="table-action-btn"><i class="md md-edit"></i></a>
-                                                <a href="#" class="table-action-btn"><i class="md md-close"></i></a>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td><span data-plugin="peity-bar" data-colors="#5fbeaa,#ebeff2" data-width="80" data-height="30">5,3,9,6,5,9,7,3,5,2</span></td>
-                                            <td><img src="assets/images/products/lumia.jpg" class="thumb-sm pull-left m-r-10" alt=""> Lumia iPhone </td>
-                                            <td><span class="text-custom">+$230</span></td>
-                                            <td>
-                                                <a href="#" class="table-action-btn"><i class="md md-edit"></i></a>
-                                                <a href="#" class="table-action-btn"><i class="md md-close"></i></a>
-                                            </td>
-                                        </tr>
-
-                                    </tbody>
-                                </table>
-                            </div>
-
-                        </div>
-                    </div>
-                    <!-- end col -->
-
-                </div>
-                <!-- end row -->
-
-
-                <!-- Footer -->
-                <footer class="footer text-right">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xs-6">
-                                © 2016. All rights reserved.
-                            </div>
-                            <div class="col-xs-6">
-                                <ul class="pull-right list-inline m-b-0">
-                                    <li>
-                                        <a href="#">About</a>
+                            </li>
+                            <li class="nav-item dropdown ">
+                                <a href="#" class="nav-link"> Shop</a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="http://demo.joshadmin.com/products" class="dropdown-item">Products</a>
                                     </li>
-                                    <li>
-                                        <a href="#">Help</a>
+                                    <li><a href="http://demo.joshadmin.com/single_product" class="dropdown-item">Single Product</a>
                                     </li>
-                                    <li>
-                                        <a href="#">Contact</a>
+                                    <li><a href="http://demo.joshadmin.com/compareproducts" class="dropdown-item">Compare Products</a>
+                                    </li>
+                                    <li><a href="http://demo.joshadmin.com/category"  class="dropdown-item">Categories</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown ">
+                                <a href="#" class="nav-link"> Portfolio</a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="http://demo.joshadmin.com/portfolio">Portfolio</a>
+                                    </li>
+                                    <li><a href="http://demo.joshadmin.com/portfolioitem">Portfolio Item</a>
                                     </li>
                                 </ul>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-                <!-- End Footer -->
+                            </li>
+                            <li class=" nav-item dropdown ">
+                                <a href="#" aria-expanded="false" class="nav-link"> Emails</a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="http://demo.joshadmin.com/user_emails/compose" class="dropdown-item">Compose</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://demo.joshadmin.com/user_emails/inbox" class="dropdown-item">Inbox</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://demo.joshadmin.com/user_emails/sent" class="dropdown-item">Sent</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item "><a href="http://demo.joshadmin.com/news" class="nav-link">News</a>
+                            </li>
+                            <li class="nav-item "><a href="http://demo.joshadmin.com/blog" class="nav-link">
+                                    Blog</a>
+                            </li>
+                            <li class="nav-item "><a href="http://demo.joshadmin.com/contact" class="nav-link">Contact</a>
+                            </li>
 
+
+                            <li class="nav-item "><a href="http://demo.joshadmin.com/my-account" class="nav-link">My
+                                    Account</a>
+                            </li>
+                            <li class="nav-item"><a href="http://demo.joshadmin.com/logout" class="nav-link">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <!-- Nav bar End -->
+            </div>
+        </header>
+
+        <!-- //Header End -->
+
+        <!-- slider / breadcrumbs section -->
+        <!--Carousel Start -->
+        <div id="owl-demo" class="owl-carousel owl-theme">
+            <div class="item img-fluid"><img src="http://demo.joshadmin.com/assets/images/slide_1.jpg" alt="slider-image"/>
+            </div>
+            <div class="item img-fluid"><img src="http://demo.joshadmin.com/assets/images/slide_2.jpg" alt="slider-image">
+            </div>
+            <div class="item img-fluid"><img src="http://demo.joshadmin.com/assets/images/slide_4.png" alt="slider-image">
             </div>
         </div>
+        <!-- //Carousel End -->
+
+        <!-- Content -->
+        <div class="container">
+            <section class="purchas-main">
+                <div class="container bg-border wow pulse" data-wow-duration="2.5s">
+                    <div class="row">
+                        <div class="col-md-7 col-sm-7 col-12 col-lg-8">
+                            <h1 class="purchae-hed mt-3">Excellent admin template for laravel</h1></div>
+                        <div class="col-md-5 col-sm-5 col-12 col-lg-4"><a href="#" class="btn purchase-styl float-lg-right">Purchase
+                                now</a></div>
+                    </div>
+                </div>
+            </section>
+            <!-- Service Section Start-->
+            <div class="row">
+                <!-- Responsive Section Start -->
+                <div class="col-12 text-center my-3">
+                    <h3 class="border-primary"><span class="heading_border bg-primary mx-auto">Our Services</span></h3></div>
+                <div class="col-sm-6 col-md-6 col-lg-3 wow bounceInLeft" data-wow-duration="3.5s">
+                    <div class="box">
+                        <div class="box-icon">
+                            <i class="livicon icon" data-name="desktop" data-size="55" data-loop="true" data-c="#01bc8c"
+                               data-hc="#01bc8c"></i>
+                        </div>
+                        <div class="info">
+                            <h3 class="success text-center">Responsive</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti atque, tenetur quam aspernatur
+                                corporis at explicabo nulla dolore necessitatibus doloremque exercitationem sequi dolorem
+                                architecto perferendis quas aperiam debitis dolor soluta!</p>
+                            <div class="text-right primary"><a href="#">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- //Responsive Section End -->
+                <!-- Easy to Use Section Start -->
+                <div class="col-sm-6 col-md-6  col-lg-3 col-12 wow bounceInDown" data-wow-duration="3s" data-wow-delay="0.4s">
+                    <!-- Box Start -->
+                    <div class="box">
+                        <div class="box-icon box-icon1">
+                            <i class="livicon icon1" data-name="gears" data-size="55" data-loop="true" data-c="#418bca"
+                               data-hc="#418bca"></i>
+                        </div>
+                        <div class="info">
+                            <h3 class="primary text-center">Easy to Use</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti atque, tenetur quam aspernatur
+                                corporis at explicabo nulla dolore necessitatibus doloremque exercitationem sequi dolorem
+                                architecto perferendis quas aperiam debitis dolor soluta!.</p>
+                            <div class="text-right primary"><a href="#">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- //Easy to Use Section End -->
+                <!-- Clean Design Section Start -->
+                <div class="col-sm-6 col-md-6  col-lg-3 col-12 wow bounceInUp" data-wow-duration="3s" data-wow-delay="0.8s">
+                    <div class="box">
+                        <div class="box-icon box-icon2">
+                            <i class="livicon icon1" data-name="doc-portrait" data-size="55" data-loop="true" data-c="#f89a14"
+                               data-hc="#f89a14"></i>
+                        </div>
+                        <div class="info">
+                            <h3 class="warning text-center">Clean Design</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti atque, tenetur quam aspernatur
+                                corporis at explicabo nulla dolore necessitatibus doloremque exercitationem sequi dolorem
+                                architecto perferendis quas aperiam debitis dolor soluta!</p>
+                            <div class="text-right primary"><a href="#">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- //Clean Design Section End -->
+                <!-- 20+ Page Section Start -->
+                <div class="col-sm-6 col-md-6 col-lg-3 col-12  wow bounceInRight" data-wow-duration="5s" data-wow-delay="1.2s">
+                    <div class="box">
+                        <div class="box-icon box-icon3">
+                            <i class="livicon icon1" data-name="folder-open" data-size="55" data-loop="true" data-c="#FFD43C"
+                               data-hc="#FFD43C"></i>
+                        </div>
+                        <div class="info">
+                            <h3 class="yellow text-center">20+ Pages</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti atque, tenetur quam aspernatur
+                                corporis at explicabo nulla dolore necessitatibus doloremque exercitationem sequi dolorem
+                                architecto perferendis quas aperiam debitis dolor soluta!</p>
+                            <div class="text-right primary"><a href="#">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- //20+ Page Section End -->
+            </div>
+            <!-- //Services Section End -->
+        </div>
+        <!-- Layout Section Start -->
+        <section class="feature-main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-sm-8 col-12 col-lg-9 wow zoomIn" data-wow-duration="2s">
+                        <div class="layout-image">
+                            <img src="http://demo.joshadmin.com/assets/images/layout.png" alt="layout" class="img-fluid"/>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-3 col-sm-4 col-12 wow lightSpeedIn" data-wow-duration="2s">
+                        <ul class="list-unstyled  text-right layout-styl">
+                            <li>
+                                <i class="livicon" data-name="checked-on" data-size="20" data-loop="true" data-c="#01bc8c"
+                                   data-hc="#01bc8c"></i> Responsive clean design
+                            </li>
+                            <li><i class="livicon" data-name="checked-on" data-size="20" data-loop="true" data-c="#01bc8c"
+                                   data-hc="#01bc8c"></i> User friendly
+                            </li>
+                            <li><i class="livicon" data-name="checked-on" data-size="20" data-loop="true" data-c="#01bc8c"
+                                   data-hc="#01bc8c"></i> HTML5
+                            </li>
+                            <li><i class="livicon" data-name="checked-on" data-size="20" data-loop="true" data-c="#01bc8c"
+                                   data-hc="#01bc8c"></i> CSS3
+                            </li>
+                            <li><i class="livicon" data-name="checked-on" data-size="20" data-loop="true" data-c="#01bc8c"
+                                   data-hc="#01bc8c"></i> Bootstrap 4.0.0
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- //Layout Section Start -->
+        <!-- Accordions Section End -->
+        <div class="container">
+            <div class="row">
+                <!-- Accordions Start -->
+                <div class="text-center col-12 wow flash my-3" data-wow-duration="3s">
+                    <h3 class="border-success"><span class="heading_border bg-success">Accordions</span></h3>
+                    <label class=" text-center"> Lorem Ipsum is simply dummy text of the printing and typesetting
+                        industry.</label>
+                </div>
+                <!-- Accordions End -->
+                <div class="col-md-6 col-sm-12  col-lg-6 col-12 wow slideInLeft" data-wow-duration="1.5s">
+                    <!-- Tabbable-Panel Start -->
+                    <div class="tabbable-panel1 index">
+                        <!-- Tabbablw-line Start -->
+                        <div class="tabbable-line">
+                            <!-- Nav Nav-tabs Start -->
+                            <ul class="nav nav-tabs ">
+                                <li class="nav-item ">
+                                    <a href="#tab_default_1" data-toggle="tab" class="nav-link active">
+                                        Web </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#tab_default_2" data-toggle="tab" class="nav-link">
+                                        Html 5 </a>
+                                </li>
+                                <li class="clear_both nav-item">
+                                    <a href="#tab_default_3" data-toggle="tab" class="nav-link">
+                                        CSS 3 </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#tab_default_4" data-toggle="tab" class="nav-link">
+                                        Bootstrap </a>
+                                </li>
+                            </ul>
+                            <hr class="horizontalline">
+                            <!-- //Nav Nav-tabs End -->
+                            <!-- Tab-content Start -->
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="tab_default_1">
+                                    <div class="media">
+                                        <div class="media-left tab col-sm-12">
+                                            <a href="#">
+                                                <img class="media-object img-fluid"
+                                                     src="http://demo.joshadmin.com/assets/images/authors/img1.jpg" alt="image">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        Metrics business-to-business beta bootstrapping virality graphical user interface
+                                        infrastructure conversion launch party long tail. Strategy virality validation bandwidth
+                                        creative low hanging fruit long tail startup gen-z business plan technology. Strategy
+                                        termsheet venture stealth non-disclosure agreement accelerator research & development
+                                        scrum project product management freemium infographic business plan.
+                                    </p>
+                                </div>
+                                <div class="tab-pane" id="tab_default_2">
+                                    <div class="media">
+                                        <div class="media-left media-middle tab col-sm-12">
+                                            <a href="#">
+                                                <img class="media-object img-fluid"
+                                                     src="http://demo.joshadmin.com/assets/images/authors/img2.jpg" alt="image">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        Branding iteration conversion market sales advisor holy grail entrepreneur backing.
+                                        Gen-z non-disclosure agreement holy grail business-to-consumer disruptive deployment
+                                        marketing channels seed money seed round ramen pivot social proof. Venture creative
+                                        metrics focus A/B testing crowdfunding. IPhone scrum project user experience freemium
+                                        interaction design long tail stealth ownership hackathon crowdfunding investor.
+                                    </p>
+                                </div>
+                                <div class="tab-pane" id="tab_default_3">
+                                    <div class="media">
+                                        <div class="media-left media-middle tab col-sm-12">
+                                            <a href="#">
+                                                <img class="media-object img-fluid"
+                                                     src="http://demo.joshadmin.com/assets/images/authors/img3.jpg" alt="image">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        Beta analytics startup direct mailing leverage learning curve www.discoverartisans.com
+                                        business-to-consumer. IPad metrics channels pivot deployment business plan android burn
+                                        rate hackathon vesting period research & development launch party user experience. Seed
+                                        round freemium value proposition learning curve series A financing funding research &
+                                        development crowdsource.
+                                    </p>
+                                </div>
+                                <div class="tab-pane" id="tab_default_4">
+                                    <div class="media">
+                                        <div class="media-left media-middle tab col-sm-12">
+                                            <a href="#">
+                                                <img class="media-object img-fluid"
+                                                     src="http://demo.joshadmin.com/assets/images/authors/img4.jpg" alt="image">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        Paradigm shift twitter pitch research & development venture. Startup partnership
+                                        www.discoverartisans.com supply chain crowdsource hackathon metrics paradigm shift
+                                        interaction design influencer holy grail first mover advantage ramen validation. User
+                                        experience founders burn rate learning curve infographic leverage gen-z supply chain
+                                        first mover advantage.
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Tab-content End -->
+                        </div>
+                        <!-- //Tabbablw-line End -->
+                    </div>
+                    <!-- Tabbable_panel End -->
+                </div>
+                <div class="col-md-6 col-sm-12 col-12 col-lg-6 wow slideInRight" data-wow-duration="3s">
+                    <div id="accordion">
+                        <div class="card card_collapse">
+                            <div class="card-header header_card" id="headingOne">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                                            aria-expanded="true" aria-controls="collapseOne">
+                                        <i class="fa fa-minus success"></i>
+                                        <span class="success">Why Choose Us</span>
+                                    </button>
+                                </h5>
+                            </div>
+
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body">
+                                    <p> Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
+                                        squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck
+                                        quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it
+                                        squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+                                        craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
+                                        butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth
+                                        nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card card_collapse">
+                            <div class="card-header header_card" id="headingTwo">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                                            aria-expanded="false" aria-controls="collapseTwo">
+                                        <i class="fa fa-plus success"></i>
+                                        <span class="success">Why Choose Us</span>
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                <div class="card-body">
+                                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
+                                        squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck
+                                        quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it
+                                        squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+                                        craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
+                                        butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth
+                                        nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card card_collapse">
+                            <div class="card-header header_card" id="headingThree">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
+                                            aria-expanded="false" aria-controls="collapseThree">
+                                        <i class="fa fa-plus success"></i>
+                                        <span class="success">Why Choose Us</span>
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                <div class="card-body">
+                                    <p> Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
+                                        squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck
+                                        quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it
+                                        squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+                                        craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
+                                        butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth
+                                        nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Panel-group Start -->
+                    <!--<div class="panel-group" id="accordion">-->
+                    <!--&lt;!&ndash; Panel Panel-default Start &ndash;&gt;-->
+                    <!--<div class="panel panel-default">-->
+                    <!--&lt;!&ndash; Panel-heading Start &ndash;&gt;-->
+                    <!--<div class="panel-heading text_bg">-->
+                    <!--<h4 class="panel-title">-->
+                    <!--<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">-->
+                    <!--&lt;!&ndash;<span class=" glyphicon glyphicon-minus success"></span>&ndash;&gt;-->
+                    <!--<i class="fa fa-plus success"></i>-->
+                    <!--<span class="success">Why Choose Us</span></a>-->
+                    <!--</h4>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash; //Panel-heading End &ndash;&gt;-->
+                    <!--&lt;!&ndash; Collapseone Start &ndash;&gt;-->
+                    <!--<div id="collapseOne" class="panel-collapse collapse in">-->
+                    <!--<div class="panel-body">-->
+                    <!--<p>In 1972 a crack commando unit was sent to prison by a military court for a crime they didn't commit. These men promptly escaped from a maximum security stockade to the Los Angeles underground. Believe it or not I'm walking on air. I never thought I could feel so free. Flying away on a wing and a prayer. Who could it be? Believe it or not its just me. Come and knock on our door. We've been waiting for you. Where the kisses are hers and hers and his. Three's company too. Flying away on a wing and a prayer. Who could it be? Believe it or not its just me. Here's the story of a man named Brady who was busy with three boys of his own. One two three four five six seven eight Sclemeel schlemazel hasenfeffer incorporated? Till the one day when the lady met this fellow and they knew it was much more than a hunch. Baby if you've ever wondered.-->
+                    <!--</p>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash; Collapseone End &ndash;&gt;-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash; //Panel Panel-default End &ndash;&gt;-->
+                    <!--<div class="panel panel-default">-->
+                    <!--<div class="panel-heading text_bg">-->
+                    <!--<h4 class="panel-title">-->
+                    <!--<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">-->
+                    <!--<i class="fa fa-plus success"></i>-->
+                    <!--<span class="success">Why Choose Us</span>-->
+                    <!--</a>-->
+                    <!--</h4>-->
+                    <!--</div>-->
+                    <!--<div id="collapseTwo" class="panel-collapse collapse">-->
+                    <!--<div class="panel-body">-->
+                    <!--<p>-->
+                    <!--In 1972 a crack commando unit was sent to prison by a military court for a crime they didn't commit. These men promptly escaped from a maximum security stockade to the Los Angeles underground. Believe it or not I'm walking on air. I never thought I could feel so free. Flying away on a wing and a prayer. Who could it be? Believe it or not its just me. Come and knock on our door. We've been waiting for you. Where the kisses are hers and hers and his. Three's company too. Flying away on a wing and a prayer. Who could it be? Believe it or not its just me. Here's the story of a man named Brady who was busy with three boys of his own. One two three four five six seven eight Sclemeel schlemazel hasenfeffer incorporated? Till the one day when the lady met this fellow and they knew it was much more than a hunch. Baby if you've ever wondered.-->
+                    <!--</p>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="panel panel-default">-->
+                    <!--<div class="panel-heading text_bg">-->
+                    <!--<h4 class="panel-title">-->
+                    <!--<a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">-->
+                    <!--<i class="fa fa-plus success"></i>-->
+                    <!--<span class="success">Why Choose Us</span></a>-->
+                    <!--</h4>-->
+                    <!--</div>-->
+                    <!--<div id="collapseThree" class="panel-collapse collapse">-->
+                    <!--<div class="panel-body">-->
+                    <!--<p>-->
+                    <!--In 1972 a crack commando unit was sent to prison by a military court for a crime they didn't commit. These men promptly escaped from a maximum security stockade to the Los Angeles underground. Believe it or not I'm walking on air. I never thought I could feel so free. Flying away on a wing and a prayer. Who could it be? Believe it or not its just me. Come and knock on our door. We've been waiting for you. Where the kisses are hers and hers and his. Three's company too. Flying away on a wing and a prayer. Who could it be? Believe it or not its just me. Here's the story of a man named Brady who was busy with three boys of his own. One two three four five six seven eight Sclemeel schlemazel hasenfeffer incorporated? Till the one day when the lady met this fellow and they knew it was much more than a hunch. Baby if you've ever wondered.-->
+                    <!--</p>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash; //Panle-group End &ndash;&gt;-->
+                    <!--</div>-->
+                </div>
+            </div>
+        </div>
+        <!-- //Accordions Section End -->
+        <!-- Our Team Start -->
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-12 my-3">
+                    <h3 class=" border-danger"><span class="heading_border bg-danger">Our Team</span></h3></div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-6 col-sm-6 col-12 col-lg-3 profile wow fadeInLeft" data-wow-duration="3s"
+                     data-wow-delay="0.5s">
+                    <div class="thumbnail bg-white">
+                        <img src="http://demo.joshadmin.com/assets/images/img_3.jpg" alt="team-image" class="img-fluid">
+                        <div class="caption">
+                            <b>John Doe</b>
+                            <p class="text-center"> Founder & Partner</p>
+                            <div class="divide">
+                                <a href="#" class="divider">
+                                    <i class="livicon" data-name="facebook" data-size="22" data-loop="true" data-c="#3a5795"
+                                       data-hc="#3a5795"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="livicon" data-name="twitter" data-size="22" data-loop="true" data-c="#55acee"
+                                       data-hc="#55acee"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="livicon" data-name="google-plus" data-size="22" data-loop="true" data-c="#d73d32"
+                                       data-hc="#d73d32"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="livicon" data-name="linkedin" data-size="22" data-loop="true" data-c="#1b86bd"
+                                       data-hc="#1b86bd"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-3 col-12 profile wow fadeInUp" data-wow-duration="3s"
+                     data-wow-delay="0.5s">
+                    <div class="thumbnail bg-white">
+                        <img src="http://demo.joshadmin.com/assets/images/img_5.jpg" alt="team-image">
+                        <div class="caption">
+                            <b>Francina Steinberg</b>
+                            <p class="text-center"> CEO </p>
+                            <div class="divide">
+                                <a href="#" class="divider">
+                                    <i class="livicon" data-name="facebook" data-size="22" data-loop="true" data-c="#3a5795"
+                                       data-hc="#3a5795"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="livicon" data-name="twitter" data-size="22" data-loop="true" data-c="#55acee"
+                                       data-hc="#55acee"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="livicon" data-name="google-plus" data-size="22" data-loop="true" data-c="#d73d32"
+                                       data-hc="#d73d32"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="livicon" data-name="linkedin" data-size="22" data-loop="true" data-c="#1b86bd"
+                                       data-hc="#1b86bd"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-3 col-12 profile wow fadeInDown" data-wow-duration="3s"
+                     data-wow-delay="0.5s">
+                    <div class="thumbnail bg-white">
+                        <img src="http://demo.joshadmin.com/assets/images/img_4.jpg" alt="team-image" class="img-fluid">
+                        <div class="caption">
+                            <b>Audrey Sheldon</b>
+                            <p class="text-center"> Executive Manager </p>
+                            <div class="divide">
+                                <a href="#" class="divider">
+                                    <i class="livicon" data-name="facebook" data-size="22" data-loop="true" data-c="#3a5795"
+                                       data-hc="#3a5795"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="livicon" data-name="twitter" data-size="22" data-loop="true" data-c="#55acee"
+                                       data-hc="#55acee"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="livicon" data-name="google-plus" data-size="22" data-loop="true" data-c="#d73d32"
+                                       data-hc="#d73d32"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="livicon" data-name="linkedin" data-size="22" data-loop="true" data-c="#1b86bd"
+                                       data-hc="#1b86bd"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-3 col-12 profile wow fadeInRight" data-wow-duration="3s"
+                     data-wow-delay="0.5s">
+                    <div class="thumbnail bg-white">
+                        <img src="http://demo.joshadmin.com/assets/images/img_6.jpg" alt="team-image">
+                        <div class="caption">
+                            <b>Sam Bellows</b>
+                            <p class="text-center"> Manager </p>
+                            <div class="divide">
+                                <a href="#" class="divider">
+                                    <i class="livicon" data-name="facebook" data-size="22" data-loop="true" data-c="#3a5795"
+                                       data-hc="#3a5795"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="livicon" data-name="twitter" data-size="22" data-loop="true" data-c="#55acee"
+                                       data-hc="#55acee"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="livicon" data-name="google-plus" data-size="22" data-loop="true" data-c="#d73d32"
+                                       data-hc="#d73d32"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="livicon" data-name="linkedin" data-size="22" data-loop="true" data-c="#1b86bd"
+                                       data-hc="#1b86bd"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- //Our Team End -->
+            <!-- What we are section Start -->
+            <div class="row">
+                <!-- What we are Start -->
+                <div class="col-md-6 col-sm-6 col-lg-6 col-12 wow zoomInLeft" data-wow-duration="3s">
+                    <div class="text-left">
+                        <div class="mt-2">
+                            <h4 class="border-warning"><span class="heading_border bg-warning">What We Are</span></h4>
+                        </div>
+                    </div>
+                    <img src="http://demo.joshadmin.com/assets/images/image_12.jpg" alt="image_12" class="img-fluid">
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                        industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                        scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
+                        into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
+                        release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
+                        software like Aldus PageMaker including versions of Lorem Ipsum.
+                    </p>
+                    <p class="text-right primary my-2"><a href="#">Read more</a>
+                    </p>
+                </div>
+                <!-- //What we are End -->
+                <!-- About Us Start -->
+                <div class="col-md-6 col-sm-6 col-lg-6 col-12 wow zoomInRight" data-wow-duration="3s">
+                    <div class="text-left">
+                        <div class="mt-2">
+                            <h4 class="border-success"><span class="heading_border bg-success">About Us</span></h4>
+                        </div>
+                    </div>
+                    <img src="http://demo.joshadmin.com/assets/images/image_11.jpg" alt="image_11" class="img-fluid">
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                        industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                        scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
+                        into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
+                        release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
+                        software like Aldus PageMaker including versions of Lorem Ipsum.
+                    </p>
+                    <p class="text-right primary my-2"><a href="#">Read more</a>
+                </div>
+                <!-- //About Us End -->
+            </div>
+            <!-- //What we are section End -->
+            <!-- Testimonial Start -->
+            <div class="row">
+                <!-- Testimonial Section -->
+                <div class=" col-12 text-center mt-3">
+                    <h3 class="border-primary"><span class="heading_border bg-primary">Testimonials</span></h3>
+                </div>
+                <div class="col-md-4  col-lg-4 col-12 wow bounceInLeft" data-wow-duration="3s">
+                    <div class="author">
+                        <img src="http://demo.joshadmin.com/assets/images/authors/avatar3.jpg" alt="avatar3"
+                             class="img-fluid rounded-circle pull-left">
+                        <p class="text-right">
+                            Tonny Jakson
+                            <br>
+                            <small class="text-right">Themeforest.net</small>
+                        </p>
+                        <p>
+                            <label>"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                                been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                                galley of type and scrambled it to make a type specimen book."</label>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4  col-12 col-lg-4 wow bounceIn" data-wow-duration="3s">
+                    <div class="author">
+                        <img src="http://demo.joshadmin.com/assets/images/authors/avatar2.jpg" alt="avatar2"
+                             class="img-fluid rounded-circle pull-left">
+                        <p class="text-right">
+                            Tonny Jakson
+                            <br>
+                            <small class="text-right">Themeforest.net</small>
+                        </p>
+                        <p>
+                            <label>"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                                been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                                galley of type and scrambled it to make a type specimen book."</label>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4  col-lg-4 col-12 wow bounceInRight" data-wow-duration="3s">
+                    <div class="author">
+                        <img src="http://demo.joshadmin.com/assets/images/authors/avatar4.jpg" alt="avatar4"
+                             class="img-fluid rounded-circle pull-left">
+                        <p class="text-right">
+                            Tonny Jakson
+                            <br>
+                            <small class="text-right">Themeforest.net</small>
+                        </p>
+                        <p>
+                            <label>"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                                been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                                galley of type and scrambled it to make a type specimen book."</label>
+                        </p>
+                    </div>
+                </div>
+                <!-- Testimonial Section End -->
+            </div>
+            <!-- Testimonial End -->
+            <!-- Features Start -->
+            <div class="row features">
+                <!--<div class="text-center">-->
+                <div class=" col-12 text-center my-3">
+                    <h3 class=" border-warning"><span class="heading_border bg-warning">Features</span></h3>
+                </div>
+                <!--</div>-->
+                <div class="col-md-4 col-sm-4 col-lg-4 col-12 wow fadeInUp" data-wow-duration="3s" data-wow-delay="0.5s">
+                    <div>
+                        <a href="#"><i class="livicon" data-name="checked-on" data-size="22" data-loop="true" data-c="#25a3d8"
+                                       data-hc="#25a3d8"></i></a>
+                        <h4>Responsive Design</h4>
+                    </div>
+                    <div>
+                        <p>
+                            <label>"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                                been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                                galley of type and scrambled it to make a type specimen book."</label>
+                        </p>
+                    </div>
+                    <div>
+                        <a href="#"> <i class="livicon" data-name="checked-on" data-size="22" data-loop="true" data-c="#ef8424 "
+                                        data-hc="#ef8424 "></i>
+                        </a>
+                        <h4>Html 5</h4>
+                        <p>
+                            <label>"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                                been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                                galley of type and scrambled it to make a type specimen book."</label>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4  col-lg-4  col-12 wow fadeInDown" data-wow-duration="3s" data-wow-delay="0.5s">
+                    <div>
+                        <a href="#"> <i class="livicon" data-name="checked-on" data-size="22" data-loop="true" data-c="#01bc8c"
+                                        data-hc="#01bc8c"></i>
+                        </a>
+                        <h4>Unique Design</h4>
+                        <p>
+                            <label>"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                                been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                                galley of type and scrambled it to make a type specimen book."</label>
+                        </p>
+                    </div>
+                    <div>
+                        <a href="#"> <i class="livicon" data-name="checked-on" data-size="22" data-loop="true" data-c="#1360b3 "
+                                        data-hc="#1360b3 "></i>
+                        </a>
+                        <h4>Css</h4>
+                        <p>
+                            <label>"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                                been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                                galley of type and scrambled it to make a type specimen book."</label>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-lg-4 col-12 wow fadeInUp" data-wow-duration="3s" data-wow-delay="0.5s">
+                    <div>
+                        <a href="#"> <i class="livicon" data-name="checked-on" data-size="22" data-loop="true" data-c="#FFD43C"
+                                        data-hc="#FFD43C"></i>
+                        </a>
+                        <h4>Clean Design</h4>
+                        <p>
+                            <label>"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                                been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                                galley of type and scrambled it to make a type specimen book."</label>
+                        </p>
+                    </div>
+                    <div>
+                        <a href="#"> <i class="livicon" data-name="checked-on" data-size="22" data-loop="true" data-c="#91d659 "
+                                        data-hc="#91d659 "></i>
+                        </a>
+                        <h4>Bootstrap</h4>
+                        <p>
+                            <label>"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                                been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                                galley of type and scrambled it to make a type specimen book."</label>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- //Features End -->
+            <!-- Our Skills Start -->
+
+            <div class=" col-12 text-center my-3 marbtm10">
+                <h3 class="border-danger"><span class="heading_border bg-danger">Our Skills</span></h3>
+            </div>
+        </div>
+        <!--</div>-->
+        <div class="sliders">
+            <!-- Our skill Section start -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 col-lg-3 col-12 text-center wow zoomIn" data-wow-duration="3.5s">
+                        <div class="mx-auto">
+                            <div id="myStat3" class="mx-auto" data-startdegree="0" data-dimension="150" data-text="90%"
+                                 data-width="4" data-fontsize="28" data-percent="90" data-fgcolor="#3abec0"
+                                 data-bgcolor="#eee"></div>
+                            <h4 class="success"><strong>Bootstrap</strong></h4>
+                        </div>
+                        <p class="my-3">Lorem Ipsum is simply dummy text of the printing and type setting industry</p>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-lg-3 col-12 text-center wow zoomIn" data-wow-duration="3s"
+                         data-wow-delay="0.8s">
+                        <div class="mx-auto">
+                            <div id="myStat4" class="mx-auto" data-startdegree="0" data-dimension="150" data-text="60%"
+                                 data-width="4" data-fontsize="28" data-percent="60" data-fgcolor="#3abec0"
+                                 data-bgcolor="#eee"></div>
+                            <h4 class="success"><strong>Jquery</strong></h4>
+                        </div>
+                        <p class="my-3">Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-lg-3 col-12 text-center wow zoomIn" data-wow-duration="3s"
+                         data-wow-delay="1.2s">
+                        <div class="mx-auto">
+                            <div id="myStat5" class="mx-auto" data-startdegree="0" data-dimension="150" data-text="100%"
+                                 data-width="4" data-fontsize="28" data-percent="100" data-fgcolor="#3abec0"
+                                 data-bgcolor="#eee"></div>
+                            <h4 class="success"><strong>Html 5</strong></h4>
+                        </div>
+                        <p class="my-3">Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-lg-3 col-12 text-center wow zoomIn" data-wow-duration="3s"
+                         data-wow-delay="1.8s">
+                        <div class="mx-auto">
+                            <div id="myStat6" class="mx-auto" data-startdegree="0" data-dimension="150" data-text="70%"
+                                 data-width="4" data-fontsize="28" data-percent="70" data-fgcolor="#3abec0"
+                                 data-bgcolor="#eee"></div>
+                            <h4 class="success"><strong>Css 3</strong></h4>
+                        </div>
+                        <p class="my-3">Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+                    </div>
+                </div>
+                <!-- Our skills Section End -->
+            </div>
+            <!-- //Our Skills End -->
+        </div>
+
+        <!-- //Container End -->
+
+        <!-- Footer Section Start -->
+        <footer>
+            <div class=" container">
+                <div class="footer-text">
+                    <!-- About Us Section Start -->
+                    <div class="row">
+                        <div class="col-sm-4 col-lg-4 col-md-4 col-12">
+                            <h4>About Us</h4>
+                            <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                                the industryzzzz's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                                of type and scrambled it to make a type specimen book.It has survived not only five centuries,
+                                but also the leap into electronic typesetting, remaining essentially unchanged.
+                            </p>
+                            <hr id="hr_border2">
+                            <h4 class="menu">Follow Us</h4>
+                            <ul class="list-inline mb-2">
+                                <li>
+                                    <a href="#"> <i class="livicon" data-name="facebook" data-size="18" data-loop="true"
+                                                    data-c="#ccc" data-hc="#ccc"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#"> <i class="livicon" data-name="twitter" data-size="18" data-loop="true"
+                                                    data-c="#ccc" data-hc="#ccc"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#"> <i class="livicon" data-name="google-plus" data-size="18" data-loop="true"
+                                                    data-c="#ccc" data-hc="#ccc"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#"> <i class="livicon" data-name="linkedin" data-size="18" data-loop="true"
+                                                    data-c="#ccc" data-hc="#ccc"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#"> <i class="livicon" data-name="rss" data-size="18" data-loop="true"
+                                                    data-c="#ccc" data-hc="#ccc"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- //About us Section End -->
+                        <!-- Contact Section Start -->
+                        <div class="col-sm-4 col-lg-4 col-md-4 col-12">
+                            <h4>Contact Us</h4>
+                            <ul class="list-unstyled">
+                                <li>35,Lorem Lis Street, Park Ave</li>
+                                <li>Lis Street, India.</li>
+                                <li><i class="livicon icon4 icon3" data-name="cellphone" data-size="18" data-loop="true"
+                                       data-c="#ccc" data-hc="#ccc"></i>Phone:9140 123 4588
+                                </li>
+                                <li><i class="livicon icon4 icon3" data-name="printer" data-size="18" data-loop="true"
+                                       data-c="#ccc" data-hc="#ccc"></i> Fax:400 423 1456
+                                </li>
+                                <li><i class="livicon icon3" data-name="mail-alt" data-size="20" data-loop="true" data-c="#ccc"
+                                       data-hc="#ccc"></i> Email:<span class="text-success" style="cursor: pointer;">
+                                        info@joshadmin.com</span>
+                                </li>
+                                <li><i class="livicon icon4 icon3" data-name="skype" data-size="18" data-loop="true"
+                                       data-c="#ccc" data-hc="#ccc"></i> Skype:
+                                    <span class="text-success" style="cursor: pointer;">Joshadmin</span>
+                                </li>
+                            </ul>
+                            <hr id="hr_border">
+                            <div class="news menu">
+                                <h4>News letter</h4>
+                                <p>subscribe to our newsletter and stay up to date with the latest news and deals</p>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="yourmail@mail.com"
+                                           aria-describedby="basic-addon2">
+                                    <a href="#" class="btn btn-primary text-white" role="button">Subscribe</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- //Contact Section End -->
+                        <!-- Recent post Section Start -->
+                        <div class="col-sm-4 col-lg-4 col-md-4 col-12">
+                            <h4>Recent Posts</h4>
+                            <div class="media">
+                                <img class="media-object rounded-circle mr-3" src="http://demo.joshadmin.com/assets/images/image_14.jpg"
+                                     alt="image">
+                                <div class="media-body">
+                                    <p class="media-heading text-justify">Lorem Ipsum is simply dummy text of the printing and type setting
+                                        industry dummy.</p>
+                                    <p class="text-right"><i>Sam Bellows</i></p>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <img class="media-object rounded-circle mr-3" src="http://demo.joshadmin.com/assets/images/image_15.jpg"
+                                     alt="image">
+
+                                <div class="media-body">
+                                    <p class="media-heading text-justify">Lorem Ipsum is simply dummy text of the printing and type setting
+                                        industry dummy.</p>
+                                    <p class="text-right"><i>Emilly Barbosa Cunha</i></p>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <img class="media-object rounded-circle mr-3" src="http://demo.joshadmin.com/assets/images/image_13.jpg"
+                                     alt="image">
+                                <div class="media-body">
+                                    <p class="media-heading text-justify">Lorem Ipsum is simply dummy text of the printing and type setting
+                                        industry dummy.</p>
+                                    <p class="text-right"><i>Sinikka Oramo</i></p>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <img class="media-object rounded-circle mr-3" src="http://demo.joshadmin.com/assets/images/c1.jpg"
+                                     alt="image">
+
+                                <div class="media-body">
+                                    <p class="media-heading text-justify">Lorem Ipsum is simply dummy text of the printing and type setting
+                                        industry dummy.</p>
+                                    <p class="text-right"><i>Samsa Parras</i></p>
+                                </div>
+                            </div>
+                            <!-- //Recent Post Section End -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- //Footer Section End -->
+            <div class=" col-12 copyright">
+                <div class="container">
+                    <p>Copyright &copy; Josh Admin Template, 2017</p>
+                </div>
+            </div>
+        </footer>
+        <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" data-original-title="Return to top"
+           data-toggle="tooltip" data-placement="left">
+            <i class="livicon" data-name="plane-up" data-size="18" data-loop="true" data-c="#fff" data-hc="white"></i>
+        </a>
 
 
 
-        <!-- jQuery  -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/detect.js"></script>
-        <script src="assets/js/fastclick.js"></script>
+        <!--global js starts-->
+        <script type="text/javascript" src="assets/js/frontend/lib.js"></script>
+        <!--global js end-->
+        <!-- begin page level js -->
+        <!-- page level js starts-->
+        <script type="text/javascript" src="assets/js/frontend/jquery.circliful.js"></script>
+        <script type="text/javascript" src="assets/vendors/wow/js/wow.min.js"></script>
+        <script type="text/javascript" src="assets/vendors/owl_carousel/js/owl.carousel.min.js"></script>
+        <script type="text/javascript" src="assets/js/frontend/carousel.js"></script>
+        <script type="text/javascript" src="assets/js/frontend/index.js"></script>
+        <!--page level js ends-->
+        <!-- end page level js -->
+        <script>
+            $(".navbar-toggler-icon").click(function () {
+                $(this).closest('.navbar').find('.collapse').toggleClass('collapse1')
+            })
 
-        <script src="assets/js/jquery.slimscroll.js"></script>
-        <script src="assets/js/jquery.blockUI.js"></script>
-        <script src="assets/js/waves.js"></script>
-        <script src="assets/js/wow.min.js"></script>
-        <script src="assets/js/jquery.nicescroll.js"></script>
-        <script src="assets/js/jquery.scrollTo.min.js"></script>
-
-        <script src="assets/plugins/peity/jquery.peity.min.js"></script>
-
-        <!-- jQuery  -->
-        <script src="assets/plugins/waypoints/lib/jquery.waypoints.js"></script>
-        <script src="assets/plugins/counterup/jquery.counterup.min.js"></script>
-
-        <script src="assets/plugins/morris/morris.min.js"></script>
-        <script src="assets/plugins/raphael/raphael-min.js"></script>
-
-        <script src="assets/plugins/jquery-knob/jquery.knob.js"></script>
-
-        <script src="assets/pages/jquery.dashboard.js"></script>
-
-        <script src="assets/js/jquery.core.js"></script>
-        <script src="assets/js/jquery.app.js"></script>
-
-        <script type="text/javascript">
-            jQuery(document).ready(function ($) {
-                $('.counter').counterUp({
-                    delay: 100,
-                    time: 1200
-                });
-
-                $(".knob").knob();
-
-            });
+            $(function () {
+                $('[data-toggle="tooltip"]').tooltip().css('font-size', '14px');
+            })
         </script>
-
-
     </body>
+
 </html>
