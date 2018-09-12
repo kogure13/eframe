@@ -34,7 +34,7 @@ $menu = new menu($connString);
     <div class="sidebar-inner slimscrollleft">
         <div class="user-details">
             <div class="pull-left">
-                <img src="../assets/images/Al-Irsyad-Satya-Ilamic-School.png" alt="" class="thumb-md img-circle">
+                <img src="#" alt="" class="thumb-md img-circle">
             </div>
             <div class="user-info">
                 <div class="dropdown">
@@ -46,7 +46,7 @@ $menu = new menu($connString);
                         <li><a href="javascript:void(0)"><i class="md md-settings-power"></i> Logout</a></li>
                     </ul>
                 </div>
-                <p class="text-muted m-0">Administrator</p>
+                <p class="text-muted m-0">role user</p>
             </div>
         </div>
         <!--- Divider -->
@@ -59,12 +59,27 @@ $menu = new menu($connString);
                         <span>Dashboard</span>
                     </a>
                 </li>
-                <li>
-                    <a href="?page=kandidat" class="">
-                        <i class="fa fa-black-tie"></i>
-                        <span>Data Kandidat</span>
-                    </a>
-                </li>
+                <li class="has-sub">
+    <a href="#" class="">
+        <i class="ti-agenda"></i>
+        <span>Data Master</span>
+        <span class="menu-arrow"></span>									
+    </a>
+    <ul class="list-unstyled">
+        <li>
+            <a href="#">Master user</a>
+        </li>
+        <li>
+            <a href="#">Master peran</a>
+        </li>
+        <li>
+            <a href="#">Master jabatan</a>
+        </li>                        
+        <li>
+            <a href="#">Master golongan</a>
+        </li>                
+    </ul>
+</li>
                 <li>
                     <a href="?page=pemilih" class="">
                         <i class="fa fa-users"></i>

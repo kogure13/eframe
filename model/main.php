@@ -1,248 +1,28 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-        <![endif]-->
-        <title>
-            Home
-            | Welcome to Josh Frontend
-
-        </title>
-        <!--global css starts-->
-        <!--
-        <link rel="stylesheet" type="text/css" href="http://demo.joshadmin.com/assets/css/lib.css">
-        <link rel="stylesheet" type="text/css" href="http://demo.joshadmin.com/assets/css/custom.css">
-        -->
-        <link rel="stylesheet" type="text/css" href="assets/css/lib.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/custom.css">
-        <style>
-            .dropdown-item:active{
-                background-color: transparent !important;
-            }
-            .indexpage.navbar-nav >.nav-item .nav-link:hover {
-                color: #01bc8c;
-            }
-        </style>
-        <!--end of global css-
-        <!--page level css-->
-        <!--page level css starts-->
-        <!--
-        <link rel="stylesheet" type="text/css" href="http://demo.joshadmin.com/assets/css/frontend/tabbular.css">
-        <link rel="stylesheet" type="text/css" href="http://demo.joshadmin.com/assets/vendors/animate/animate.min.css"/>
-        <link rel="stylesheet" type="text/css" href="http://demo.joshadmin.com/assets/css/frontend/jquery.circliful.css">
-        <link rel="stylesheet" type="text/css" href="http://demo.joshadmin.com/assets/vendors/owl_carousel/css/owl.carousel.css">
-        <link rel="stylesheet" type="text/css" href="http://demo.joshadmin.com/assets/vendors/owl_carousel/css/owl.theme.css">
-        -->
-        <link rel="stylesheet" type="text/css" href="assets/css/frontend/tabbular.css">
-        <link rel="stylesheet" type="text/css" href="assets/vendors/animate/animate.min.css"/>
-        <link rel="stylesheet" type="text/css" href="assets/css/frontend/jquery.circliful.css">
-        <link rel="stylesheet" type="text/css" href="assets/vendors/owl_carousel/css/owl.carousel.css">
-        <link rel="stylesheet" type="text/css" href="assets/vendors/owl_carousel/css/owl.theme.css">
-
-        <style>
-            .box{
-                margin-top:53px !important;
-            }
-
-        </style>
-
-        <!--end of page level css-->
-        <!--end of page level css-->
-    </head>
+    <?=$main->get_head()?>
 
     <body>
-        <!-- Header Start -->
-        <header>
-            <!--Icon Section Start-->
-            <div class="icon-section">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-4 col-8 col-md-4 mt10">
-                            <ul class="list-inline">
-                                <li>
-                                    <a href="#"> <i class="livicon" data-name="facebook" data-size="18" data-loop="true" data-c="#fff"
-                                                    data-hc="#757b87"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#"> <i class="livicon" data-name="twitter" data-size="18" data-loop="true" data-c="#fff"
-                                                    data-hc="#757b87"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#"> <i class="livicon" data-name="google-plus" data-size="18" data-loop="true"
-                                                    data-c="#fff" data-hc="#757b87"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#"> <i class="livicon" data-name="linkedin" data-size="18" data-loop="true" data-c="#fff"
-                                                    data-hc="#757b87"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#"> <i class="livicon" data-name="rss" data-size="18" data-loop="true" data-c="#fff"
-                                                    data-hc="#757b87"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-8 col-4 col-md-8 text-right mt10">
-                            <ul class="list-inline">
-                                <li>
-                                    <a href="mailto:"><i class="livicon" data-name="mail" data-size="18" data-loop="true"
-                                                         data-c="#fff"
-                                                         data-hc="#fff"></i></a>
-                                    <label class="d-none d-md-inline-block d-lg-inline-block d-xl-inline-block"><a
-                                            href="mailto:"
-                                            class="text-white">info@joshadmin.com</a></label>
-                                </li>
-                                <li>
-                                    <a href="tel:"><i class="livicon" data-name="phone" data-size="18" data-loop="true"
-                                                      data-c="#fff"
-                                                      data-hc="#fff"></i></a>
-                                    <label class="d-none d-md-inline-block d-lg-inline-block d-xl-inline-block"><a href="tel:"
-                                                                                                                   class="text-white">(703)
-                                            717-4200</a></label>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container indexpage">
-
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <a class="navbar-brand" href="http://demo.joshadmin.com"><img src="http://demo.joshadmin.com/assets/images/logo.png"
-                                                                                  alt="logo"></a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ml-auto  margin_right">
-                            <li  class="nav-item active">
-                                <a href="#" id="index" class="nav-link"> Home</a>
-                            </li>
-                            <li class=" nav-item dropdown  ">
-                                <a href="#" aria-expanded="false" class="nav-link"> Features</a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="http://demo.joshadmin.com/typography" class="dropdown-item">Typography</a>
-                                    </li>
-                                    <li><a href="http://demo.joshadmin.com/advancedfeatures" class="dropdown-item">Advanced Features</a>
-                                    </li>
-                                    <li><a href="http://demo.joshadmin.com/grid" class="dropdown-item">Grid System</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class=" nav-item dropdown ">
-                                <a href="#" class="nav-link"> Pages</a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="http://demo.joshadmin.com/aboutus" class="dropdown-item">About Us</a>
-                                    </li>
-                                    <li><a href="http://demo.joshadmin.com/timeline" class="dropdown-item">Timeline</a></li>
-                                    <li><a href="http://demo.joshadmin.com/price" class="dropdown-item">Price</a>
-                                    </li>
-                                    <li><a href="http://demo.joshadmin.com/404" class="dropdown-item">404 Error</a>
-                                    </li>
-                                    <li><a href="http://demo.joshadmin.com/500" class="dropdown-item">500 Error</a>
-                                    </li>
-                                    <li><a href="http://demo.joshadmin.com/faq" class="dropdown-item">FAQ</a>
-                                    </li>
-                                    <li><a href="http://demo.joshadmin.com/blank_page" class="dropdown-item">Blank</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown ">
-                                <a href="#" class="nav-link"> Shop</a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="http://demo.joshadmin.com/products" class="dropdown-item">Products</a>
-                                    </li>
-                                    <li><a href="http://demo.joshadmin.com/single_product" class="dropdown-item">Single Product</a>
-                                    </li>
-                                    <li><a href="http://demo.joshadmin.com/compareproducts" class="dropdown-item">Compare Products</a>
-                                    </li>
-                                    <li><a href="http://demo.joshadmin.com/category"  class="dropdown-item">Categories</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown ">
-                                <a href="#" class="nav-link"> Portfolio</a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="http://demo.joshadmin.com/portfolio">Portfolio</a>
-                                    </li>
-                                    <li><a href="http://demo.joshadmin.com/portfolioitem">Portfolio Item</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class=" nav-item dropdown ">
-                                <a href="#" aria-expanded="false" class="nav-link"> Emails</a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="http://demo.joshadmin.com/user_emails/compose" class="dropdown-item">Compose</a>
-                                    </li>
-                                    <li>
-                                        <a href="http://demo.joshadmin.com/user_emails/inbox" class="dropdown-item">Inbox</a>
-                                    </li>
-                                    <li>
-                                        <a href="http://demo.joshadmin.com/user_emails/sent" class="dropdown-item">Sent</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item "><a href="http://demo.joshadmin.com/news" class="nav-link">News</a>
-                            </li>
-                            <li class="nav-item "><a href="http://demo.joshadmin.com/blog" class="nav-link">
-                                    Blog</a>
-                            </li>
-                            <li class="nav-item "><a href="http://demo.joshadmin.com/contact" class="nav-link">Contact</a>
-                            </li>
-
-
-                            <li class="nav-item "><a href="http://demo.joshadmin.com/my-account" class="nav-link">My
-                                    Account</a>
-                            </li>
-                            <li class="nav-item"><a href="http://demo.joshadmin.com/logout" class="nav-link">Logout</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-                <!-- Nav bar End -->
-            </div>
-        </header>
-
-        <!-- //Header End -->
+        <?=$main->get_menu()?>
 
         <!-- slider / breadcrumbs section -->
         <!--Carousel Start -->
         <div id="owl-demo" class="owl-carousel owl-theme">
-            <div class="item img-fluid"><img src="http://demo.joshadmin.com/assets/images/slide_1.jpg" alt="slider-image"/>
+            <div class="item img-fluid">
+                <img src="http://demo.joshadmin.com/assets/images/slide_1.jpg" alt="slider-image"/>
             </div>
-            <div class="item img-fluid"><img src="http://demo.joshadmin.com/assets/images/slide_2.jpg" alt="slider-image">
+            <div class="item img-fluid">
+                <img src="http://demo.joshadmin.com/assets/images/slide_2.jpg" alt="slider-image">
             </div>
-            <div class="item img-fluid"><img src="http://demo.joshadmin.com/assets/images/slide_4.png" alt="slider-image">
+            <div class="item img-fluid">
+                <img src="http://demo.joshadmin.com/assets/images/slide_4.png" alt="slider-image">
             </div>
         </div>
         <!-- //Carousel End -->
 
         <!-- Content -->
-        <div class="container">
-            <section class="purchas-main">
-                <div class="container bg-border wow pulse" data-wow-duration="2.5s">
-                    <div class="row">
-                        <div class="col-md-7 col-sm-7 col-12 col-lg-8">
-                            <h1 class="purchae-hed mt-3">Excellent admin template for laravel</h1></div>
-                        <div class="col-md-5 col-sm-5 col-12 col-lg-4"><a href="#" class="btn purchase-styl float-lg-right">Purchase
-                                now</a></div>
-                    </div>
-                </div>
-            </section>
+        <div class="container">            
             <!-- Service Section Start-->
             <div class="row">
                 <!-- Responsive Section Start -->

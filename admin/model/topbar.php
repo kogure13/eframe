@@ -5,7 +5,7 @@
         <div class="text-center">
             <a href="index.php?page=home" class="logo">
                 <i class="fa fa-edit icon-c-logo"></i>
-                <span>e-Vote</span>
+                <span>e-audit</span>
             </a>
         </div>
     </div>
@@ -18,14 +18,7 @@
                         <i class="md md-menu"></i>
                     </button>
                     <span class="clearfix"></span>
-                </div>
-                <!-- 
-                <form role="search" class="navbar-left app-search pull-left hidden-xs">
-                    <input type="text" placeholder="Search..." class="form-control">
-                    <a href=""><i class="fa fa-search"></i></a>
-                </form> 
-                -->
-                
+                </div>                                
             </div>
             <!--/.nav-collapse -->
         </div>

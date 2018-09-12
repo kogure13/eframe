@@ -1,25 +1,57 @@
     
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="">
-        <meta name="author" content="">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+        <title>
+            Home
+            | Welcome to Josh Frontend
 
-        <link rel="shortcut icon" href="assets/images/favicon_1.ico">
+        </title>
+        <!--global css starts-->
+        <!--
+        <link rel="stylesheet" type="text/css" href="http://demo.joshadmin.com/assets/css/lib.css">
+        <link rel="stylesheet" type="text/css" href="http://demo.joshadmin.com/assets/css/custom.css">
+        -->
+        <link rel="stylesheet" type="text/css" href="assets/css/lib.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/custom.css">
+        <style>
+            .dropdown-item:active{
+                background-color: transparent !important;
+            }
+            .indexpage.navbar-nav >.nav-item .nav-link:hover {
+                color: #01bc8c;
+            }
+        </style>
+        <!--end of global css-
+        <!--page level css-->
+        <!--page level css starts-->
+        <!--
+        <link rel="stylesheet" type="text/css" href="http://demo.joshadmin.com/assets/css/frontend/tabbular.css">
+        <link rel="stylesheet" type="text/css" href="http://demo.joshadmin.com/assets/vendors/animate/animate.min.css"/>
+        <link rel="stylesheet" type="text/css" href="http://demo.joshadmin.com/assets/css/frontend/jquery.circliful.css">
+        <link rel="stylesheet" type="text/css" href="http://demo.joshadmin.com/assets/vendors/owl_carousel/css/owl.carousel.css">
+        <link rel="stylesheet" type="text/css" href="http://demo.joshadmin.com/assets/vendors/owl_carousel/css/owl.theme.css">
+        -->
+        <link rel="stylesheet" type="text/css" href="assets/css/frontend/tabbular.css">        
+        <link rel="stylesheet" type="text/css" href="assets/css/frontend/jquery.circliful.css">
+        <link rel="stylesheet" type="text/css" href="assets/vendors/animate/animate.min.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/vendors/owl_carousel/css/owl.carousel.css">
+        <link rel="stylesheet" type="text/css" href="assets/vendors/owl_carousel/css/owl.theme.css">
 
-        <title><?=app_title?></title>
+        <style>
+            .box{
+                margin-top:53px !important;
+            }
 
-        <!--Morris Chart CSS -->
-        <link rel="stylesheet" href="assets/plugins/morris/morris.css">
+        </style>
 
-        <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
-        <link rel="stylesheet" type="text/css" href="assets/css/core.css" />
-        <link rel="stylesheet" type="text/css" href="assets/css/components.css" />
-        <link rel="stylesheet" type="text/css" href="assets/css/icons.css" />
-        <link rel="stylesheet" type="text/css" href="assets/css/pages.css" />
-        <link rel="stylesheet" type="text/css" href="assets/css/menu.css" />
-        <link rel="stylesheet" type="text/css" href="assets/css/responsive.css" />        
-
-        <script src="assets/js/modernizr.min.js"></script>
+        <!--end of page level css-->
+        <!--end of page level css-->
     </head>
-    
