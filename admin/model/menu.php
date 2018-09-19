@@ -1,34 +1,3 @@
-<?php
-
-$db = new dbObj();
-$connString = $db->getConstring();
-
-$menu = new menu($connString);
-
-//mysql_connect("localhost", "root", "root");
-//mysql_select_db("tutorialweb");
-//$menu = mysql_query("SELECT * FROM menu ORDER BY menu_id ASC");
-//while ($dataMenu = mysql_fetch_assoc($menu)) {
-//    $menu_id = $dataMenu['menu_id'];
-//    $submenu = mysql_query("SELECT * FROM submenu WHERE menu_id='$menu_id' ORDER BY submenu_id ASC");
-//    if (mysql_num_rows($submenu) == 0) {
-//        echo '<li><a href="' . $dataMenu['menu_link'] . '">' . $dataMenu['menu'] . '</a></li>';
-//    } else {
-//        echo '
-//							<li class="dropdown">
-//								<a href="' . $dataMenu['menu_link'] . '" class="dropdown-toggle" data-toggle="dropdown">' . $dataMenu['menu'] . ' <b class="caret"></b></a>
-//								<ul class="dropdown-menu">';
-//        while ($dataSubmenu = mysql_fetch_assoc($submenu)) {
-//            echo '<li><a href="' . $dataSubmenu['submenu_link'] . '">' . $dataSubmenu['submenu'] . '</a></li>';
-//        }
-//        echo '
-//								</ul>
-//							</li>
-//							';
-//    }
-//}
-?>
-
 
 <div class="left side-menu">
     <div class="sidebar-inner slimscrollleft">
@@ -59,32 +28,20 @@ $menu = new menu($connString);
                         <span>Dashboard</span>
                     </a>
                 </li>
+
                 <li class="has-sub">
-    <a href="#" class="">
-        <i class="ti-agenda"></i>
-        <span>Data Master</span>
-        <span class="menu-arrow"></span>									
-    </a>
-    <ul class="list-unstyled">
-        <li>
-            <a href="#">Master user</a>
-        </li>
-        <li>
-            <a href="#">Master peran</a>
-        </li>
-        <li>
-            <a href="#">Master jabatan</a>
-        </li>                        
-        <li>
-            <a href="#">Master golongan</a>
-        </li>                
-    </ul>
-</li>
-                <li>
-                    <a href="?page=pemilih" class="">
+                    <a href="#" class="">
                         <i class="fa fa-users"></i>
-                        <span>Data Pemilih</span>
+                        <span>Karyawan</span>
                     </a>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#">Data Karyawan</a>
+                        </li>
+                        <li>
+                            <a href="#">Data Kompetensi</a>
+                        </li>
+                    </ul>
                 </li>
                 <li>
                     <a href="?page=laporan" class="">
@@ -93,11 +50,33 @@ $menu = new menu($connString);
                     </a>
                 </li>
                 <li class="text-muted menu-title">Data Master</li>
+                
                 <li>
                     <a href="?page=user" class="">
                         <i class="fa fa-users"></i>
                         <span>Master User</span>
                     </a>
+                </li>
+                <li class="has-sub">
+                    <a href="#" class="">
+                        <i class="ti-agenda"></i>
+                        <span>Data Master</span>
+                        <span class="menu-arrow"></span>									
+                    </a>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#">Master user</a>
+                        </li>
+                        <li>
+                            <a href="#">Master peran</a>
+                        </li>
+                        <li>
+                            <a href="#">Master jabatan</a>
+                        </li>                        
+                        <li>
+                            <a href="#">Master golongan</a>
+                        </li>                
+                    </ul>
                 </li>                
             </ul>
         </div>

@@ -3,7 +3,7 @@
 class dbObj {
     var $DB_Host = "localhost"; //koneksi localhost
     // var $DB_Host = "192.168.0.128"; //koneksi ip\domain
-    var $DB_Name = "db_sai"; //nama database
+    var $DB_Name = "db_itjen_sai"; //nama database
     var $DB_User = "root"; //user database
     var $DB_Pass = ""; //password database
     // var $DB_Pass = "password"; //password database
@@ -48,6 +48,10 @@ class Main {
                 include_once 'model/404.php';
             }
         }
+    }
+    
+    function page_title($page) {
+        return $page;
     }
 
     function get_head() {

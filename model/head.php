@@ -1,4 +1,4 @@
-    
+
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,10 +9,9 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
-        <title>
-            Home
-            | Welcome to Josh Frontend
-
+        
+        <title>            
+            Welcome to Smart Application Information | <?=$main->page_title()?>
         </title>
         <!--global css starts-->
         <!--
@@ -31,14 +30,7 @@
         </style>
         <!--end of global css-
         <!--page level css-->
-        <!--page level css starts-->
-        <!--
-        <link rel="stylesheet" type="text/css" href="http://demo.joshadmin.com/assets/css/frontend/tabbular.css">
-        <link rel="stylesheet" type="text/css" href="http://demo.joshadmin.com/assets/vendors/animate/animate.min.css"/>
-        <link rel="stylesheet" type="text/css" href="http://demo.joshadmin.com/assets/css/frontend/jquery.circliful.css">
-        <link rel="stylesheet" type="text/css" href="http://demo.joshadmin.com/assets/vendors/owl_carousel/css/owl.carousel.css">
-        <link rel="stylesheet" type="text/css" href="http://demo.joshadmin.com/assets/vendors/owl_carousel/css/owl.theme.css">
-        -->
+        <!--page level css starts-->        
         <link rel="stylesheet" type="text/css" href="assets/css/frontend/tabbular.css">        
         <link rel="stylesheet" type="text/css" href="assets/css/frontend/jquery.circliful.css">
         <link rel="stylesheet" type="text/css" href="assets/vendors/animate/animate.min.css"/>
@@ -49,9 +41,8 @@
             .box{
                 margin-top:53px !important;
             }
-
         </style>
 
-        <!--end of page level css-->
-        <!--end of page level css-->
+        <!--end of page level css-->        
     </head>
+    

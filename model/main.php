@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html>
-
-    <?=$main->get_head()?>
-
+    <?= $main->get_head() ?>
     <body>
-        <?=$main->get_menu()?>
-
+        <?= $main->get_menu() ?>
         <!-- slider / breadcrumbs section -->
         <!--Carousel Start -->
         <div id="owl-demo" class="owl-carousel owl-theme">
@@ -905,5 +902,4 @@
             })
         </script>
     </body>
-
 </html>
