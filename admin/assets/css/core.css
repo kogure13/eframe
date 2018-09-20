@@ -1130,7 +1130,7 @@ pre {
 .topbar .topbar-left {
     float: left;
     position: relative;
-    width: 240px;
+    width: 220px;
     z-index: 1;
 }
 .topbar .topbar-left-sm {

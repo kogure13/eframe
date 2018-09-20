@@ -29,26 +29,26 @@
           </a>
         </li>
         <li>
-          <a href="#">
-            <i class=""></i>
+          <a href="?page=kompetensi">
+            <i class="ti-bar-chart"></i>
             <span>Peta Kompetensi</span>
           </a>
         </li>
         <li>
-          <a href="#">
-            <i class=""></i>
+          <a href="?page=haudit">
+            <i class="ti-files"></i>
             <span>Hasil Audit</span>
           </a>
         </li>
         <li>
-          <a href="#">
-            <i class="#"></i>
+          <a href="?page=kompilasi">
+            <i class="ti-package"></i>
             <span>Kompilasi</span>
           </a>
         </li>
         <li>
-          <a href="#">
-            <i class=""></i>
+          <a href="?page=pbisnis">
+            <i class="ti-reload"></i>
             <span>Proses Bisnis</span>
           </a>
         </li>
@@ -60,19 +60,13 @@
           </a>
           <ul class="list-unstyled">
             <li>
-              <a href="#">Data Karyawan</a>
+              <a href="?page=dkaryawan">Data Karyawan</a>
             </li>
             <li>
-              <a href="#">Data Kompetensi</a>
+              <a href="?page=dkompetensi">Data Kompetensi</a>
             </li>
           </ul>
-        </li>
-        <li>
-          <a href="?page=laporan">
-            <i class="fa fa-bar-chart-o"></i>
-            <span>Laporan</span>
-          </a>
-        </li>
+        </li>        
         
         <li class="text-muted menu-title">Data Master</li>                
         <li>
@@ -89,15 +83,21 @@
           </a>
           <ul class="list-unstyled">            
             <li>
-              <a href="#">Master jabatan</a>
+              <a href="?page=jabatan">Master jabatan</a>
             </li>                        
             <li>
-              <a href="#">Master golongan</a>
+              <a href="?page=gologan">Master golongan</a>
             </li>
             <li>
-              <a href="#">Master peran</a>
+              <a href="?page=peran">Master peran</a>
             </li>
           </ul>
+        </li>
+        <li>
+          <a href="?page=ktemuan">
+            <i class="ti-ruler-alt"></i>
+            <span>Kode Temuan</span>
+          </a>
         </li>
         <li class="has-sub">
           <a href="#">
@@ -107,25 +107,25 @@
           </a>
           <ul class="list-unstyled">
             <li>
-              <a href="#">Pengumuman</a>
+              <a href="?page=pengumuman">Pengumuman</a>
             </li>
             <li>
-              <a href="#">Berita</a>
+              <a href="?page=berita">Berita</a>
             </li>
             <li>
-              <a href="#">Kata Sambutan</a>
+              <a href="?page=sambutan">Kata Sambutan</a>
             </li>
             <li>
-              <a href="#">Foto Kegiatan</a>
+              <a href="?page=foto">Foto Kegiatan</a>
             </li>
             <li>
-              <a href="#">Carousel</a>
+              <a href="?page=carousel">Carousel</a>
             </li>
           </ul>
         </li>
         <li>
-          <a href="#">
-            <i class="ti-package"></i>
+          <a href="?page=artikel">
+            <i class="ti-files"></i>
             <span>Artikel</span>
           </a>
         </li>
