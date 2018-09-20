@@ -78,7 +78,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="index.php">
-        <img src="#" alt="logo">
+        <img src="assets/images/logo1.png" alt="logo">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" 
               data-target="#navbarSupportedContent"
@@ -88,11 +88,11 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto  margin_right">
+        <ul class="navbar-nav ml-auto margin_right">
           <li  class="nav-item active">
             <a href="#" id="index" class="nav-link"> Home</a>
           </li>
-          <li class=" nav-item dropdown  ">
+          <li class="nav-item dropdown">
             <a href="#" aria-expanded="false" class="nav-link"> Features</a>
             <ul class="dropdown-menu" role="menu">
               <li>
@@ -111,120 +111,35 @@
                 </a>
               </li>
             </ul>
-          </li>
-          <li class=" nav-item dropdown ">
-            <a href="#" class="nav-link"> Pages</a>
+          </li>          
+          <li class="nav-item dropdown">
+            <a href="#" aria-expanded="false" class="nav-link"> Dropdown</a>
             <ul class="dropdown-menu" role="menu">
               <li>
-                <a href="http://demo.joshadmin.com/aboutus" class="dropdown-item">
-                  About Us
-                </a>
+                <a href="#" class="dropdown-item">dropdown list</a>
               </li>
               <li>
-                <a href="http://demo.joshadmin.com/timeline" class="dropdown-item">
-                  Timeline
-                </a>
+                <a href="#" class="dropdown-item">dropdown list</a>
               </li>
               <li>
-                <a href="http://demo.joshadmin.com/price" class="dropdown-item">
-                  Price
-                </a>
+                <a href="#" class="dropdown-item">dropdown list</a>
               </li>
               <li>
-                <a href="http://demo.joshadmin.com/404" class="dropdown-item">
-                  404 Error
-                </a>
-              </li>
-              <li>
-                <a href="http://demo.joshadmin.com/500" class="dropdown-item">
-                  500 Error
-                </a>
-              </li>
-              <li>
-                <a href="http://demo.joshadmin.com/faq" class="dropdown-item">
-                  FAQ
-                </a>
-              </li>
-              <li>
-                <a href="http://demo.joshadmin.com/blank_page" class="dropdown-item">
-                  Blank
-                </a>
+                <a href="#" class="dropdown-item">dropdown list</a>
               </li>
             </ul>
-          </li>
-          <li class="nav-item dropdown ">
-            <a href="#" class="nav-link"> Shop</a>
-            <ul class="dropdown-menu" role="menu">
-              <li>
-                <a href="http://demo.joshadmin.com/products" class="dropdown-item">
-                  Products
-                </a>
-              </li>
-              <li>
-                <a href="http://demo.joshadmin.com/single_product" class="dropdown-item">
-                  Single Product
-                </a>
-              </li>
-              <li>
-                <a href="http://demo.joshadmin.com/compareproducts" class="dropdown-item">
-                  Compare Products
-                </a>
-              </li>
-              <li>
-                <a href="http://demo.joshadmin.com/category"  class="dropdown-item">
-                  Categories
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown ">
-            <a href="#" class="nav-link"> Portfolio</a>
-            <ul class="dropdown-menu" role="menu">
-              <li>
-                <a href="http://demo.joshadmin.com/portfolio">
-                  Portfolio
-                </a>
-              </li>
-              <li>
-                <a href="http://demo.joshadmin.com/portfolioitem">
-                  Portfolio Item
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class=" nav-item dropdown ">
-            <a href="#" aria-expanded="false" class="nav-link"> Emails</a>
-            <ul class="dropdown-menu" role="menu">
-              <li>
-                <a href="http://demo.joshadmin.com/user_emails/compose" class="dropdown-item">Compose</a>
-              </li>
-              <li>
-                <a href="http://demo.joshadmin.com/user_emails/inbox" class="dropdown-item">Inbox</a>
-              </li>
-              <li>
-                <a href="http://demo.joshadmin.com/user_emails/sent" class="dropdown-item">Sent</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item ">
-            <a href="http://demo.joshadmin.com/news" class="nav-link">News</a>
-          </li>
-          <li class="nav-item ">
-            <a href="http://demo.joshadmin.com/blog" class="nav-link">
-              Blog
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a href="http://demo.joshadmin.com/contact" class="nav-link">Contact</a>
-          </li>
-
-          <li class="nav-item ">
-            <a href="http://demo.joshadmin.com/my-account" class="nav-link">
-              My Account
-            </a>
           </li>
           <li class="nav-item">
-            <a href="http://demo.joshadmin.com/logout" class="nav-link">Logout</a>
+            <a href="#" class="nav-link">News</a>
+          </li>          
+          <li class="nav-item ">
+            <a href="#" class="nav-link">Contact</a>
+          </li>          
+          <li class="nav-item">
+            <a href="?page=login" class="nav-link">Login</a>
+          </li>
+          <li class="nav-item">
+            <a href="?page=logout" class="nav-link">Logout</a>
           </li>
         </ul>
       </div>

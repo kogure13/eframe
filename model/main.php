@@ -7,13 +7,13 @@
     <!--Carousel Start -->
     <div id="owl-demo" class="owl-carousel owl-theme">
       <div class="item img-fluid">
-        <img src="http://demo.joshadmin.com/assets/images/slide_1.jpg" alt="slider-image"/>
+        <img src="#" alt="slider-image"/>
       </div>
       <div class="item img-fluid">
-        <img src="http://demo.joshadmin.com/assets/images/slide_2.jpg" alt="slider-image">
+        <img src="http://demo.joshadmin.com/assets/images/slide_2.jpg" alt="slider-image"/>
       </div>
       <div class="item img-fluid">
-        <img src="http://demo.joshadmin.com/assets/images/slide_4.png" alt="slider-image">
+        <img src="http://demo.joshadmin.com/assets/images/slide_4.png" alt="slider-image"/>
       </div>
     </div>
     <!-- //Carousel End -->

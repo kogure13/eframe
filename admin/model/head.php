@@ -5,7 +5,7 @@
     <meta name="description" content="Voting, Electronic, System">
     <meta name="author" content="kogure13">
 
-    <link rel="shortcut icon" href="">
+    <link rel="shortcut icon" href="../assets/images/logo_twh.png">
 
     <title><?=apps_name?> - <?=company_name?></title>      
     

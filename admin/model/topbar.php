@@ -5,7 +5,9 @@
             <div class="text-center">
                 <a href="index.php?page=home" class="logo">
                     <i class="fa fa-edit icon-c-logo"></i>
-                    <span><?=apps_title?></span>
+                    <span>
+                      <img src="../assets/images/logo1.png" alt="<?=apps_title?>">
+                    </span>                    
                 </a>
             </div>
         </div>
