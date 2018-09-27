@@ -37,6 +37,12 @@
           </a>
         </li>
         <li>
+          <a href="?page=distribusi">
+            <i class="ti-exchange-vertical"></i>
+            <span>Distribusi</span>
+          </a>
+        </li>
+        <li>
           <a href="?page=haudit">
             <i class="ti-files"></i>
             <span>Hasil Audit</span>
@@ -51,7 +57,7 @@
         <li>
           <a href="?page=pbisnis">
             <i class="ti-reload"></i>
-            <span>Proses Bisnis</span>
+            <span>Upload SOP</span>
           </a>
         </li>
         <li class="has-sub">

@@ -19,7 +19,9 @@
         <thead>
           <tr>
             <th class="nosort" width="40px">Action</th>
-            <th>Username</th><th>Fullname</th><th>Hak Akses</th>
+            <th>NIP</th><th>Nama Karyawan</th><th>Jabatan</th>
+            <th>Golongan</th><th>Alamat</th><th>Telepon</th>
+            <th>Peran</th><th>isCoordinator</th>
           </tr>
         </thead>
         <tbody></tbody>
@@ -41,36 +43,61 @@
           <div class="form-group">
             <div class="row">
               <div class="col-sm-6">
-                <label for="username" class="control-label">Username:</label>
-                <?=$userUI->inputText("input", "input-sm form-control", 
-                        "username", "username", "Input Username")?>
+                <label for="nip" class="control-label">NIP:</label>
+                <?= $userUI->inputText("input", "input-sm form-control", "nip", 
+                        "nip", "Input NIP")
+                ?>
               </div>
               <div class="col-sm-6">
-                <label for="password" class="control-label">Password:</label>
-                <?=$userUI->inputText("password", "input-sm form-control", 
-                        "password", "password", "Input Password")?>
+                <label for="nama" class="control-label">Nama Pegawai:</label>
+                <?= $userUI->inputText("input", "input-sm form-control", "nama", 
+                        "nama", "Nama Lengkap")
+                ?>
               </div>
             </div>                            
           </div>                        
           <div class="form-group">
             <div class="row">
               <div class="col-sm-3">
-                <label for="role" class="control-label">Role:</label>
-                <select name="role" id="role" class="form-control input-sm">
-                  <option value="">Role User</option>
-                  <option value="1">Admin</option>
-                  <option value="2">Pegawai</option>                                    
+                <label for="jabatan" class="control-label">Jabatan:</label>
+                <select name="jabatan" id="jabatan" class="form-control input-sm">
+                  <option value="">Jabatan</option>
                 </select>
               </div>
-              <div class="col-sm-5">
-                <label for="nama_user" class="control-label">Full name:</label>                                
-                <input type="text" class="form-control input-sm" 
-                       id="fname" name="fname" placeholder="Input Full Name" 
-                       readonly="readonly" />    
+              <div class="col-sm-3">
+                <label for="golongan" class="control-label">Golongan:</label>
+                <select name="golongan" id="golongan" class="form-control input-sm">
+                  <option value="">Golongan<option>
+                </select>
               </div>                            
             </div>                        
-          </div>                                     
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-sm-3">
+                <label for="telepon" class="control-label">Telepon:</label>
+                <?=$userUI->inputText("input", "input-sm form-control", 
+                        "tlp", "tlp", "No. Telepon")?>
+              </div>
+              <div class="col-sm-6">
+                <label for="alamat" class="control-label">Alamat:</label>
+                <?=$userUI->closeTags("textarea", "input-sm form-control", 
+                        "alamat", "alamat")?>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-sm-3">
+                <label for="peran" class="control-label">Peran:</label>
+                <select name="peran" id="peran" class="form-control input-sm">
+                  <option value="">Peran</option>
+                </select>
+              </div>
+            </div>
+          </div>
         </div>
+        
         <div class="modal-footer">
           <div class="">
             <button type="button" id="btn_cancel" class="btn btn-sm btn-danger" data-dismiss="modal">Close</button>

@@ -1,5 +1,4 @@
 <?php
-
 class dbObj {
 
   var $DB_Host = "localhost"; //koneksi localhost
@@ -29,7 +28,7 @@ class dbObj {
 class Main {
 
   function get_page() {
-    
+
     $userUI = new userUI();
 
     if (!isset($_GET['page'])) {
@@ -125,7 +124,7 @@ class userUI {
   }
 
   public function editLink($id) {
-    return '<a href="#" id="'.$id.'" class="act_btn" data-original-title="Edit">'
+    return '<a href="#" id="' . $id . '" class="act_btn" data-original-title="Edit">'
             . '<i class="fa fa-edit fa-fw"></i>'
             . '</a>';
   }
@@ -225,7 +224,7 @@ class user {
 
 //class master karyawan
 class jabatan {
-  
+
   protected $conn;
   protected $data = [];
 
@@ -241,7 +240,7 @@ class jabatan {
   function getRecords($req, $col) {
 
     $sqlTot = "SELECT * ";
-    $sqlTot .= "FROM master_jabatan ";    
+    $sqlTot .= "FROM master_jabatan ";
 
     $sql = $sqlTot;
 
@@ -251,7 +250,7 @@ class jabatan {
     $totalFiltered = $totalData;
 
     if (!empty($req['search']['value'])) {
-      $sql .= " WHERE jabatan LIKE '%" . $req['search']['value'] . "%' ";      
+      $sql .= " WHERE jabatan LIKE '%" . $req['search']['value'] . "%' ";
 
       $query = mysqli_query($this->conn, $sql) or die("ajax-grid-data.php: get PO");
       $totalFiltered = mysqli_num_rows($query);
@@ -268,10 +267,10 @@ class jabatan {
     $act = new userUI($this->conn);
 
     while ($row = mysqli_fetch_assoc($query)) {
-      $nestedData = [];            
+      $nestedData = [];
 
       $nestedData[] = $act->editLink($row['id']);
-      $nestedData[] = $row['jabatan'];      
+      $nestedData[] = $row['jabatan'];
 
       $data[] = $nestedData;
     }
@@ -292,10 +291,19 @@ class jabatan {
     }
     return $json_data;
   }
+
+  public function getJabatan($id) {
+    $sql = "SELECT * FROM master_jabatan WHERE id = '" . $id . "'";
+    $query = mysqli_query($this->conn, $sql) or die();
+
+    $row = mysqli_fetch_array($query);
+    return $row['jabatan'];
+  }
+
 }//end class jabatan
 
 class golongan {
-  
+
   protected $conn;
   protected $data = [];
 
@@ -311,7 +319,7 @@ class golongan {
   function getRecords($req, $col) {
 
     $sqlTot = "SELECT * ";
-    $sqlTot .= "FROM master_golongan ";    
+    $sqlTot .= "FROM master_golongan ";
 
     $sql = $sqlTot;
 
@@ -321,7 +329,7 @@ class golongan {
     $totalFiltered = $totalData;
 
     if (!empty($req['search']['value'])) {
-      $sql .= " WHERE golongan LIKE '%" . $req['search']['value'] . "%' ";      
+      $sql .= " WHERE golongan LIKE '%" . $req['search']['value'] . "%' ";
 
       $query = mysqli_query($this->conn, $sql) or die("ajax-grid-data.php: get PO");
       $totalFiltered = mysqli_num_rows($query);
@@ -338,10 +346,10 @@ class golongan {
     $act = new userUI($this->conn);
 
     while ($row = mysqli_fetch_assoc($query)) {
-      $nestedData = [];            
+      $nestedData = [];
 
       $nestedData[] = $act->editLink($row['id']);
-      $nestedData[] = $row['golongan'];      
+      $nestedData[] = $row['golongan'];
 
       $data[] = $nestedData;
     }
@@ -362,10 +370,19 @@ class golongan {
     }
     return $json_data;
   }
+
+  public function getGolongan($id) {
+    $sql = "SELECT * FROM master_golongan WHERE id = '" . $id . "'";
+    $query = mysqli_query($this->conn, $sql) or die();
+
+    $row = mysqli_fetch_array($query);
+    return $row['golongan'];
+  }
+
 }//end class golongan
 
 class peran {
-  
+
   protected $conn;
   protected $data = [];
 
@@ -381,7 +398,7 @@ class peran {
   function getRecords($req, $col) {
 
     $sqlTot = "SELECT * ";
-    $sqlTot .= "FROM master_peran ";    
+    $sqlTot .= "FROM master_peran ";
 
     $sql = $sqlTot;
 
@@ -391,7 +408,7 @@ class peran {
     $totalFiltered = $totalData;
 
     if (!empty($req['search']['value'])) {
-      $sql .= " WHERE peran LIKE '%" . $req['search']['value'] . "%' ";      
+      $sql .= " WHERE peran LIKE '%" . $req['search']['value'] . "%' ";
 
       $query = mysqli_query($this->conn, $sql) or die("ajax-grid-data.php: get PO");
       $totalFiltered = mysqli_num_rows($query);
@@ -408,10 +425,10 @@ class peran {
     $act = new userUI($this->conn);
 
     while ($row = mysqli_fetch_assoc($query)) {
-      $nestedData = [];            
+      $nestedData = [];
 
       $nestedData[] = $act->editLink($row['id']);
-      $nestedData[] = $row['peran'];      
+      $nestedData[] = $row['peran'];
 
       $data[] = $nestedData;
     }
@@ -432,10 +449,19 @@ class peran {
     }
     return $json_data;
   }
+
+  public function getPeran($id) {
+    $sql = "SELECT * FROM master_peran WHERE id = '".$id."'";
+    $query = mysqli_query($this->conn, $sql) or die();
+    
+    $row = mysqli_fetch_array($query);
+    return $row['peran'];
+  }
+
 }//end class peran
 
 class karyawan {
-  
+
   protected $conn;
   protected $data = [];
 
@@ -451,7 +477,7 @@ class karyawan {
   function getRecords($req, $col) {
 
     $sqlTot = "SELECT * ";
-    $sqlTot .= "FROM master_karyawan ";    
+    $sqlTot .= "FROM master_karyawan ";
 
     $sql = $sqlTot;
 
@@ -491,7 +517,8 @@ class karyawan {
       $nestedData[] = $golongan->getGolongan($row['id_golongan']);
       $nestedData[] = $row['alamat'];
       $nestedData[] = $row['tlp'];
-      $nestedData[] = $peran->getPeran($row['peran']);
+      $nestedData[] = $peran->getPeran($row['id_peran']);
+      $nestedData[] = $row['is_kordinator'];
 
       $data[] = $nestedData;
     }
@@ -511,7 +538,8 @@ class karyawan {
       );
     }
     return $json_data;
-  }    
+  }
+
 }//end class karyawan
 //end class master karyawan
 ?>
