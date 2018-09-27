@@ -1,6 +1,5 @@
 <?php
 
-//databse object
 class dbObj {
 
   var $DB_Host = "localhost"; //koneksi localhost
@@ -25,13 +24,13 @@ class dbObj {
     return $this->conn;
   }
 
-}
-
-//end class dbObj
+}//end class dbObj
 
 class Main {
 
   function get_page() {
+    
+    $userUI = new userUI();
 
     if (!isset($_GET['page'])) {
       $url = "view/home.php";
@@ -116,15 +115,19 @@ class userUI {
   }
 
   public function closeTags($tags, $class, $idname, $name) {
-    return '<' . $tags . ' class="' . $class . '" id="' . $idname . '" name="' . $name . '"></' . $tags . '>';
+    return '<' . $tags . ' class="' . $class . '" id="' . $idname . '" '
+            . 'name="' . $name . '"></' . $tags . '>';
   }
 
   public function pushBtn($type, $class, $idname, $val) {
-    return '<button type="' . $type . '" class="' . $class . '" id="' . $idname . '">' . $val . '</button>';
+    return '<button type="' . $type . '" class="' . $class . '" '
+            . 'id="' . $idname . '">' . $val . '</button>';
   }
 
   public function editLink($id) {
-    return 'edit';
+    return '<a href="#" id="'.$id.'" class="act_btn" data-original-title="Edit">'
+            . '<i class="fa fa-edit fa-fw"></i>'
+            . '</a>';
   }
 
   public function deleteLink($id) {
@@ -132,7 +135,7 @@ class userUI {
   }
 
   public function detailLink($id) {
-    return '';
+    return 'detail';
   }
 
 }
@@ -185,10 +188,12 @@ class user {
     while ($row = mysqli_fetch_assoc($query)) {
       $nestedData = [];
       $role = '';
-      
+
       switch ($row['role']) {
-        case '1' : $role = 'Admin'; break;
-        case '2' : $role = 'Pegawai'; break;
+        case '1' : $role = 'Admin';
+          break;
+        case '2' : $role = 'Pegawai';
+          break;
       }
 
       $nestedData[] = $act->editLink($row['id']);
@@ -216,6 +221,297 @@ class user {
     return $json_data;
   }
 
-}
+}//end class user
 
+//class master karyawan
+class jabatan {
+  
+  protected $conn;
+  protected $data = [];
+
+  function __construct($connString) {
+    $this->conn = $connString;
+  }
+
+  public function getData($req, $col) {
+    $this->data = $this->getRecords($req, $col);
+    echo json_encode($this->data);
+  }
+
+  function getRecords($req, $col) {
+
+    $sqlTot = "SELECT * ";
+    $sqlTot .= "FROM master_jabatan ";    
+
+    $sql = $sqlTot;
+
+    $qTot = mysqli_query($this->conn, $sqlTot) or die("error fetch data: ");
+
+    $totalData = mysqli_num_rows($qTot);
+    $totalFiltered = $totalData;
+
+    if (!empty($req['search']['value'])) {
+      $sql .= " WHERE jabatan LIKE '%" . $req['search']['value'] . "%' ";      
+
+      $query = mysqli_query($this->conn, $sql) or die("ajax-grid-data.php: get PO");
+      $totalFiltered = mysqli_num_rows($query);
+      $sql .=" ORDER BY " . $col[$req['order'][0]['column']] . " " .
+              $req['order'][0]['dir'] . " LIMIT " . $req['start'] . " ," . $req['length'] . " ";
+      $query = mysqli_query($this->conn, $sql) or die("ajax-grid-data.php: get PO");
+    } else {
+      $sql .=" ORDER BY " . $col[$req['order'][0]['column']] . " 
+            " . $req['order'][0]['dir'] . " LIMIT " . $req['start'] . " ,
+            " . $req['length'] . " ";
+      $query = mysqli_query($this->conn, $sql) or die("ajax-grid-data.php: get PO");
+    }
+
+    $act = new userUI($this->conn);
+
+    while ($row = mysqli_fetch_assoc($query)) {
+      $nestedData = [];            
+
+      $nestedData[] = $act->editLink($row['id']);
+      $nestedData[] = $row['jabatan'];      
+
+      $data[] = $nestedData;
+    }
+    if ($totalData > 0) {
+      $json_data = array(
+          "draw" => intval($req['draw']),
+          "recordsTotal" => intval($totalData),
+          "recordsFiltered" => intval($totalFiltered),
+          "data" => $data
+      );
+    } else {
+      $json_data = array(
+          "draw" => 0,
+          "recordsTotal" => 0,
+          "recordsFiltered" => 0,
+          "data" => []
+      );
+    }
+    return $json_data;
+  }
+}//end class jabatan
+
+class golongan {
+  
+  protected $conn;
+  protected $data = [];
+
+  function __construct($connString) {
+    $this->conn = $connString;
+  }
+
+  public function getData($req, $col) {
+    $this->data = $this->getRecords($req, $col);
+    echo json_encode($this->data);
+  }
+
+  function getRecords($req, $col) {
+
+    $sqlTot = "SELECT * ";
+    $sqlTot .= "FROM master_golongan ";    
+
+    $sql = $sqlTot;
+
+    $qTot = mysqli_query($this->conn, $sqlTot) or die("error fetch data: ");
+
+    $totalData = mysqli_num_rows($qTot);
+    $totalFiltered = $totalData;
+
+    if (!empty($req['search']['value'])) {
+      $sql .= " WHERE golongan LIKE '%" . $req['search']['value'] . "%' ";      
+
+      $query = mysqli_query($this->conn, $sql) or die("ajax-grid-data.php: get PO");
+      $totalFiltered = mysqli_num_rows($query);
+      $sql .=" ORDER BY " . $col[$req['order'][0]['column']] . " " .
+              $req['order'][0]['dir'] . " LIMIT " . $req['start'] . " ," . $req['length'] . " ";
+      $query = mysqli_query($this->conn, $sql) or die("ajax-grid-data.php: get PO");
+    } else {
+      $sql .=" ORDER BY " . $col[$req['order'][0]['column']] . " 
+            " . $req['order'][0]['dir'] . " LIMIT " . $req['start'] . " ,
+            " . $req['length'] . " ";
+      $query = mysqli_query($this->conn, $sql) or die("ajax-grid-data.php: get PO");
+    }
+
+    $act = new userUI($this->conn);
+
+    while ($row = mysqli_fetch_assoc($query)) {
+      $nestedData = [];            
+
+      $nestedData[] = $act->editLink($row['id']);
+      $nestedData[] = $row['golongan'];      
+
+      $data[] = $nestedData;
+    }
+    if ($totalData > 0) {
+      $json_data = array(
+          "draw" => intval($req['draw']),
+          "recordsTotal" => intval($totalData),
+          "recordsFiltered" => intval($totalFiltered),
+          "data" => $data
+      );
+    } else {
+      $json_data = array(
+          "draw" => 0,
+          "recordsTotal" => 0,
+          "recordsFiltered" => 0,
+          "data" => []
+      );
+    }
+    return $json_data;
+  }
+}//end class golongan
+
+class peran {
+  
+  protected $conn;
+  protected $data = [];
+
+  function __construct($connString) {
+    $this->conn = $connString;
+  }
+
+  public function getData($req, $col) {
+    $this->data = $this->getRecords($req, $col);
+    echo json_encode($this->data);
+  }
+
+  function getRecords($req, $col) {
+
+    $sqlTot = "SELECT * ";
+    $sqlTot .= "FROM master_peran ";    
+
+    $sql = $sqlTot;
+
+    $qTot = mysqli_query($this->conn, $sqlTot) or die("error fetch data: ");
+
+    $totalData = mysqli_num_rows($qTot);
+    $totalFiltered = $totalData;
+
+    if (!empty($req['search']['value'])) {
+      $sql .= " WHERE peran LIKE '%" . $req['search']['value'] . "%' ";      
+
+      $query = mysqli_query($this->conn, $sql) or die("ajax-grid-data.php: get PO");
+      $totalFiltered = mysqli_num_rows($query);
+      $sql .=" ORDER BY " . $col[$req['order'][0]['column']] . " " .
+              $req['order'][0]['dir'] . " LIMIT " . $req['start'] . " ," . $req['length'] . " ";
+      $query = mysqli_query($this->conn, $sql) or die("ajax-grid-data.php: get PO");
+    } else {
+      $sql .=" ORDER BY " . $col[$req['order'][0]['column']] . " 
+            " . $req['order'][0]['dir'] . " LIMIT " . $req['start'] . " ,
+            " . $req['length'] . " ";
+      $query = mysqli_query($this->conn, $sql) or die("ajax-grid-data.php: get PO");
+    }
+
+    $act = new userUI($this->conn);
+
+    while ($row = mysqli_fetch_assoc($query)) {
+      $nestedData = [];            
+
+      $nestedData[] = $act->editLink($row['id']);
+      $nestedData[] = $row['peran'];      
+
+      $data[] = $nestedData;
+    }
+    if ($totalData > 0) {
+      $json_data = array(
+          "draw" => intval($req['draw']),
+          "recordsTotal" => intval($totalData),
+          "recordsFiltered" => intval($totalFiltered),
+          "data" => $data
+      );
+    } else {
+      $json_data = array(
+          "draw" => 0,
+          "recordsTotal" => 0,
+          "recordsFiltered" => 0,
+          "data" => []
+      );
+    }
+    return $json_data;
+  }
+}//end class peran
+
+class karyawan {
+  
+  protected $conn;
+  protected $data = [];
+
+  function __construct($connString) {
+    $this->conn = $connString;
+  }
+
+  public function getData($req, $col) {
+    $this->data = $this->getRecords($req, $col);
+    echo json_encode($this->data);
+  }
+
+  function getRecords($req, $col) {
+
+    $sqlTot = "SELECT * ";
+    $sqlTot .= "FROM master_karyawan ";    
+
+    $sql = $sqlTot;
+
+    $qTot = mysqli_query($this->conn, $sqlTot) or die("error fetch data: ");
+
+    $totalData = mysqli_num_rows($qTot);
+    $totalFiltered = $totalData;
+
+    if (!empty($req['search']['value'])) {
+      $sql .= " WHERE nama LIKE '%" . $req['search']['value'] . "%' ";
+      $sql .= " OR nip LIKE '%" . $req['search']['value'] . "%'";
+
+      $query = mysqli_query($this->conn, $sql) or die("ajax-grid-data.php: get PO");
+      $totalFiltered = mysqli_num_rows($query);
+      $sql .=" ORDER BY " . $col[$req['order'][0]['column']] . " " .
+              $req['order'][0]['dir'] . " LIMIT " . $req['start'] . " ," . $req['length'] . " ";
+      $query = mysqli_query($this->conn, $sql) or die("ajax-grid-data.php: get PO");
+    } else {
+      $sql .=" ORDER BY " . $col[$req['order'][0]['column']] . " 
+            " . $req['order'][0]['dir'] . " LIMIT " . $req['start'] . " ,
+            " . $req['length'] . " ";
+      $query = mysqli_query($this->conn, $sql) or die("ajax-grid-data.php: get PO");
+    }
+
+    $act = new userUI($this->conn);
+    $jabatan = new jabatan($this->conn);
+    $golongan = new golongan($this->conn);
+    $peran = new peran($this->conn);
+
+    while ($row = mysqli_fetch_assoc($query)) {
+      $nestedData = [];
+
+      $nestedData[] = $act->editLink($row['id']);
+      $nestedData[] = $row['nip'];
+      $nestedData[] = $row['nama'];
+      $nestedData[] = $jabatan->getJabatan($row['id_jabatan']);
+      $nestedData[] = $golongan->getGolongan($row['id_golongan']);
+      $nestedData[] = $row['alamat'];
+      $nestedData[] = $row['tlp'];
+      $nestedData[] = $peran->getPeran($row['peran']);
+
+      $data[] = $nestedData;
+    }
+    if ($totalData > 0) {
+      $json_data = array(
+          "draw" => intval($req['draw']),
+          "recordsTotal" => intval($totalData),
+          "recordsFiltered" => intval($totalFiltered),
+          "data" => $data
+      );
+    } else {
+      $json_data = array(
+          "draw" => 0,
+          "recordsTotal" => 0,
+          "recordsFiltered" => 0,
+          "data" => []
+      );
+    }
+    return $json_data;
+  }    
+}//end class karyawan
+//end class master karyawan
 ?>

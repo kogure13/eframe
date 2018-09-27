@@ -88,7 +88,7 @@
               <a href="?page=jabatan">Master jabatan</a>
             </li>                        
             <li>
-              <a href="?page=gologan">Master golongan</a>
+              <a href="?page=golongan">Master golongan</a>
             </li>
             <li>
               <a href="?page=peran">Master peran</a>

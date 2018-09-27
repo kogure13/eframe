@@ -1,6 +1,6 @@
 <?php
 
-include_once '../../../config/class.php';
+include_once '../../config/class.php';
 $db = new dbObj();
 $connString = $db->getConstring();
 $editClass = new edit($connString);
