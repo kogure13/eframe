@@ -11,7 +11,7 @@
         <![endif]-->
         
         <title>            
-            Welcome to Smart Application Information | ?>
+            Welcome to Smart Application Information | 
         </title>
         <!--global css starts-->
         <!--

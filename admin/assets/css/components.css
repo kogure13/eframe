@@ -664,7 +664,7 @@ File: Components
 }
 .panel-heading {
   border: none !important;
-  padding: 10px 20px;
+  padding: 3px 11px;
 }
 .panel-default > .panel-heading {
   background-color: #f4f8fb;

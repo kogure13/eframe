@@ -1,7 +1,7 @@
 <?php
 date_default_timezone_set('Asia/Jakarta');
 
-define('company_name', 'Inspektorat Jenderal III');
+define('company_name', 'Inspektorat III');
 define('company_short', 'ITJEN III KEMDIKBUD');
 define('apps_title', 'e-Audit');
 define('apps_name', 'Smart Aplication Information');
@@ -21,7 +21,5 @@ $jam_sekarang = date("H:i:s");
 $nama_bln=array(1=> "Januari", "Februari", "Maret", "April", "Mei", 
                     "Juni", "Juli", "Agustus", "September", 
                     "Oktober", "November", "Desember");
-
-//$bln_ini = $nama_bln[$bln_sekarang];
 
 ?>

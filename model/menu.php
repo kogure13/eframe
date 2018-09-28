@@ -91,27 +91,7 @@
         <ul class="navbar-nav ml-auto margin_right">
           <li  class="nav-item active">
             <a href="#" id="index" class="nav-link"> Home</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a href="#" aria-expanded="false" class="nav-link"> Features</a>
-            <ul class="dropdown-menu" role="menu">
-              <li>
-                <a href="http://demo.joshadmin.com/typography" class="dropdown-item">
-                  Typography
-                </a>
-              </li>
-              <li>
-                <a href="http://demo.joshadmin.com/advancedfeatures" class="dropdown-item">
-                  Advanced Features
-                </a>
-              </li>
-              <li>
-                <a href="http://demo.joshadmin.com/grid" class="dropdown-item">
-                  Grid System
-                </a>
-              </li>
-            </ul>
-          </li>          
+          </li>                  
           <li class="nav-item dropdown">
             <a href="#" aria-expanded="false" class="nav-link"> Dropdown</a>
             <ul class="dropdown-menu" role="menu">

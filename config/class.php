@@ -40,7 +40,7 @@ class Main {
 
       if (file_exists($page_root)) {
         include_once $page_root;
-      } elseif ($_GET['page'] == "ulogin") {
+      } elseif ($_GET['page'] == "login") {
         header("location: model/login/");
       } elseif ($_GET['page'] == "logout") {
         $db = new dbObj();
@@ -111,6 +111,12 @@ class userUI {
     return '<input type="' . $type . '" class="' . $class . '" '
             . 'id="' . $idname . '" name="' . $name . '"'
             . 'placeholder="' . $placeholder . '" />';
+  }
+  
+  public function rdck($type, $idname, $val, $name) {
+    return '<input type="' . $type . '" '
+            . 'id="' . $idname . '" name="' . $name . '"'
+            . 'value="' . $val . '" />';
   }
 
   public function closeTags($tags, $class, $idname, $name) {
@@ -542,4 +548,8 @@ class karyawan {
 
 }//end class karyawan
 //end class master karyawan
+
+//class section frontend
+
+//end class section frontend
 ?>

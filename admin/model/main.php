@@ -69,8 +69,12 @@
     <script src="assets/plugins/jquery-knob/jquery.knob.js"></script>                
 
     <script src="assets/js/jquery.validate.min.js"></script>
+    
+    <script src="assets/plugins/jsgrid/js/jsgrid.min.js"></script>
     <script src="assets/js/jquery.core.js"></script>
     <script src="assets/js/jquery.app.js"></script>
+    
+    <script src="assets/pages/jquery.jsgrid.init.js"></script>
 
     <!-- jQuery dataTables -->
     <script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>

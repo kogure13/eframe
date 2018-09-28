@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost
-Source Server Version : 100116
-Source Host           : localhost:3306
+Source Server         : server128
+Source Server Version : 100130
+Source Host           : 192.168.0.128:3306
 Source Database       : db_itjen
 
 Target Server Type    : MYSQL
-Target Server Version : 100116
+Target Server Version : 100130
 File Encoding         : 65001
 
-Date: 2018-09-24 21:39:45
+Date: 2018-09-28 17:02:30
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -24,7 +24,7 @@ CREATE TABLE `activities` (
   `id_submain` int(11) NOT NULL,
   `nama` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `id_submain` (`id_submain`),
+  KEY `id_submain` (`id_submain`) USING BTREE,
   CONSTRAINT `activities_ibfk_1` FOREIGN KEY (`id_submain`) REFERENCES `sub_main` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
@@ -110,8 +110,8 @@ CREATE TABLE `disposisi_distribusi` (
   `id_peran` int(11) NOT NULL,
   `status` bit(1) NOT NULL,
   PRIMARY KEY (`id_distribusi`,`id_peran`),
-  KEY `id_distribusi` (`id_distribusi`),
-  KEY `id_peran` (`id_peran`),
+  KEY `id_distribusi` (`id_distribusi`) USING BTREE,
+  KEY `id_peran` (`id_peran`) USING BTREE,
   CONSTRAINT `disposisi_distribusi_ibfk_1` FOREIGN KEY (`id_distribusi`) REFERENCES `distribusi` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `disposisi_distribusi_ibfk_2` FOREIGN KEY (`id_peran`) REFERENCES `master_peran` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -151,8 +151,8 @@ CREATE TABLE `distribusi_karyawan` (
   `id_karyawan` int(11) NOT NULL,
   `status` int(11) NOT NULL,
   PRIMARY KEY (`id_distribusi`,`id_karyawan`),
-  KEY `id_distribusi` (`id_distribusi`),
-  KEY `id_karyawan` (`id_karyawan`),
+  KEY `id_distribusi` (`id_distribusi`) USING BTREE,
+  KEY `id_karyawan` (`id_karyawan`) USING BTREE,
   CONSTRAINT `distribusi_karyawan_ibfk_1` FOREIGN KEY (`id_distribusi`) REFERENCES `distribusi` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `distribusi_karyawan_ibfk_2` FOREIGN KEY (`id_karyawan`) REFERENCES `master_karyawan` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -196,7 +196,7 @@ CREATE TABLE `hasil_audit_item` (
   `akibat` varchar(255) NOT NULL,
   `rekomendasi` varchar(255) NOT NULL,
   PRIMARY KEY (`id_audit`,`id_kode`),
-  KEY `id_kode` (`id_kode`),
+  KEY `id_kode` (`id_kode`) USING BTREE,
   CONSTRAINT `hasil_audit_item_ibfk_1` FOREIGN KEY (`id_audit`) REFERENCES `hasil_audit` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `hasil_audit_item_ibfk_2` FOREIGN KEY (`id_kode`) REFERENCES `master_kode` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -216,9 +216,9 @@ CREATE TABLE `karya_tulis_karyawan` (
   `penyalanggara` varchar(255) NOT NULL,
   `tahun` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `id karyawan` (`id karyawan`),
+  KEY `id karyawan` (`id karyawan`) USING BTREE,
   CONSTRAINT `karya_tulis_karyawan_ibfk_1` FOREIGN KEY (`id karyawan`) REFERENCES `master_karyawan` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of karya_tulis_karyawan
@@ -250,9 +250,9 @@ CREATE TABLE `kegiatan_audit_partial` (
   `id parent` int(11) DEFAULT NULL,
   `type` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `id parent` (`id parent`),
+  KEY `id parent` (`id parent`) USING BTREE,
   CONSTRAINT `kegiatan_audit_partial_ibfk_1` FOREIGN KEY (`id parent`) REFERENCES `kegiatan_audit` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of kegiatan_audit_partial
@@ -277,8 +277,8 @@ CREATE TABLE `kegiatan_karyawan` (
   `id karyawan` int(11) NOT NULL,
   `value` varchar(255) NOT NULL,
   PRIMARY KEY (`id`,`id kegiatan`,`id karyawan`),
-  KEY `id kegiatan` (`id kegiatan`),
-  KEY `id karyawan` (`id karyawan`),
+  KEY `id kegiatan` (`id kegiatan`) USING BTREE,
+  KEY `id karyawan` (`id karyawan`) USING BTREE,
   CONSTRAINT `kegiatan_karyawan_ibfk_1` FOREIGN KEY (`id kegiatan`) REFERENCES `kegiatan_audit_partial` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `kegiatan_karyawan_ibfk_2` FOREIGN KEY (`id karyawan`) REFERENCES `master_karyawan` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -317,7 +317,7 @@ CREATE TABLE `master_berita` (
   `created_date` datetime NOT NULL,
   `modified_date` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of master_berita
@@ -394,7 +394,7 @@ CREATE TABLE `master_foto` (
   `url` varchar(255) NOT NULL,
   `deskripsi` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of master_foto
@@ -428,7 +428,7 @@ INSERT INTO `master_foto` VALUES ('37', '~/Uploads/1473113394-circle-facebook.pn
 DROP TABLE IF EXISTS `master_golongan`;
 CREATE TABLE `master_golongan` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nama` varchar(255) NOT NULL,
+  `golongan` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
@@ -472,7 +472,7 @@ INSERT INTO `master_inherent` VALUES ('5', 'Minimum', '0', '5');
 DROP TABLE IF EXISTS `master_jabatan`;
 CREATE TABLE `master_jabatan` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nama` varchar(255) NOT NULL,
+  `jabatan` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
@@ -492,106 +492,106 @@ INSERT INTO `master_jabatan` VALUES ('8', 'Auditor Lanjut');
 DROP TABLE IF EXISTS `master_karyawan`;
 CREATE TABLE `master_karyawan` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nama` varchar(255) NOT NULL,
   `nip` varchar(255) NOT NULL,
-  `id_jabatan` int(11) DEFAULT NULL,
-  `id_golongan` int(11) DEFAULT NULL,
+  `nama` varchar(255) NOT NULL,
   `alamat` varchar(255) DEFAULT NULL,
   `tlp` varchar(255) DEFAULT NULL,
+  `id_jabatan` int(11) DEFAULT NULL,
+  `id_golongan` int(11) DEFAULT NULL,
   `id_peran` int(11) DEFAULT NULL,
-  `is_cordinator` bit(1) DEFAULT NULL,
+  `is_kordinator` bit(1) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `master karyawan_ibfk_1` (`id_jabatan`),
-  KEY `id_golongan` (`id_golongan`),
-  KEY `id_peran` (`id_peran`),
+  KEY `master karyawan_ibfk_1` (`id_jabatan`) USING BTREE,
+  KEY `id_golongan` (`id_golongan`) USING BTREE,
+  KEY `id_peran` (`id_peran`) USING BTREE,
   CONSTRAINT `master_karyawan_ibfk_1` FOREIGN KEY (`id_jabatan`) REFERENCES `master_jabatan` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  CONSTRAINT `master_karyawan_ibfk_3` FOREIGN KEY (`id_golongan`) REFERENCES `master_golongan` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  CONSTRAINT `master_karyawan_ibfk_4` FOREIGN KEY (`id_peran`) REFERENCES `master_peran` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
+  CONSTRAINT `master_karyawan_ibfk_2` FOREIGN KEY (`id_golongan`) REFERENCES `master_golongan` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  CONSTRAINT `master_karyawan_ibfk_3` FOREIGN KEY (`id_peran`) REFERENCES `master_peran` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=155 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of master_karyawan
 -- ----------------------------
-INSERT INTO `master_karyawan` VALUES ('75', 'Joko Sapto Pratolo, M.Si', ',195921011985031001', '3', '10', 'test', 'test', '2', '');
-INSERT INTO `master_karyawan` VALUES ('76', 'Prabarini Pramaningsih, SH, M.Pd,M.Ak', ',196102281198703002', '3', '9', 'aaaaa', 'bbbbbb', '2', '\0');
-INSERT INTO `master_karyawan` VALUES ('77', 'Dra. Nina Kencana NS, MM', ',195708191984032001', '3', '9', 'cccc', 'dddd', '3', '');
-INSERT INTO `master_karyawan` VALUES ('78', 'Drs, Darsono', ',195810241983121001', '4', '8', 'cacasc', 'acasdv', '3', '\0');
-INSERT INTO `master_karyawan` VALUES ('79', 'Iwan Mustafa, SE. MM', ',196410051989031003', '4', '6', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('80', 'Drs. A. Junaidi Gunawan', ',196504271988121001', '4', '7', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('81', 'Facri Noekman, SE', ',196109251982031002', '4', '6', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('82', 'Yaya Mulya, SH', ',195907201986011001', '4', '6', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('83', 'Drs.Edy Wijaya Kusuma,M.Si', ',195910311988021001', '4', '7', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('84', 'Hir. Haroid Parningotan.H', ',196011101989031003', '4', '6', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('85', 'Dra,Hendri Yetni A Muis', ',196203201989032001', '4', '8', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('86', 'Momy Siti Armilah,SH,M.Si', ',197001071994032002', '4', '7', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('87', 'Drs. Satiri', ',196302131984031001', '4', '6', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('88', 'Drs, Eduart B Ginting', ',195905281988021001', '4', '7', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('89', 'Drs, Dedy Linggajaya, MM', ',196506131994031001', '4', '6', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('90', 'waluyo, S.IP, M.Si', ',196909271988121001', '4', '6', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('91', 'Danang Syahrul,SE', ',196512021987031003', '4', '8', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('92', 'Dr. H. Indra Jaya', ',195904271988021001', '4', '6', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('93', 'Ina Suharti,SIP,M.Si', ',196908241988122001', '4', '7', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('94', 'Puspita Yunia Stri, SH', ',196606251987032002', '4', '6', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('95', 'Drs.Kustri Waluyo, MM', ',196212031991031002', '4', '6', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('96', 'Drs.Hiswara', ',196311051989031002', '4', '7', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('97', 'Subiyantoro,SH,M.Si', ',196611081992031001', '4', '6', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('98', 'Dra. Mitra Susanti, M.Si', ',195808061982032002', '4', '8', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('99', 'Purwaniati Nugraheni,SH,MM', ',196809211988122000', '4', '7', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('100', 'Dra, Andriati Condro Arsetyo, M.Pd', ',196204281988032001', '4', '7', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('101', 'Urip Widodo,SH.,M.Si', ',196211141991031002', '4', '7', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('102', 'Drs, Arsa Dinata. AS', ',195704161984111011', '4', '6', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('103', 'Tety Yliati, SPd', ',197107171994012001', '4', '6', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('104', 'Drs, Ambo Sakka', ',195712311986031013', '4', '8', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('105', 'Endang Lestiningrum M.Pd', ',196204251984122002', '4', '7', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('106', 'John Swart Arroan, SE', ',195812071985031001', '4', '9', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('107', 'Sunarto,SH,MM', ',196401121994031001', '4', '6', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('108', 'Dra,Mindo BR Purba', ',196011231987032001', '4', '6', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('109', 'M. Nurdin,SH', ',195703161988031001', '4', '7', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('110', 'R.Saptoadji P,SH,M.Si', ',196706171994031001', '4', '6', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('111', 'Dra, Eriawani, M.Ak', ',196202051988022001', '4', '7', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('112', 'Drs.RH.Riyanto,M.M', ',195809071980031002', '4', '7', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('113', 'Nureka Waty,S.Ssi', ',196912121995122001', '4', '5', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('114', 'Yahya Sulaeman,SH,MM', ',107308232000031001', '6', '5', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('115', 'Ahmar Hafid,SH,MH', ',197401062005011002', '6', '5', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('116', 'Hartono,M.Pd', ',196811121988121001', '6', '4', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('117', 'Rian Sopian,SE,MMSi', ',19810602005011004', '6', '5', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('118', 'Rizal Rifai,SH', ',196707031994031002', '6', '5', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('119', 'Sri Rejeki,S.Sos', ',196010131987032001', '6', '5', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('120', 'Undang, S.IP', ',196509041991031003', '6', '4', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('121', 'Gina Aprilawatie,S.Pd.,M.Si', ',196004181960032002', '6', '5', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('122', 'Nur Sulasih', ',196808031990102001', '6', '4', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('123', 'Nirma, S.IP', ',196704131987032001', '6', '4', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('124', 'Semi Widayati, S.IP', ',196903051988122002', '6', '5', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('125', 'Zaenal Abidin,S.Pd', ',196502071986011001', '6', '4', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('126', 'Tri Sukmono Joko PBS', ',197001121988021000', '6', '4', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('127', 'Setyo Bimandoko,SE,M.Ak', ',19609052001121003', '6', '4', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('128', 'Sugiyanto,SH', ',196606081988091001', '6', '5', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('129', 'Firdaus,S.Sos', ',195902221988031001', '6', '4', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('130', 'Muhammad Basri', ',196301201992031001', '6', '5', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('131', 'Harsono, S.IP, M.Si', ',196808061988121002', '6', '5', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('132', 'Ausi kurnia Kawoco, SE, M.Ak', ',197305052005011002', '5', '3', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('133', 'Agus Setyo Wantoro,SH', ',197206062000031001', '5', '4', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('134', 'Tugimin,SIP', ',196603161989011001', '5', '3', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('135', 'Kusmaningayu Wulandari, SE', ',198704092009122003', '5', '3', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('136', 'Herlina Corina,SE', ',108309212008122002', '5', '3', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('137', 'Dede Rudiana,S.Sos, M.Si', ',196504181994031003', '5', '5', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('138', 'Yuliafni,S.S', ',1968072319900112001', '5', '3', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('139', 'Ari Fitria Wibowo, S.Kom', ',1984070320080110006', '5', '3', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('140', 'Rosiyanti, S.Pd', ',196403131987032001', '5', '5', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('141', 'Budiyono, S.Sos', ',196605251988121001', '5', '3', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('142', 'Aditya Wicaksono, S.Sos', ',198307102108121002', '5', '3', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('143', 'Makmun Ali S.Pd', ',196307111990011001', '5', '4', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('144', 'Budiyono, S.Sos', ',196605251988121001', '5', '3', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('145', 'Chaidir', ',106204231982101001', '7', '4', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('146', 'Fani Arimulya Nugraha,SKUM', ',197812192009121002', '7', '2', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('147', 'Muntohar Edy Purbono', ',196009081984031002', '7', '5', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('148', 'Marsono,SPd', ',196010101981011001', '7', '4', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('149', 'Rudy Restu,S.Akt', ',196809041988121001', '7', '4', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('150', 'Subiantoro', ',196512131987031001', '7', '3', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('151', 'Muhammad Ansori, Sm.Hk', ',195804121988021001', '7', '4', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('152', 'Tini Lestari,BA', ',196404111988022', '8', '4', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('153', 'Kori Isniasari', ',196702061900032', '8', '2', null, null, null, null);
-INSERT INTO `master_karyawan` VALUES ('154', 'Joko Indriatno, SE', ',195903031984031003', '8', '3', null, null, null, null);
+INSERT INTO `master_karyawan` VALUES ('75', ',195921011985031001', 'Joko Sapto Pratolo, M.Si', 'Jl. Buni 28 RT01/04 Kel. Munjul Cibubur Jakarta Timur', '081279442794', '3', '10', '2', '');
+INSERT INTO `master_karyawan` VALUES ('76', ',196102281198703002', 'Prabarini Pramaningsih, SH, M.Pd,M.Ak', '', '', '3', '9', '2', '\0');
+INSERT INTO `master_karyawan` VALUES ('77', ',195708191984032001', 'Dra. Nina Kencana NS, MM', '', '', '3', '9', '3', '');
+INSERT INTO `master_karyawan` VALUES ('78', ',195810241983121001', 'Drs, Darsono', '', '', '4', '8', '3', '\0');
+INSERT INTO `master_karyawan` VALUES ('79', ',196410051989031003', 'Iwan Mustafa, SE. MM', null, null, '4', '6', null, null);
+INSERT INTO `master_karyawan` VALUES ('80', ',196504271988121001', 'Drs. A. Junaidi Gunawan', null, null, '4', '7', null, null);
+INSERT INTO `master_karyawan` VALUES ('81', ',196109251982031002', 'Facri Noekman, SE', null, null, '4', '6', null, null);
+INSERT INTO `master_karyawan` VALUES ('82', ',195907201986011001', 'Yaya Mulya, SH', null, null, '4', '6', null, null);
+INSERT INTO `master_karyawan` VALUES ('83', ',195910311988021001', 'Drs.Edy Wijaya Kusuma,M.Si', null, null, '4', '7', null, null);
+INSERT INTO `master_karyawan` VALUES ('84', ',196011101989031003', 'Hir. Haroid Parningotan.H', null, null, '4', '6', null, null);
+INSERT INTO `master_karyawan` VALUES ('85', ',196203201989032001', 'Dra,Hendri Yetni A Muis', null, null, '4', '8', null, null);
+INSERT INTO `master_karyawan` VALUES ('86', ',197001071994032002', 'Momy Siti Armilah,SH,M.Si', null, null, '4', '7', null, null);
+INSERT INTO `master_karyawan` VALUES ('87', ',196302131984031001', 'Drs. Satiri', null, null, '4', '6', null, null);
+INSERT INTO `master_karyawan` VALUES ('88', ',195905281988021001', 'Drs, Eduart B Ginting', null, null, '4', '7', null, null);
+INSERT INTO `master_karyawan` VALUES ('89', ',196506131994031001', 'Drs, Dedy Linggajaya, MM', null, null, '4', '6', null, null);
+INSERT INTO `master_karyawan` VALUES ('90', ',196909271988121001', 'waluyo, S.IP, M.Si', null, null, '4', '6', null, null);
+INSERT INTO `master_karyawan` VALUES ('91', ',196512021987031003', 'Danang Syahrul,SE', null, null, '4', '8', null, null);
+INSERT INTO `master_karyawan` VALUES ('92', ',195904271988021001', 'Dr. H. Indra Jaya', null, null, '4', '6', null, null);
+INSERT INTO `master_karyawan` VALUES ('93', ',196908241988122001', 'Ina Suharti,SIP,M.Si', null, null, '4', '7', null, null);
+INSERT INTO `master_karyawan` VALUES ('94', ',196606251987032002', 'Puspita Yunia Stri, SH', null, null, '4', '6', null, null);
+INSERT INTO `master_karyawan` VALUES ('95', ',196212031991031002', 'Drs.Kustri Waluyo, MM', null, null, '4', '6', null, null);
+INSERT INTO `master_karyawan` VALUES ('96', ',196311051989031002', 'Drs.Hiswara', null, null, '4', '7', null, null);
+INSERT INTO `master_karyawan` VALUES ('97', ',196611081992031001', 'Subiyantoro,SH,M.Si', null, null, '4', '6', null, null);
+INSERT INTO `master_karyawan` VALUES ('98', ',195808061982032002', 'Dra. Mitra Susanti, M.Si', null, null, '4', '8', null, null);
+INSERT INTO `master_karyawan` VALUES ('99', ',196809211988122000', 'Purwaniati Nugraheni,SH,MM', null, null, '4', '7', null, null);
+INSERT INTO `master_karyawan` VALUES ('100', ',196204281988032001', 'Dra, Andriati Condro Arsetyo, M.Pd', null, null, '4', '7', null, null);
+INSERT INTO `master_karyawan` VALUES ('101', ',196211141991031002', 'Urip Widodo,SH.,M.Si', null, null, '4', '7', null, null);
+INSERT INTO `master_karyawan` VALUES ('102', ',195704161984111011', 'Drs, Arsa Dinata. AS', null, null, '4', '6', null, null);
+INSERT INTO `master_karyawan` VALUES ('103', ',197107171994012001', 'Tety Yliati, SPd', null, null, '4', '6', null, null);
+INSERT INTO `master_karyawan` VALUES ('104', ',195712311986031013', 'Drs, Ambo Sakka', null, null, '4', '8', null, null);
+INSERT INTO `master_karyawan` VALUES ('105', ',196204251984122002', 'Endang Lestiningrum M.Pd', null, null, '4', '7', null, null);
+INSERT INTO `master_karyawan` VALUES ('106', ',195812071985031001', 'John Swart Arroan, SE', null, null, '4', '9', null, null);
+INSERT INTO `master_karyawan` VALUES ('107', ',196401121994031001', 'Sunarto,SH,MM', null, null, '4', '6', null, null);
+INSERT INTO `master_karyawan` VALUES ('108', ',196011231987032001', 'Dra,Mindo BR Purba', null, null, '4', '6', null, null);
+INSERT INTO `master_karyawan` VALUES ('109', ',195703161988031001', 'M. Nurdin,SH', null, null, '4', '7', null, null);
+INSERT INTO `master_karyawan` VALUES ('110', ',196706171994031001', 'R.Saptoadji P,SH,M.Si', null, null, '4', '6', null, null);
+INSERT INTO `master_karyawan` VALUES ('111', ',196202051988022001', 'Dra, Eriawani, M.Ak', null, null, '4', '7', null, null);
+INSERT INTO `master_karyawan` VALUES ('112', ',195809071980031002', 'Drs.RH.Riyanto,M.M', null, null, '4', '7', null, null);
+INSERT INTO `master_karyawan` VALUES ('113', ',196912121995122001', 'Nureka Waty,S.Ssi', null, null, '4', '5', null, null);
+INSERT INTO `master_karyawan` VALUES ('114', ',107308232000031001', 'Yahya Sulaeman,SH,MM', null, null, '6', '5', null, null);
+INSERT INTO `master_karyawan` VALUES ('115', ',197401062005011002', 'Ahmar Hafid,SH,MH', null, null, '6', '5', null, null);
+INSERT INTO `master_karyawan` VALUES ('116', ',196811121988121001', 'Hartono,M.Pd', null, null, '6', '4', null, null);
+INSERT INTO `master_karyawan` VALUES ('117', ',19810602005011004', 'Rian Sopian,SE,MMSi', null, null, '6', '5', null, null);
+INSERT INTO `master_karyawan` VALUES ('118', ',196707031994031002', 'Rizal Rifai,SH', null, null, '6', '5', null, null);
+INSERT INTO `master_karyawan` VALUES ('119', ',196010131987032001', 'Sri Rejeki,S.Sos', null, null, '6', '5', null, null);
+INSERT INTO `master_karyawan` VALUES ('120', ',196509041991031003', 'Undang, S.IP', null, null, '6', '4', null, null);
+INSERT INTO `master_karyawan` VALUES ('121', ',196004181960032002', 'Gina Aprilawatie,S.Pd.,M.Si', null, null, '6', '5', null, null);
+INSERT INTO `master_karyawan` VALUES ('122', ',196808031990102001', 'Nur Sulasih', null, null, '6', '4', null, null);
+INSERT INTO `master_karyawan` VALUES ('123', ',196704131987032001', 'Nirma, S.IP', null, null, '6', '4', null, null);
+INSERT INTO `master_karyawan` VALUES ('124', ',196903051988122002', 'Semi Widayati, S.IP', null, null, '6', '5', null, null);
+INSERT INTO `master_karyawan` VALUES ('125', ',196502071986011001', 'Zaenal Abidin,S.Pd', null, null, '6', '4', null, null);
+INSERT INTO `master_karyawan` VALUES ('126', ',197001121988021000', 'Tri Sukmono Joko PBS', null, null, '6', '4', null, null);
+INSERT INTO `master_karyawan` VALUES ('127', ',19609052001121003', 'Setyo Bimandoko,SE,M.Ak', null, null, '6', '4', null, null);
+INSERT INTO `master_karyawan` VALUES ('128', ',196606081988091001', 'Sugiyanto,SH', null, null, '6', '5', null, null);
+INSERT INTO `master_karyawan` VALUES ('129', ',195902221988031001', 'Firdaus,S.Sos', null, null, '6', '4', null, null);
+INSERT INTO `master_karyawan` VALUES ('130', ',196301201992031001', 'Muhammad Basri', null, null, '6', '5', null, null);
+INSERT INTO `master_karyawan` VALUES ('131', ',196808061988121002', 'Harsono, S.IP, M.Si', null, null, '6', '5', null, null);
+INSERT INTO `master_karyawan` VALUES ('132', ',197305052005011002', 'Ausi kurnia Kawoco, SE, M.Ak', null, null, '5', '3', null, null);
+INSERT INTO `master_karyawan` VALUES ('133', ',197206062000031001', 'Agus Setyo Wantoro,SH', null, null, '5', '4', null, null);
+INSERT INTO `master_karyawan` VALUES ('134', ',196603161989011001', 'Tugimin,SIP', null, null, '5', '3', null, null);
+INSERT INTO `master_karyawan` VALUES ('135', ',198704092009122003', 'Kusmaningayu Wulandari, SE', null, null, '5', '3', null, null);
+INSERT INTO `master_karyawan` VALUES ('136', ',108309212008122002', 'Herlina Corina,SE', null, null, '5', '3', null, null);
+INSERT INTO `master_karyawan` VALUES ('137', ',196504181994031003', 'Dede Rudiana,S.Sos, M.Si', null, null, '5', '5', null, null);
+INSERT INTO `master_karyawan` VALUES ('138', ',1968072319900112001', 'Yuliafni,S.S', null, null, '5', '3', null, null);
+INSERT INTO `master_karyawan` VALUES ('139', ',1984070320080110006', 'Ari Fitria Wibowo, S.Kom', null, null, '5', '3', null, null);
+INSERT INTO `master_karyawan` VALUES ('140', ',196403131987032001', 'Rosiyanti, S.Pd', null, null, '5', '5', null, null);
+INSERT INTO `master_karyawan` VALUES ('141', ',196605251988121001', 'Budiyono, S.Sos', null, null, '5', '3', null, null);
+INSERT INTO `master_karyawan` VALUES ('142', ',198307102108121002', 'Aditya Wicaksono, S.Sos', null, null, '5', '3', null, null);
+INSERT INTO `master_karyawan` VALUES ('143', ',196307111990011001', 'Makmun Ali S.Pd', null, null, '5', '4', null, null);
+INSERT INTO `master_karyawan` VALUES ('144', ',196605251988121001', 'Budiyono, S.Sos', null, null, '5', '3', null, null);
+INSERT INTO `master_karyawan` VALUES ('145', ',106204231982101001', 'Chaidir', null, null, '7', '4', null, null);
+INSERT INTO `master_karyawan` VALUES ('146', ',197812192009121002', 'Fani Arimulya Nugraha,SKUM', null, null, '7', '2', null, null);
+INSERT INTO `master_karyawan` VALUES ('147', ',196009081984031002', 'Muntohar Edy Purbono', null, null, '7', '5', null, null);
+INSERT INTO `master_karyawan` VALUES ('148', ',196010101981011001', 'Marsono,SPd', null, null, '7', '4', null, null);
+INSERT INTO `master_karyawan` VALUES ('149', ',196809041988121001', 'Rudy Restu,S.Akt', null, null, '7', '4', null, null);
+INSERT INTO `master_karyawan` VALUES ('150', ',196512131987031001', 'Subiantoro', null, null, '7', '3', null, null);
+INSERT INTO `master_karyawan` VALUES ('151', ',195804121988021001', 'Muhammad Ansori, Sm.Hk', null, null, '7', '4', null, null);
+INSERT INTO `master_karyawan` VALUES ('152', ',196404111988022', 'Tini Lestari,BA', null, null, '8', '4', null, null);
+INSERT INTO `master_karyawan` VALUES ('153', ',196702061900032', 'Kori Isniasari', null, null, '8', '2', null, null);
+INSERT INTO `master_karyawan` VALUES ('154', ',195903031984031003', 'Joko Indriatno, SE', null, null, '8', '3', null, null);
 
 -- ----------------------------
 -- Table structure for master_kata_pengantar
@@ -736,7 +736,7 @@ CREATE TABLE `master_pangkat` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nama` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of master_pangkat
@@ -753,7 +753,7 @@ CREATE TABLE `master_pengumuman` (
   `createddate` datetime NOT NULL,
   `modifieddate` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of master_pengumuman
@@ -767,9 +767,9 @@ INSERT INTO `master_pengumuman` VALUES ('2', 'Sosialisasi Instrumen DAK/Sergu/Ta
 DROP TABLE IF EXISTS `master_peran`;
 CREATE TABLE `master_peran` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nama` varchar(255) NOT NULL,
+  `peran` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of master_peran
@@ -854,7 +854,7 @@ CREATE TABLE `master_user` (
   `id_karyawan` int(11) DEFAULT NULL,
   `role` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `id_karyawan` (`id_karyawan`),
+  KEY `id_karyawan` (`id_karyawan`) USING BTREE,
   CONSTRAINT `master_user_ibfk_1` FOREIGN KEY (`id_karyawan`) REFERENCES `master_karyawan` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=99 DEFAULT CHARSET=utf8;
 
@@ -954,7 +954,7 @@ CREATE TABLE `narasumber_karyawan` (
   `penyalanggara` varchar(255) NOT NULL,
   `tahun` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `id karyawan` (`id karyawan`),
+  KEY `id karyawan` (`id karyawan`) USING BTREE,
   CONSTRAINT `narasumber_karyawan_ibfk_1` FOREIGN KEY (`id karyawan`) REFERENCES `master_karyawan` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -973,7 +973,7 @@ CREATE TABLE `pelatihan_karyawan` (
   `penyelenggara` varchar(255) NOT NULL,
   `tahun` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `id karyawan` (`id karyawan`),
+  KEY `id karyawan` (`id karyawan`) USING BTREE,
   CONSTRAINT `pelatihan_karyawan_ibfk_1` FOREIGN KEY (`id karyawan`) REFERENCES `master_karyawan` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -1007,8 +1007,8 @@ CREATE TABLE `pelayanan_karyawan` (
   `id karyawan` int(11) NOT NULL,
   `value` varchar(255) NOT NULL,
   PRIMARY KEY (`id`,`id pelayanan`,`id karyawan`),
-  KEY `id pelayanan` (`id pelayanan`),
-  KEY `id karyawan` (`id karyawan`),
+  KEY `id pelayanan` (`id pelayanan`) USING BTREE,
+  KEY `id karyawan` (`id karyawan`) USING BTREE,
   CONSTRAINT `pelayanan_karyawan_ibfk_1` FOREIGN KEY (`id pelayanan`) REFERENCES `pelayanan_partial` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `pelayanan_karyawan_ibfk_2` FOREIGN KEY (`id karyawan`) REFERENCES `master_karyawan` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1027,9 +1027,9 @@ CREATE TABLE `pelayanan_partial` (
   `id parent` int(11) NOT NULL,
   `type` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `id parent` (`id parent`),
+  KEY `id parent` (`id parent`) USING BTREE,
   CONSTRAINT `pelayanan_partial_ibfk_1` FOREIGN KEY (`id parent`) REFERENCES `pelayanan` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of pelayanan_partial
@@ -1053,7 +1053,7 @@ CREATE TABLE `prosedur` (
   `id_activities` int(11) NOT NULL,
   `prosedur` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `id_activities` (`id_activities`),
+  KEY `id_activities` (`id_activities`) USING BTREE,
   CONSTRAINT `prosedur_ibfk_1` FOREIGN KEY (`id_activities`) REFERENCES `activities` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8;
 
@@ -1120,7 +1120,7 @@ CREATE TABLE `proses_bisnis` (
   `path` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `id_prosedur` (`id_prosedur`),
+  KEY `id_prosedur` (`id_prosedur`) USING BTREE,
   CONSTRAINT `proses_bisnis_ibfk_1` FOREIGN KEY (`id_prosedur`) REFERENCES `prosedur` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -1165,11 +1165,11 @@ CREATE TABLE `risk_register_item` (
   `risk_owner` varchar(255) NOT NULL,
   `action` varchar(255) NOT NULL,
   PRIMARY KEY (`id_header`,`resiko`,`penyebab`),
-  KEY `id_dampak` (`id_dampak`),
-  KEY `id_probality` (`id_probality`),
-  KEY `id_efektifitas` (`id_efektifitas`),
-  KEY `id_inherent` (`id_inherent`),
-  KEY `id_residu` (`id_residu`),
+  KEY `id_dampak` (`id_dampak`) USING BTREE,
+  KEY `id_probality` (`id_probality`) USING BTREE,
+  KEY `id_efektifitas` (`id_efektifitas`) USING BTREE,
+  KEY `id_inherent` (`id_inherent`) USING BTREE,
+  KEY `id_residu` (`id_residu`) USING BTREE,
   CONSTRAINT `risk_register_item_ibfk_1` FOREIGN KEY (`id_header`) REFERENCES `risk_register` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `risk_register_item_ibfk_2` FOREIGN KEY (`id_dampak`) REFERENCES `master_dampak` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `risk_register_item_ibfk_3` FOREIGN KEY (`id_probality`) REFERENCES `master_probality` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
@@ -1190,7 +1190,7 @@ CREATE TABLE `sifat_distribusi` (
   `id_distribusi` int(11) NOT NULL,
   `sifat` int(11) NOT NULL,
   PRIMARY KEY (`id_distribusi`,`sifat`),
-  KEY `id_distribusi` (`id_distribusi`),
+  KEY `id_distribusi` (`id_distribusi`) USING BTREE,
   CONSTRAINT `sifat_distribusi_ibfk_1` FOREIGN KEY (`id_distribusi`) REFERENCES `distribusi` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -1242,7 +1242,7 @@ CREATE TABLE `surat_masuk_item` (
   `id_disposisi` int(11) NOT NULL,
   `status` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_surat_masuk`,`id_disposisi`),
-  KEY `id_disposisi` (`id_disposisi`),
+  KEY `id_disposisi` (`id_disposisi`) USING BTREE,
   CONSTRAINT `surat_masuk_item_ibfk_1` FOREIGN KEY (`id_surat_masuk`) REFERENCES `surat_masuk_disposisi` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `surat_masuk_item_ibfk_2` FOREIGN KEY (`id_disposisi`) REFERENCES `master_peran` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1260,8 +1260,8 @@ CREATE TABLE `surat_masuk_karyawan` (
   `id_karyawan` int(11) NOT NULL,
   `status` int(11) NOT NULL,
   PRIMARY KEY (`id_distribusi`,`id_karyawan`),
-  KEY `id_distribusi` (`id_distribusi`),
-  KEY `id_karyawan` (`id_karyawan`),
+  KEY `id_distribusi` (`id_distribusi`) USING BTREE,
+  KEY `id_karyawan` (`id_karyawan`) USING BTREE,
   CONSTRAINT `surat_masuk_karyawan_ibfk_1` FOREIGN KEY (`id_distribusi`) REFERENCES `surat_masuk_disposisi` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `surat_masuk_karyawan_ibfk_2` FOREIGN KEY (`id_karyawan`) REFERENCES `master_karyawan` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1279,8 +1279,8 @@ CREATE TABLE `user_roles` (
   `id_user` int(11) NOT NULL,
   `id_role` int(11) NOT NULL,
   PRIMARY KEY (`id`,`id_user`,`id_role`),
-  KEY `user_roles_ibfk_1` (`id_user`),
-  KEY `user_roles_ibfk_2` (`id_role`),
+  KEY `user_roles_ibfk_1` (`id_user`) USING BTREE,
+  KEY `user_roles_ibfk_2` (`id_role`) USING BTREE,
   CONSTRAINT `user_roles_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `master_user` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `user_roles_ibfk_2` FOREIGN KEY (`id_role`) REFERENCES `master_role` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=utf8;
