@@ -11,4 +11,3 @@ $userUI = new userUI();
 include './model/main.php';
 //end main
 ?>
-

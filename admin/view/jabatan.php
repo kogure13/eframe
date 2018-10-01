@@ -11,7 +11,7 @@
             <span id="btn_add_val"></span>
           </button>
         </div>                
-      </div>
+      </div>      
 
       <table id="lookup"
              class="table table-striped table-bordered dt-responsive nowrap" 

@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-lg-12 col-sm-12">
     <div class="card-box">
-      <div class="pull-right">
+      <div class="pull-right" style="display: block;">
         <div class="row">
           <div class="col-sm-12 hidden-xs">
             <div class="panel panel-primary">
@@ -17,7 +17,7 @@
       </div>
       
       <h4 class="page-title">Lembar Pemantauan Kompetensi Auditor</h4>
-      <h5 class="page-title-alt"><?=company_name?></h5>
+      <h5 class="page-title-alt m-t-5"><?=company_name?></h5>
       
       <div class="row">
         <div class="col-lg-12 col-sm-12">

@@ -136,11 +136,15 @@ class userUI {
   }
 
   public function deleteLink($id) {
-    return 'delete';
+    return '<a href="#" id="' . $id . '" class="act_btn" data-original-title="Delete">'
+            . '<i class="fa fa-delete fa-fw"></i>'
+            . '</a>';
   }
 
   public function detailLink($id) {
-    return 'detail';
+    return '<a href="#" id="' . $id . '" class="act_btn" data-original-title="Detail">'
+            . '<i class="fa fa-detail fa-fw"></i>'
+            . '</a>';
   }
 
 }
