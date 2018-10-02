@@ -3,7 +3,7 @@ date_default_timezone_set('Asia/Jakarta');
 
 define('company_name', 'Inspektorat III');
 define('company_short', 'ITJEN III KEMDIKBUD');
-define('apps_title', 'e-Audit');
+define('apps_title', 'e-Auditor');
 define('apps_name', 'Smart Aplication Information');
 define('apps_short', 'SAI');
 

@@ -5,5 +5,10 @@ require '../config/class.php';
 require '../config/function.php';
 
 $main = new Main();
-include './model/main.php';
+if(!isset($_SESSION['eaudit_user'])) {
+  include './model/login.php';
+}else{
+  include './model/main.php';
+}
+
 ?>
