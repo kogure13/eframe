@@ -63,10 +63,10 @@
   </div>
 </div>
 
-<div class="card-box add-disposisi-form" style="display: none;">
+<div class="card-box add-disposisi-form" style="display: block;">
   <h4 class="page-title">Lembar Disposisi</h4>
-      <h5 class="page-title-alt m-t-5"><?= company_name ?></h5>
-      
+  <h5 class="page-title-alt m-t-5"><?= company_name ?></h5>
+
   <div class="row">
     <div class="col-sm-6">
 
@@ -121,11 +121,20 @@
           </div>
         </div>
       </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-sm-12">
+            <label for="pesan">Isi Disposisi:</label>
+            <?= $userUI->closeTags("textarea", "input-sm form-control", "pesan", "pesan") ?>
+          </div>
+        </div>
+      </div>
 
     </div>
-    
+
     <div class="col-sm-6">
       <label for="disposisi">Disposisi Kepada :</label>
+      <?= $satker->getAllData() ?>
     </div>
   </div>
 </div>

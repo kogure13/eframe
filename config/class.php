@@ -28,8 +28,11 @@ class dbObj {
 class Main {
 
   function get_page() {
-
-    $userUI = new userUI();
+    $db = new dbObj();
+    $connString = $db->getConstring();
+    
+    $userUI = new userUI($connString);
+    $satker = new peran($connString);
 
     if (!isset($_GET['page'])) {
       $url = "view/home.php";
@@ -42,11 +45,8 @@ class Main {
         include_once $page_root;
       } elseif ($_GET['page'] == "login") {
         header("location: model/login/");
-      } elseif ($_GET['page'] == "logout") {
-        $db = new dbObj();
-        $connString = $db->getConstring();
-        $user = new User($connString);
-        $user->logout();
+      } elseif ($_GET['page'] == "logout") {               
+        $userUI->logout();
       } else {
         include_once 'model/404.php';
       }
@@ -90,7 +90,7 @@ class Main {
     echo '<script src="' . $actRoot . '"></script>';
   }
 
-}
+}//end class Main
 
 class userUI {
 
@@ -147,7 +147,7 @@ class userUI {
             . '</a>';
   }
 
-}
+}//end class userUI
 
 class user {
 
@@ -467,6 +467,16 @@ class peran {
     $row = mysqli_fetch_array($query);
     return $row['peran'];
   }
+  
+  public function getAllData() {
+    $sql = "SELECT * FROM master_peran";
+    $query = mysqli_query($this->conn, $sql) or die();
+    
+    while ($row = mysqli_fetch_assoc($query)) {
+      echo $row['peran'];
+      echo ' ';
+    }
+  }
 
 }//end class peran
 
@@ -553,7 +563,8 @@ class karyawan {
 }//end class karyawan
 //end class master karyawan
 
-//class section frontend
-
-//end class section frontend
+class distribusi {
+  protected $conn;
+  protected $data = [];    
+}//end class distribusi
 ?>
