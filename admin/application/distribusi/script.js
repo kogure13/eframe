@@ -10,11 +10,9 @@ $(document).ready(function() {
     }else if(id == 'btn_upload_dist') {
       $('.table-distribusi').slideUp(500);
       $('.add-disposisi-upload').show(100);
-    }
-    
-
+    }    
   });
-  
+
   $('#btn_cancel').on('click', function() {
     $('.haudit-table').slideDown(500);
     $('.haudit-form').hide(500);
