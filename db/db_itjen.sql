@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : server128
-Source Server Version : 100130
-Source Host           : 192.168.0.128:3306
+Source Server         : localhost
+Source Server Version : 100116
+Source Host           : localhost:3306
 Source Database       : db_itjen
 
 Target Server Type    : MYSQL
-Target Server Version : 100130
+Target Server Version : 100116
 File Encoding         : 65001
 
-Date: 2018-10-02 15:59:22
+Date: 2018-10-02 19:26:54
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -46,60 +46,6 @@ INSERT INTO `activities` VALUES ('12', '4', '4.1 WBS');
 INSERT INTO `activities` VALUES ('13', '4', '4.2 SIDAK');
 INSERT INTO `activities` VALUES ('14', '5', '5.1 KEGIATAN FORUM');
 INSERT INTO `activities` VALUES ('15', '5', '5.2 PENATAUSAHAAN');
-
--- ----------------------------
--- Table structure for audit_universe
--- ----------------------------
-DROP TABLE IF EXISTS `audit_universe`;
-CREATE TABLE `audit_universe` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `kementrian` varchar(255) NOT NULL,
-  `provinsi` varchar(255) NOT NULL,
-  `eselon` varchar(255) NOT NULL,
-  `satker alamat` varchar(255) NOT NULL,
-  `satker nama` varchar(255) NOT NULL,
-  `satker nomor` varchar(255) NOT NULL,
-  `satker tgl` date NOT NULL,
-  `komitmen nama` varchar(255) NOT NULL,
-  `komitmen jabatan` varchar(255) NOT NULL,
-  `komitmen diangkat` varchar(255) NOT NULL,
-  `komitmen nomor` varchar(255) NOT NULL,
-  `komitmen tgl` date NOT NULL,
-  `bendahara nama` varchar(255) NOT NULL,
-  `bendahara jabatan` varchar(255) NOT NULL,
-  `bendahara diangkat` varchar(255) NOT NULL,
-  `bendahara nomor` varchar(255) NOT NULL,
-  `bendahara tgl` date NOT NULL,
-  `anggaran nomor` varchar(255) NOT NULL,
-  `anggaran tgl` date NOT NULL,
-  `anggaran tgl diterima` date NOT NULL,
-  `anggaran jumlah` double(255,0) NOT NULL,
-  `kpkn` varchar(255) NOT NULL,
-  `fungsi` varchar(255) NOT NULL,
-  `subfungsi` varchar(255) NOT NULL,
-  `program` varchar(255) NOT NULL,
-  `kegiatan` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of audit_universe
--- ----------------------------
-
--- ----------------------------
--- Table structure for audit_universe_item
--- ----------------------------
-DROP TABLE IF EXISTS `audit_universe_item`;
-CREATE TABLE `audit_universe_item` (
-  `id_audit_universe` int(11) NOT NULL,
-  `nama sub kegiatan` varchar(255) NOT NULL,
-  PRIMARY KEY (`id_audit_universe`,`nama sub kegiatan`),
-  CONSTRAINT `audit_universe_item_ibfk_1` FOREIGN KEY (`id_audit_universe`) REFERENCES `audit_universe` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of audit_universe_item
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for disposisi_distribusi
@@ -1175,60 +1121,6 @@ CREATE TABLE `proses_bisnis` (
 
 -- ----------------------------
 -- Records of proses_bisnis
--- ----------------------------
-
--- ----------------------------
--- Table structure for risk_register
--- ----------------------------
-DROP TABLE IF EXISTS `risk_register`;
-CREATE TABLE `risk_register` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nama` varchar(255) NOT NULL,
-  `visi` varchar(255) NOT NULL,
-  `misi` varchar(255) NOT NULL,
-  `program_kegiatan` varchar(255) NOT NULL,
-  `tujuan` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of risk_register
--- ----------------------------
-
--- ----------------------------
--- Table structure for risk_register_item
--- ----------------------------
-DROP TABLE IF EXISTS `risk_register_item`;
-CREATE TABLE `risk_register_item` (
-  `id_header` int(11) NOT NULL,
-  `resiko` varchar(255) NOT NULL,
-  `penyebab` varchar(255) NOT NULL,
-  `id_dampak` int(11) NOT NULL,
-  `id_probality` int(11) NOT NULL,
-  `id_inherent` int(11) NOT NULL,
-  `skor_inherent` int(11) NOT NULL,
-  `kontrol` varchar(255) NOT NULL,
-  `id_efektifitas` int(11) NOT NULL,
-  `id_residu` int(11) NOT NULL,
-  `skor_residu` double NOT NULL,
-  `risk_owner` varchar(255) NOT NULL,
-  `action` varchar(255) NOT NULL,
-  PRIMARY KEY (`id_header`,`resiko`,`penyebab`),
-  KEY `id_dampak` (`id_dampak`) USING BTREE,
-  KEY `id_probality` (`id_probality`) USING BTREE,
-  KEY `id_efektifitas` (`id_efektifitas`) USING BTREE,
-  KEY `id_inherent` (`id_inherent`) USING BTREE,
-  KEY `id_residu` (`id_residu`) USING BTREE,
-  CONSTRAINT `risk_register_item_ibfk_1` FOREIGN KEY (`id_header`) REFERENCES `risk_register` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  CONSTRAINT `risk_register_item_ibfk_2` FOREIGN KEY (`id_dampak`) REFERENCES `master_dampak` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  CONSTRAINT `risk_register_item_ibfk_3` FOREIGN KEY (`id_probality`) REFERENCES `master_probality` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  CONSTRAINT `risk_register_item_ibfk_4` FOREIGN KEY (`id_efektifitas`) REFERENCES `master_efektifitas` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  CONSTRAINT `risk_register_item_ibfk_5` FOREIGN KEY (`id_inherent`) REFERENCES `master_inherent` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  CONSTRAINT `risk_register_item_ibfk_6` FOREIGN KEY (`id_residu`) REFERENCES `master_residu` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of risk_register_item
 -- ----------------------------
 
 -- ----------------------------

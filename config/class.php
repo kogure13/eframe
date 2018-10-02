@@ -468,14 +468,35 @@ class peran {
     return $row['peran'];
   }
   
-  public function getAllData() {
+  public function getPeranData() {
+    $userUI = new userUI($this->conn);
+    $peran = new peran($this->conn);
     $sql = "SELECT * FROM master_peran";
     $query = mysqli_query($this->conn, $sql) or die();
     
+    echo '<div class="row">';
     while ($row = mysqli_fetch_assoc($query)) {
+      echo '<div class="col-sm-6">';
+      echo $userUI->rdck("checkbox", "idkelompok", $row['id'], "idkelompok");
       echo $row['peran'];
-      echo ' ';
+      echo '<ol>';
+      echo $this->peranKelompok($row['id']);
+      echo '</ol>';
+      echo '</div>';
     }
+    echo '</div>';
+  }
+  
+  public function peranKelompok($id) {
+    $data = [];
+    $sql = "SELECT * FROM kelompok_peran WHERE id_peran = '".$id."'";
+    $query = mysqli_query($this->conn, $sql) or die;
+    
+    while ($row = mysqli_fetch_assoc($query)) {
+      echo '<li>'.$row['keterangan'].'</li>';
+    }
+    
+    //echo json_encode($data);
   }
 
 }//end class peran

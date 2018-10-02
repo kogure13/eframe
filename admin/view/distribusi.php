@@ -63,7 +63,7 @@
   </div>
 </div>
 
-<div class="card-box add-disposisi-form" style="display: block;">
+<div class="card-box add-disposisi-form" style="display: none;">
   <h4 class="page-title">Lembar Disposisi</h4>
   <h5 class="page-title-alt m-t-5"><?= company_name ?></h5>
 
@@ -134,7 +134,45 @@
 
     <div class="col-sm-6">
       <label for="disposisi">Disposisi Kepada :</label>
-      <?= $satker->getAllData() ?>
+      <?= $satker->getPeranData() ?>
+    </div>
+  </div>
+</div>
+
+<div class="card-box add-disposisi-upload" style="display: none;">
+  <h4 class="page-title">Lembar Disposisi</h4>
+  <h5 class="page-title-alt m-t-5"><?= company_name ?></h5>
+
+  <div class="row">
+    <div class="col-sm-6">
+
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="pengirim">Pengirim</label>
+            <?= $userUI->inputText("text", "input-sm form-control", "pengirim", "pengirim", "Pengirim") ?>
+          </div>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="nama beras">Nama File</label>
+            <?= $userUI->inputText("text", "input-sm form-control", "namafile", "namafile", "Nama File") ?>
+          </div>
+
+          <div class="form-group">
+            <?= $userUI->inputText("file", "", "xfiles", "xfiles", "") ?>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-sm-6">
+      <label for="disposisi">Disposisi Kepada :</label>
+      <?= $satker->getPeranData() ?>
     </div>
   </div>
 </div>
