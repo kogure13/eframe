@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 100130
 File Encoding         : 65001
 
-Date: 2018-09-28 17:02:30
+Date: 2018-10-02 15:59:22
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -286,6 +286,55 @@ CREATE TABLE `kegiatan_karyawan` (
 -- ----------------------------
 -- Records of kegiatan_karyawan
 -- ----------------------------
+
+-- ----------------------------
+-- Table structure for kelompok_peran
+-- ----------------------------
+DROP TABLE IF EXISTS `kelompok_peran`;
+CREATE TABLE `kelompok_peran` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_peran` int(11) DEFAULT NULL,
+  `keterangan` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of kelompok_peran
+-- ----------------------------
+INSERT INTO `kelompok_peran` VALUES ('1', '2', 'Perencanaan Program dan Kegiatan');
+INSERT INTO `kelompok_peran` VALUES ('2', '2', 'Penyusunan Penugasaan Audit');
+INSERT INTO `kelompok_peran` VALUES ('3', '2', 'Menyusun KAK Audit');
+INSERT INTO `kelompok_peran` VALUES ('4', '2', 'Pemantauan UN');
+INSERT INTO `kelompok_peran` VALUES ('5', '2', 'Raker');
+INSERT INTO `kelompok_peran` VALUES ('6', '2', 'Sumatera Barat');
+INSERT INTO `kelompok_peran` VALUES ('7', '3', 'Ditjen Kebudayaan (Unit Utama)');
+INSERT INTO `kelompok_peran` VALUES ('8', '3', 'Audit Universe Ditjen Kebudayaan');
+INSERT INTO `kelompok_peran` VALUES ('9', '3', 'Bantuan Pemerintahan');
+INSERT INTO `kelompok_peran` VALUES ('10', '3', 'Kalsel dan Jateng');
+INSERT INTO `kelompok_peran` VALUES ('11', '4', 'Ditjen Guru dan Tp');
+INSERT INTO `kelompok_peran` VALUES ('12', '4', 'Audit Universe Ditjen GTK');
+INSERT INTO `kelompok_peran` VALUES ('13', '4', 'PKS');
+INSERT INTO `kelompok_peran` VALUES ('14', '4', 'Sergu');
+INSERT INTO `kelompok_peran` VALUES ('15', '4', 'Kajian di GTK');
+INSERT INTO `kelompok_peran` VALUES ('16', '4', 'Bali dan Sultra');
+INSERT INTO `kelompok_peran` VALUES ('17', '7', 'Balitbang Kemendikbud');
+INSERT INTO `kelompok_peran` VALUES ('18', '7', 'Audit Universe Balitbang');
+INSERT INTO `kelompok_peran` VALUES ('19', '7', 'Kompilasi');
+INSERT INTO `kelompok_peran` VALUES ('20', '7', 'Pertanggungjawaban UN');
+INSERT INTO `kelompok_peran` VALUES ('21', '7', 'Kajian Balitbang');
+INSERT INTO `kelompok_peran` VALUES ('22', '7', 'Kaltim dan DKI');
+INSERT INTO `kelompok_peran` VALUES ('23', '8', 'Revisu LK, RKA-KL, LAKIP');
+INSERT INTO `kelompok_peran` VALUES ('24', '8', 'Audit Universe UPT Kebudayaan');
+INSERT INTO `kelompok_peran` VALUES ('25', '8', 'Seminar');
+INSERT INTO `kelompok_peran` VALUES ('26', '8', 'Tugas Perbantuan');
+INSERT INTO `kelompok_peran` VALUES ('27', '8', 'SOP Inspektorat III');
+INSERT INTO `kelompok_peran` VALUES ('28', '8', 'Kledeoskop Inspektorat III');
+INSERT INTO `kelompok_peran` VALUES ('29', '10', 'Sinkronisasi dan Humas');
+INSERT INTO `kelompok_peran` VALUES ('30', '10', 'Audit Universe Dijen GTK');
+INSERT INTO `kelompok_peran` VALUES ('31', '10', 'Workshop');
+INSERT INTO `kelompok_peran` VALUES ('32', '10', 'BAN S/M/PAUD');
+INSERT INTO `kelompok_peran` VALUES ('33', '10', 'Jambi dan Sumsel');
+INSERT INTO `kelompok_peran` VALUES ('34', '10', 'SPI Inspektorat III');
 
 -- ----------------------------
 -- Table structure for master_aartikel
