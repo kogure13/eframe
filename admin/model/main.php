@@ -65,16 +65,11 @@
     <script src="assets/plugins/peity/jquery.peity.min.js"></script>       
     <script src="assets/plugins/waypoints/lib/jquery.waypoints.js"></script>
     <script src="assets/plugins/counterup/jquery.counterup.min.js"></script>
-
     <script src="assets/plugins/jquery-knob/jquery.knob.js"></script>                
-
     <script src="assets/js/jquery.validate.min.js"></script>
-    
-    <script src="assets/plugins/jsgrid/js/jsgrid.min.js"></script>
+        
     <script src="assets/js/jquery.core.js"></script>
-    <script src="assets/js/jquery.app.js"></script>
-    
-    <script src="assets/pages/jquery.jsgrid.init.js"></script>
+    <script src="assets/js/jquery.app.js"></script>    
 
     <!-- jQuery dataTables -->
     <script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
@@ -106,6 +101,8 @@
     <script src="assets/plugins/bootstrap-filestyle/js/bootstrap-filestyle.min.js" type="text/javascript"></script>
     <script src="assets/plugins/bootstrap-touchspin/js/jquery.bootstrap-touchspin.min.js" type="text/javascript"></script>
     <script src="assets/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js" type="text/javascript"></script>       
+    
+    <script src="assets/plugins/jsgrid/js/jsgrid.min.js"></script>
 
     <script type="text/javascript">
       jQuery(document).ready(function ($) {

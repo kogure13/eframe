@@ -17,4 +17,6 @@ $(document).ready(function() {
     $('.haudit-table').slideDown(500);
     $('.haudit-form').hide(500);
   });
+  
+  
 });
