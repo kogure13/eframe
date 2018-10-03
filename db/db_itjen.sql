@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 100116
 File Encoding         : 65001
 
-Date: 2018-10-02 19:26:54
+Date: 2018-10-03 20:39:31
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -242,7 +242,7 @@ CREATE TABLE `kelompok_peran` (
   `id_peran` int(11) DEFAULT NULL,
   `keterangan` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of kelompok_peran
@@ -263,24 +263,26 @@ INSERT INTO `kelompok_peran` VALUES ('13', '4', 'PKS');
 INSERT INTO `kelompok_peran` VALUES ('14', '4', 'Sergu');
 INSERT INTO `kelompok_peran` VALUES ('15', '4', 'Kajian di GTK');
 INSERT INTO `kelompok_peran` VALUES ('16', '4', 'Bali dan Sultra');
-INSERT INTO `kelompok_peran` VALUES ('17', '7', 'Balitbang Kemendikbud');
-INSERT INTO `kelompok_peran` VALUES ('18', '7', 'Audit Universe Balitbang');
-INSERT INTO `kelompok_peran` VALUES ('19', '7', 'Kompilasi');
-INSERT INTO `kelompok_peran` VALUES ('20', '7', 'Pertanggungjawaban UN');
-INSERT INTO `kelompok_peran` VALUES ('21', '7', 'Kajian Balitbang');
-INSERT INTO `kelompok_peran` VALUES ('22', '7', 'Kaltim dan DKI');
-INSERT INTO `kelompok_peran` VALUES ('23', '8', 'Revisu LK, RKA-KL, LAKIP');
-INSERT INTO `kelompok_peran` VALUES ('24', '8', 'Audit Universe UPT Kebudayaan');
-INSERT INTO `kelompok_peran` VALUES ('25', '8', 'Seminar');
-INSERT INTO `kelompok_peran` VALUES ('26', '8', 'Tugas Perbantuan');
-INSERT INTO `kelompok_peran` VALUES ('27', '8', 'SOP Inspektorat III');
-INSERT INTO `kelompok_peran` VALUES ('28', '8', 'Kledeoskop Inspektorat III');
-INSERT INTO `kelompok_peran` VALUES ('29', '10', 'Sinkronisasi dan Humas');
-INSERT INTO `kelompok_peran` VALUES ('30', '10', 'Audit Universe Dijen GTK');
-INSERT INTO `kelompok_peran` VALUES ('31', '10', 'Workshop');
-INSERT INTO `kelompok_peran` VALUES ('32', '10', 'BAN S/M/PAUD');
-INSERT INTO `kelompok_peran` VALUES ('33', '10', 'Jambi dan Sumsel');
-INSERT INTO `kelompok_peran` VALUES ('34', '10', 'SPI Inspektorat III');
+INSERT INTO `kelompok_peran` VALUES ('17', '5', 'Balitbang Kemendikbud');
+INSERT INTO `kelompok_peran` VALUES ('18', '5', 'Audit Universe Balitbang');
+INSERT INTO `kelompok_peran` VALUES ('19', '5', 'Kompilasi');
+INSERT INTO `kelompok_peran` VALUES ('20', '5', 'Pertanggungjawaban UN');
+INSERT INTO `kelompok_peran` VALUES ('21', '5', 'Kajian Balitbang');
+INSERT INTO `kelompok_peran` VALUES ('22', '5', 'Kaltim dan DKI');
+INSERT INTO `kelompok_peran` VALUES ('23', '6', 'Revisu LK, RKA-KL, LAKIP');
+INSERT INTO `kelompok_peran` VALUES ('24', '6', 'Audit Universe UPT Kebudayaan');
+INSERT INTO `kelompok_peran` VALUES ('25', '6', 'Seminar');
+INSERT INTO `kelompok_peran` VALUES ('26', '6', 'Tugas Perbantuan');
+INSERT INTO `kelompok_peran` VALUES ('27', '6', 'SOP Inspektorat III');
+INSERT INTO `kelompok_peran` VALUES ('28', '6', 'Kledeoskop Inspektorat III');
+INSERT INTO `kelompok_peran` VALUES ('29', '7', 'Sinkronisasi dan Humas');
+INSERT INTO `kelompok_peran` VALUES ('30', '7', 'Audit Universe Dijen GTK');
+INSERT INTO `kelompok_peran` VALUES ('31', '7', 'Workshop');
+INSERT INTO `kelompok_peran` VALUES ('32', '7', 'BAN S/M/PAUD');
+INSERT INTO `kelompok_peran` VALUES ('33', '7', 'Jambi dan Sumsel');
+INSERT INTO `kelompok_peran` VALUES ('34', '7', 'SPI Inspektorat III');
+INSERT INTO `kelompok_peran` VALUES ('35', '3', 'Ekspose');
+INSERT INTO `kelompok_peran` VALUES ('36', '3', 'Pengkajian Kebudayaan');
 
 -- ----------------------------
 -- Table structure for master_aartikel
@@ -772,11 +774,11 @@ CREATE TABLE `master_peran` (
 INSERT INTO `master_peran` VALUES ('2', 'Kelompok I');
 INSERT INTO `master_peran` VALUES ('3', 'Kelompok II');
 INSERT INTO `master_peran` VALUES ('4', 'Kelompok III');
-INSERT INTO `master_peran` VALUES ('5', 'Kasubag');
-INSERT INTO `master_peran` VALUES ('6', 'BPP');
-INSERT INTO `master_peran` VALUES ('7', 'Kelompok IV');
-INSERT INTO `master_peran` VALUES ('8', 'Kelompok V');
-INSERT INTO `master_peran` VALUES ('10', 'Kelompok VI');
+INSERT INTO `master_peran` VALUES ('5', 'Kelompok IV');
+INSERT INTO `master_peran` VALUES ('6', 'Kelompok V');
+INSERT INTO `master_peran` VALUES ('7', 'Kelompok VI');
+INSERT INTO `master_peran` VALUES ('8', 'Kasubag');
+INSERT INTO `master_peran` VALUES ('10', 'BPP');
 INSERT INTO `master_peran` VALUES ('11', 'Auditor');
 INSERT INTO `master_peran` VALUES ('12', 'Staff TU');
 
