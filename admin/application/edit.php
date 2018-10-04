@@ -6,36 +6,36 @@ $connString = $db->getConstring();
 $editClass = new edit($connString);
 
 if (!isset($_GET['id'])) {
-    exit();
+  exit();
 } else {
-    $params = $_GET['id'];
-    $tb_name = $_GET['tb_name'];
+  $params = $_GET['id'];
+  $tb_name = $_GET['tb_name'];
 }
 if ($params > 0) {
-    $editClass->getData($params, $tb_name);
+  $editClass->getData($params, $tb_name);
 } else {
-    mysql_errno();
+  mysql_errno();
 }
 
 class edit {
 
-    protected $conn;
-    protected $data = [];
+  protected $conn;
+  protected $data = [];
 
-    function __construct($connString) {
-        $this->conn = $connString;
+  function __construct($connString) {
+    $this->conn = $connString;
+  }
+
+  function getData($params, $tb_name) {
+    $sql = "SELECT * FROM " . $tb_name;
+    $sql .= " WHERE id = $params";
+
+    $result = mysqli_query($this->conn, $sql) or die();
+
+    while ($row = mysqli_fetch_assoc($result)) {
+      $data = $row;
     }
-
-    function getData($params, $tb_name) {
-        $sql = "SELECT * FROM " . $tb_name;
-        $sql .= " WHERE id = $params";
-
-        $result = mysqli_query($this->conn, $sql) or die();
-
-        while ($row = mysqli_fetch_assoc($result)) {
-            $data = $row;
-        }
-        echo json_encode($data);
-    }
+    echo json_encode($data);
+  }
 
 }

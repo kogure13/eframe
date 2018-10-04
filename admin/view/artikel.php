@@ -20,6 +20,7 @@
           <tr>
             <th class="nosort" width="40px">Action</th>
             <th>Penulis</th><th>Judul</th><th>Isi</th>
+            <th>Tanggal Artikel</th><th>Update Terakhir</th>
           </tr>
         </thead>
         <tbody></tbody>
@@ -29,7 +30,7 @@
 </div>
 
 <div id="add_model" class="modal fade">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">            
       <div class="modal-header">                
         <h4 id="modal_title" class="modal-title"></h4>
@@ -41,17 +42,19 @@
           <input type="hidden" value="" name="penulis" id="penulis">
           <div class="form-group">
             <div class="row">
-              <div class="col-sm-6">
+              <div class="col-sm-4">
                 <label for="judul" class="control-label">Judul:</label>
-                <?=$userUI->inputText("input", "input-sm form-control", 
-                        "judul", "judul", "Judul Artikel")?>
+                <?= $userUI->inputText("input", "input-sm form-control", "judul", "judul", "Judul Artikel")
+                ?>
               </div>              
             </div>                            
           </div>
           <div class="form-group">
-            <div class="col-sm-12">
-              <?=$userUI->closeTags("textarea", "", "textArtikel", "textArtikel")?>
-            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <?= $userUI->closeTags("textarea", "", "textArtikel", "textArtikel") ?>
+              </div>
+            </div>              
           </div>
         </div>
         <div class="modal-footer">

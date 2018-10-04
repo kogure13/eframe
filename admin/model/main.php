@@ -103,6 +103,7 @@
     <script src="assets/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js" type="text/javascript"></script>       
     
     <script src="assets/plugins/jsgrid/js/jsgrid.min.js"></script>
+    <script src="assets/plugins/tinymce/tinymce.min.js"></script>
 
     <script type="text/javascript">
       jQuery(document).ready(function ($) {

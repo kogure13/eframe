@@ -1,12 +1,12 @@
 $(document).ready(function () {
   
-  $('#btn_add_val').html('add artikel');
+  $('#btn_add_val').html('add pengumuman');
 
   $('#btn_add').on('click', function (e) {
     e.preventDefault();
 
     $('#add_model').modal({backdrop: 'static', keyboard: false});
-    $('#modal_title').html('Add new artikel');
+    $('#modal_title').html('Add new pengumuman');
     $('#action').val('add');
     $('#edit_id').val(0);
 
@@ -19,9 +19,9 @@ $(document).ready(function () {
     $form.find('.error').removeClass('error');
   });
   
-  if ($("#textArtikel").length > 0) {
+  if ($("#textPengumuman").length > 0) {
     tinymce.init({
-      selector: "textarea#textArtikel",
+      selector: "textarea#textPengumuman",
       theme: "modern",
       height: 300,
       plugins: [
