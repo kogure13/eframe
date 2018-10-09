@@ -6,7 +6,7 @@ class dbObj {
   // var $DB_Host = "192.168.0.128"; //koneksi ip\domain
   var $DB_Name = "db_itjen"; //nama database
   var $DB_User = "root"; //user database
-  var $DB_Pass = ""; //password database
+  var $DB_Pass = "1234"; //password database
   // var $DB_Pass = "password"; //password database
   var $conn;
 
@@ -189,7 +189,7 @@ class user {
               $req['order'][0]['dir'] . " LIMIT " . $req['start'] . " ," . $req['length'] . " ";
       $query = mysqli_query($this->conn, $sql) or die("ajax-grid-data.php: get PO");
     } else {
-      $sql .=" ORDER BY " . $col[$req['order'][0]['column']] . " 
+      $sql .=" ORDER BY " . $col[$req['order'][0]['column']] . "
             " . $req['order'][0]['dir'] . " LIMIT " . $req['start'] . " ,
             " . $req['length'] . " ";
       $query = mysqli_query($this->conn, $sql) or die("ajax-grid-data.php: get PO");
@@ -272,7 +272,7 @@ class jabatan {
               $req['order'][0]['dir'] . " LIMIT " . $req['start'] . " ," . $req['length'] . " ";
       $query = mysqli_query($this->conn, $sql) or die("ajax-grid-data.php: get PO");
     } else {
-      $sql .=" ORDER BY " . $col[$req['order'][0]['column']] . " 
+      $sql .=" ORDER BY " . $col[$req['order'][0]['column']] . "
             " . $req['order'][0]['dir'] . " LIMIT " . $req['start'] . " ,
             " . $req['length'] . " ";
       $query = mysqli_query($this->conn, $sql) or die("ajax-grid-data.php: get PO");
@@ -353,7 +353,7 @@ class golongan {
               $req['order'][0]['dir'] . " LIMIT " . $req['start'] . " ," . $req['length'] . " ";
       $query = mysqli_query($this->conn, $sql) or die("ajax-grid-data.php: get PO");
     } else {
-      $sql .=" ORDER BY " . $col[$req['order'][0]['column']] . " 
+      $sql .=" ORDER BY " . $col[$req['order'][0]['column']] . "
             " . $req['order'][0]['dir'] . " LIMIT " . $req['start'] . " ,
             " . $req['length'] . " ";
       $query = mysqli_query($this->conn, $sql) or die("ajax-grid-data.php: get PO");
@@ -434,7 +434,7 @@ class peran {
               $req['order'][0]['dir'] . " LIMIT " . $req['start'] . " ," . $req['length'] . " ";
       $query = mysqli_query($this->conn, $sql) or die("ajax-grid-data.php: get PO");
     } else {
-      $sql .=" ORDER BY " . $col[$req['order'][0]['column']] . " 
+      $sql .=" ORDER BY " . $col[$req['order'][0]['column']] . "
             " . $req['order'][0]['dir'] . " LIMIT " . $req['start'] . " ,
             " . $req['length'] . " ";
       $query = mysqli_query($this->conn, $sql) or die("ajax-grid-data.php: get PO");
@@ -547,7 +547,7 @@ class karyawan {
               $req['order'][0]['dir'] . " LIMIT " . $req['start'] . " ," . $req['length'] . " ";
       $query = mysqli_query($this->conn, $sql) or die("ajax-grid-data.php: get PO");
     } else {
-      $sql .=" ORDER BY " . $col[$req['order'][0]['column']] . " 
+      $sql .=" ORDER BY " . $col[$req['order'][0]['column']] . "
             " . $req['order'][0]['dir'] . " LIMIT " . $req['start'] . " ,
             " . $req['length'] . " ";
       $query = mysqli_query($this->conn, $sql) or die("ajax-grid-data.php: get PO");
@@ -602,7 +602,7 @@ class distribusi {
   protected $data = [];
 
   public function sifat() {
-    
+
     $sifat_distribusi = array(
         "Rahasia" => "Rahasia",
         "Penting" => "penting",
@@ -610,7 +610,7 @@ class distribusi {
         "Segera" => "Segera",
         "Sangat Segera" => "Sangat Segera"
     );
-    
+
     foreach ($sifat_distribusi as $key => $value) {
       echo '<option value="'.$value.'">'.$key.'</option>';
     }
