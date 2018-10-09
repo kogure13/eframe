@@ -10,5 +10,4 @@ $main = new Main();
 //}else{
   include './model/main.php';
 //}
-
 ?>

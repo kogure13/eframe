@@ -1,0 +1,19 @@
+{
+  "logger": {
+    "title": "Remote Sync"
+  },
+  "transport": "ftp",
+  "uploadOnSave": true,
+  "useAtomicWrites": false,
+  "deleteLocal": true,
+  "hostname": "127.0.0.1",
+  "port": "21",
+  "target": "/opt/lampp/htdocs/eframe",
+  "ignore": [
+    ".remote-sync.json",
+    ".git/**"
+  ],
+  "username": "daemon",
+  "password": "1234",
+  "watch": []
+}
