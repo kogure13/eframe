@@ -1,6 +1,6 @@
 <?php
 
-include_once '../../config/class.php';
+include_once '../../../config/class.php';
 $db = new dbObj();
 $connString = $db->getConstring();
 $editClass = new edit($connString);
@@ -8,11 +8,12 @@ $editClass = new edit($connString);
 if (!isset($_GET['id'])) {
   exit();
 } else {
-  $params = $_GET['id'];
+  $id = $_GET['id'];
   $tb_name = $_GET['tb_name'];
 }
-if ($params > 0) {
-  $editClass->getData($params, $tb_name);
+
+if ($id > 0) {
+  $editClass->getData($id, $tb_name);
 } else {
   mysql_errno();
 }
@@ -26,11 +27,12 @@ class edit {
     $this->conn = $connString;
   }
 
-  function getData($params, $tb_name) {
-    $sql = "SELECT * FROM " . $tb_name;
-    $sql .= " WHERE id = $params";
-
-    $result = mysqli_query($this->conn, $sql) or die();
+  function getData($id, $tb_name) {
+    $sql = "SELECT *";
+    $sql .= " FROM $tb_name";
+    $sql .= " WHERE $tb_name.id = $id";
+    
+    $result = mysqli_query($this->conn, $sql) or die('error to fecth data');
 
     while ($row = mysqli_fetch_assoc($result)) {
       $data = $row;
@@ -39,3 +41,4 @@ class edit {
   }
 
 }
+?>

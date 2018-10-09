@@ -95,13 +95,14 @@ $(document).ready(function () {
           $('.modal-title').html('Edit golongan');
           $('#action').val('edit');
           $('#edit_id').val(id);
+          tb_name = 'master_golongan';
 
           v_edit = $.ajax({
-            url: 'application/edit.php?id=' + id + '&tb_name=master_golongan',
+            url: 'application/golongan/edit.php?id=' + id + '&tb_name=' + tb_name,
             type: 'POST',
             dataType: 'JSON',
             success: function (data) {
-              $('#golongan').val(data.golongan);              
+              $('#golongan').val(data.golongan);
             }
           });
 
@@ -124,19 +125,22 @@ $(document).ready(function () {
 function ajaxAction(action) {
   data = $('#form_model').serializeArray();
   url = 'application/golongan/data.php';
-  var dataTable = $('#lookup').dataTable();
+  var table = $('#lookup').DataTable();
 
 
-//  var v_dump = $.ajax({
-//    url: url,
-//    type: 'post',
-//    dataType: 'json',
-//    data: data,
-//    success: function () {
-//
-//    },
-//    error: function () {}
-//  });
+  var v_dump = $.ajax({
+    url: url,
+    type: 'post',
+    dataType: 'json',
+    data: data,
+    success: function (response) {
+      if (response == 1) {
+        alert('Data sudah tersedia');
+      } else if (response == 0) {
+        $('#add_model').modal('hide');
+        table.ajax.reload();
+      }
+    }
+  });
 
-  console.log(data)
 }

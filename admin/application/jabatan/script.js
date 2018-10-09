@@ -95,13 +95,14 @@ $(document).ready(function () {
           $('.modal-title').html('Edit jabatan');
           $('#action').val('edit');
           $('#edit_id').val(id);
+          tb_name = 'master_jabatan';
 
           v_edit = $.ajax({
-            url: 'application/edit.php?id=' + id + '&tb_name=master_jabatan',
+            url: 'application/jabatan/edit.php?id=' + id + '&tb_name=' + tb_name,
             type: 'POST',
             dataType: 'JSON',
             success: function (data) {
-              $('#jabatan').val(data.jabatan);              
+              $('#jabatan').val(data.jabatan);
             }
           });
 
@@ -124,19 +125,21 @@ $(document).ready(function () {
 function ajaxAction(action) {
   data = $('#form_model').serializeArray();
   url = 'application/jabatan/data.php';
-  var dataTable = $('#lookup').dataTable();
+  var table = $('#lookup').DataTable();
 
+  var v_dump = $.ajax({
+    url: url,
+    type: 'post',
+    dataType: 'json',
+    data: data,
+    success: function (response) {
+      if (response == 1) {
+        alert('Data sudah tersedia');
+      } else if (response == 0) {
+        $('#add_model').modal('hide');
+        table.ajax.reload();
+      }
+    }
+  });
 
-//  var v_dump = $.ajax({
-//    url: url,
-//    type: 'post',
-//    dataType: 'json',
-//    data: data,
-//    success: function () {
-//
-//    },
-//    error: function () {}
-//  });
-
-  console.log(data)
 }

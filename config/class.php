@@ -1,4 +1,5 @@
 <?php
+
 class dbObj {
 
   var $DB_Host = "localhost"; //koneksi localhost
@@ -30,9 +31,10 @@ class Main {
   function get_page() {
     $db = new dbObj();
     $connString = $db->getConstring();
-    
+
     $userUI = new userUI($connString);
     $satker = new peran($connString);
+    $sifat = new distribusi($connString);
 
     if (!isset($_GET['page'])) {
       $url = "view/home.php";
@@ -44,8 +46,9 @@ class Main {
       if (file_exists($page_root)) {
         include_once $page_root;
       } elseif ($_GET['page'] == "login") {
-        header("location: model/login/");
-      } elseif ($_GET['page'] == "logout") {               
+        echo '<meta http-equiv="refresh" content="0; url=\'model/login.php\'">';
+        //header("location: model/login/");
+      } elseif ($_GET['page'] == "logout") {
         $userUI->logout();
       } else {
         include_once 'model/404.php';
@@ -112,7 +115,7 @@ class userUI {
             . 'id="' . $idname . '" name="' . $name . '"'
             . 'placeholder="' . $placeholder . '" />';
   }
-  
+
   public function rdck($type, $idname, $val, $name) {
     return '<input type="' . $type . '" '
             . 'id="' . $idname . '" name="' . $name . '"'
@@ -230,8 +233,9 @@ class user {
     return $json_data;
   }
 
-}//end class user
+}
 
+//end class user
 //class master karyawan
 class jabatan {
 
@@ -310,7 +314,9 @@ class jabatan {
     return $row['jabatan'];
   }
 
-}//end class jabatan
+}
+
+//end class jabatan
 
 class golongan {
 
@@ -389,7 +395,9 @@ class golongan {
     return $row['golongan'];
   }
 
-}//end class golongan
+}
+
+//end class golongan
 
 class peran {
 
@@ -461,19 +469,19 @@ class peran {
   }
 
   public function getPeran($id) {
-    $sql = "SELECT * FROM master_peran WHERE id = '".$id."'";
+    $sql = "SELECT * FROM master_peran WHERE id = '" . $id . "'";
     $query = mysqli_query($this->conn, $sql) or die();
-    
+
     $row = mysqli_fetch_array($query);
     return $row['peran'];
   }
-  
+
   public function getPeranData() {
     $userUI = new userUI($this->conn);
     $peran = new peran($this->conn);
     $sql = "SELECT * FROM master_peran";
     $query = mysqli_query($this->conn, $sql) or die();
-    
+
     echo '<div class="row">';
     while ($row = mysqli_fetch_assoc($query)) {
       echo '<div class="col-sm-6">';
@@ -486,20 +494,22 @@ class peran {
     }
     echo '</div>';
   }
-  
+
   public function peranKelompok($id) {
     $data = [];
-    $sql = "SELECT * FROM kelompok_peran WHERE id_peran = '".$id."'";
+    $sql = "SELECT * FROM kelompok_peran WHERE id_peran = '" . $id . "'";
     $query = mysqli_query($this->conn, $sql) or die;
-    
+
     while ($row = mysqli_fetch_assoc($query)) {
-      echo '<li>'.$row['keterangan'].'</li>';
+      echo '<li>' . $row['keterangan'] . '</li>';
     }
-    
+
     //echo json_encode($data);
   }
 
-}//end class peran
+}
+
+//end class peran
 
 class karyawan {
 
@@ -581,11 +591,32 @@ class karyawan {
     return $json_data;
   }
 
-}//end class karyawan
+}
+
+//end class karyawan
 //end class master karyawan
 
 class distribusi {
+
   protected $conn;
-  protected $data = [];    
-}//end class distribusi
+  protected $data = [];
+
+  public function sifat() {
+    
+    $sifat_distribusi = array(
+        "Rahasia" => "Rahasia",
+        "Penting" => "penting",
+        "Biasa" => "Biasa",
+        "Segera" => "Segera",
+        "Sangat Segera" => "Sangat Segera"
+    );
+    
+    foreach ($sifat_distribusi as $key => $value) {
+      echo '<option value="'.$value.'">'.$key.'</option>';
+    }
+  }
+
+}
+
+//end class distribusi
 ?>

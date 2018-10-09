@@ -1,6 +1,7 @@
 
 <div class="left side-menu">
   <div class="sidebar-inner slimscrollleft">
+    <?php //if(isset($_SESSION['eaudit_user'])) { ?>
     <div class="user-details">
       <div class="pull-left">
         <img src="#" alt="" class="thumb-md img-circle">
@@ -21,6 +22,7 @@
         <p class="text-muted m-0">role user</p>
       </div>
     </div>
+    <?php //} ?>
     <!--- Divider -->
     <div id="sidebar-menu">
       <ul>
@@ -31,6 +33,7 @@
             <span>Dashboard</span>
           </a>
         </li>
+        <?php //if(isset($_SESSION['eaudit_user'])) { ?>
         <li>
           <a href="?page=kompetensi">
             <i class="ti-bar-chart"></i>
@@ -138,6 +141,14 @@
             <span>Artikel</span>
           </a>
         </li>
+        <?php //} else { ?>
+        <li>
+          <a href="?page=login">
+            <i class="fa fa-sign-in"></i>
+            Login
+          </a>
+        </li>
+        <?php //} ?>
       </ul>
     </div>
   </div>

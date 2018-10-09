@@ -108,14 +108,16 @@ $(document).ready(function () {
           $('.modal-title').html('Edit user');
           $('#action').val('edit');
           $('#edit_id').val(id);
+          tb_name = 'master_user';
 
           v_edit = $.ajax({
-            url: 'application/edit.php?id=' + id + '&tb_name=master_user',
-            type: 'POST',
+            url: 'application/user/edit.php?id=' + id + '&tb_name=' + tb_name,
+            type: 'GET',
             dataType: 'JSON',
             success: function (data) {
               $('#username').val(data.username);
-              $('#password').val(data.password);              
+              $('#password').val(data.password);
+              $('#fname').val(data.nama);
               $('#role').val(data.role);
             }
           });
@@ -134,26 +136,28 @@ $(document).ready(function () {
       });
     }
   });//end datatable
-  console.log(dataTable)
 
 });
 
 function ajaxAction(action) {
   data = $('#form_model').serializeArray();
   url = 'application/user/data.php';
-  var dataTable = $('#lookup').dataTable();
+  var table = $('#lookup').DataTable();
 
 
-//  var v_dump = $.ajax({
-//    url: url,
-//    type: 'post',
-//    dataType: 'json',
-//    data: data,
-//    success: function () {
-//
-//    },
-//    error: function () {}
-//  });
+  var v_dump = $.ajax({
+    url: url,
+    type: 'post',
+    dataType: 'json',
+    data: data,
+    success: function (response) {
+      if (response == 1) {
+        alert('Data sudah tersedia');
+      } else if (response == 0) {
+        $('#add_model').modal('hide');
+        table.ajax.reload();
+      }
+    }
+  });
 
-  console.log(data)
 }

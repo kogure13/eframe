@@ -77,6 +77,7 @@
             <label for="sifat distribusi">Sifat Distribusi</label>
             <select name="sifat" class="input-sm form-control">
               <option value="">Sifat Distribusi</option>
+              <?= $sifat->sifat() ?>
             </select>
           </div>
         </div>
@@ -129,7 +130,12 @@
           </div>
         </div>
       </div>
-
+      <div class="modal-footer">
+        <div class="">
+          <button type="button" id="btn_cancel_iaudit" class="btn btn-sm btn-danger" data-dismiss="modal">Close</button>
+          <button type="submit" id="btn_add_iaudit" class="btn btn-sm btn-primary">Save</button>
+        </div>                        
+      </div>
     </div>
 
     <div class="col-sm-6">
@@ -167,7 +173,12 @@
           </div>
         </div>
       </div>
-
+      <div class="modal-footer">
+        <div class="">
+          <button type="button" id="btn_cancel_uaudit" class="btn btn-sm btn-danger" data-dismiss="modal">Close</button>
+          <button type="submit" id="btn_add_uaudit" class="btn btn-sm btn-primary">Save</button>
+        </div>                        
+      </div>
     </div>
 
     <div class="col-sm-6">
