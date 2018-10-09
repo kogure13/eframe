@@ -46,7 +46,7 @@ class Main {
       if (file_exists($page_root)) {
         include_once $page_root;
       } elseif ($_GET['page'] == "login") {
-        echo '<meta http-equiv="refresh" content="0; url=\'model/login.php\'">';
+        echo '<meta http-equiv="refresh" content="0; url=\'model/login/index.php\'">';
         //header("location: model/login/");
       } elseif ($_GET['page'] == "logout") {
         $userUI->logout();
@@ -65,6 +65,7 @@ class Main {
   }
 
   function get_topbar() {
+    $user = new user($connString);
     include_once 'model/topbar.php';
   }
 
@@ -199,19 +200,11 @@ class user {
 
     while ($row = mysqli_fetch_assoc($query)) {
       $nestedData = [];
-      $role = '';
-
-      switch ($row['role']) {
-        case '1' : $role = 'Admin';
-          break;
-        case '2' : $role = 'Pegawai';
-          break;
-      }
 
       $nestedData[] = $act->editLink($row['id']);
       $nestedData[] = $row['username'];
       $nestedData[] = $row['nama'];
-      $nestedData[] = $role;
+      $nestedData[] = $this->role($row['role']);
 
       $data[] = $nestedData;
     }
@@ -233,9 +226,17 @@ class user {
     return $json_data;
   }
 
-}
+  function role($data) {
+    switch ($data) {
+      case '1' : return $role = 'Admin';
+        break;
+      case '2' : return $role = 'Pegawai';
+        break;
+    }
+  }
 
-//end class user
+}//end class user
+
 //class master karyawan
 class jabatan {
 
@@ -314,9 +315,7 @@ class jabatan {
     return $row['jabatan'];
   }
 
-}
-
-//end class jabatan
+}//end class jabatan
 
 class golongan {
 
@@ -395,9 +394,7 @@ class golongan {
     return $row['golongan'];
   }
 
-}
-
-//end class golongan
+}//end class golongan
 
 class peran {
 
@@ -507,9 +504,7 @@ class peran {
     //echo json_encode($data);
   }
 
-}
-
-//end class peran
+}//end class peran
 
 class karyawan {
 
@@ -591,9 +586,7 @@ class karyawan {
     return $json_data;
   }
 
-}
-
-//end class karyawan
+}//end class karyawan
 //end class master karyawan
 
 class distribusi {
@@ -616,7 +609,5 @@ class distribusi {
     }
   }
 
-}
-
-//end class distribusi
+}//end class distribusi
 ?>

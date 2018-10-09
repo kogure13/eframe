@@ -3,7 +3,7 @@
     "title": "Remote Sync"
   },
   "transport": "ftp",
-  "uploadOnSave": true,
+  "uploadOnSave": false,
   "useAtomicWrites": false,
   "deleteLocal": true,
   "hostname": "127.0.0.1",

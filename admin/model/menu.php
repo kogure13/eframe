@@ -1,28 +1,6 @@
 
 <div class="left side-menu">
   <div class="sidebar-inner slimscrollleft">
-    <?php //if(isset($_SESSION['eaudit_user'])) { ?>
-    <div class="user-details">
-      <div class="pull-left">
-        <img src="#" alt="" class="thumb-md img-circle">
-      </div>
-      <div class="user-info">
-        <div class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-			Login username <span class="caret"></span>
-		  </a>
-          <ul class="dropdown-menu">
-            <li><a href="javascript:void(0)">
-                <i class="md md-face-unlock"></i> Profile<div class="ripple-wrapper"></div></a>
-            </li>
-            <li><a href="javascript:void(0)"><i class="md md-settings"></i> Settings</a></li>            
-            <li><a href="?page=logout"><i class="md md-settings-power"></i> Logout</a></li>
-          </ul>
-        </div>
-        <p class="text-muted m-0">role user</p>
-      </div>
-    </div>
-    <?php //} ?>
     <!--- Divider -->
     <div id="sidebar-menu">
       <ul>
@@ -33,7 +11,7 @@
             <span>Dashboard</span>
           </a>
         </li>
-        <?php //if(isset($_SESSION['eaudit_user'])) { ?>
+        <?php if(isset($_SESSION['eaudit_user'])) { ?>
         <li>
           <a href="?page=kompetensi">
             <i class="ti-bar-chart"></i>
@@ -78,9 +56,9 @@
               <a href="?page=dkompetensi">Data Kompetensi</a>
             </li>
           </ul>
-        </li>        
-        
-        <li class="text-muted menu-title">Data Master</li>                
+        </li>
+
+        <li class="text-muted menu-title">Data Master</li>
         <li>
           <a href="?page=user">
             <i class="ti-user"></i>
@@ -93,10 +71,10 @@
             <span>Master Karyawan</span>
             <span class="menu-arrow"></span>
           </a>
-          <ul class="list-unstyled">            
+          <ul class="list-unstyled">
             <li>
               <a href="?page=jabatan">Master jabatan</a>
-            </li>                        
+            </li>
             <li>
               <a href="?page=golongan">Master golongan</a>
             </li>
@@ -141,14 +119,14 @@
             <span>Artikel</span>
           </a>
         </li>
-        <?php //} else { ?>
+        <?php } else { ?>
         <li>
           <a href="?page=login">
             <i class="fa fa-sign-in"></i>
-            Login
+            <span>Login</span>
           </a>
         </li>
-        <?php //} ?>
+        <?php } ?>
       </ul>
     </div>
   </div>

@@ -7,7 +7,7 @@
                     <i class="fa fa-edit icon-c-logo"></i>
                     <span>
                       <img src="../assets/images/logo1.png" alt="<?=apps_title?>">
-                    </span>                    
+                    </span>
                 </a>
             </div>
         </div>
@@ -20,7 +20,25 @@
                             <i class="md md-menu"></i>
                         </button>
                         <span class="clearfix"></span>
-                    </div>                                
+                    </div>
+                    <?php if(isset($_SESSION['eaudit_user'])) { ?>
+                    <ul class="nav navbar-nav navbar-right pull-right">
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                          <?=$_SESSION['detail_user']?> (<span class="text-muted"><?=$user->role($_SESSION['role'])?></span>)
+                          <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li>
+                            <a href="#">Profile</a>
+                          </li>
+                          <li>
+                              <a href="?page=logout">logout</a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  <?php } ?>
                 </div>
                 <!--/.nav-collapse -->
             </div>

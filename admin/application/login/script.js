@@ -1,20 +1,24 @@
 $(document).ready(function() {
-  
+
+  $('#back').on('click', function() {
+    window.location.href = "../../index.php";
+  });
+
   $('#login').validate({
     rules: {
       username: {
         required: true
       },
       password: {
-        required: true,
+        required: true
       }
     },
     messages: {
       username: {
-        required: '*) field is required'
+        required: '*) Username cannot be empty'
       },
       password: {
-        required: '*) field is required'
+        required: '*) Password cannot be empty'
       }
     },
     submitHandler: function (form) {
@@ -23,8 +27,29 @@ $(document).ready(function() {
       $('#login').trigger('reset');
     }
   });
+
 });
 
+
 function ajaxAction() {
-  
+  data = $('#login').serializeArray();
+
+  v_dump = $.ajax({
+    data: data,
+    url: '../../application/login/data.php',
+    type: 'post',
+    dataType: 'json',
+    success: function(response) {
+      if(response == 404) {
+        alert('User tidak terdaftar');
+      } else if (response == 0) {
+        alert('username atau password salah!');
+      } else if (response == 1) {
+        window.location.href = "../../index.php";
+      }
+    },
+    error: function(response) {
+      alert('Malfunction system');
+    }
+  });
 }
