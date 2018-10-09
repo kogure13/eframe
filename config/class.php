@@ -65,6 +65,8 @@ class Main {
   }
 
   function get_topbar() {
+    $db = new dbObj();
+    $connString = $db->getConstring();
     $user = new user($connString);
     include_once 'model/topbar.php';
   }

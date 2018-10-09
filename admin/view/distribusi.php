@@ -2,59 +2,59 @@
 <div class="row table-distribusi">
   <div class="col-sm-12">
     <div class="card-box">
-      <div class="form-group">
+      <div class="form-group" style="display: <?=($_SESSION['role'] == 1) ? 'block' : 'none' ?>">
         <div class="btn-group">
           <button type="button" class="btn btn-sm btn-primary">
             <i class="fa fa-plus"></i>
           </button>
-          <button id="btn_add_distribusi" class="btn btn-sm btn-primary">                    
+          <button id="btn_add_distribusi" class="btn btn-sm btn-primary">
             <span id="btn_add_dist_val"></span>
           </button>
           <button type="button" class="btn btn-sm btn-success">
             <i class="fa fa-upload"></i>
           </button>
-          <button id="btn_upload_dist" class="btn btn-sm btn-success">                    
+          <button id="btn_upload_dist" class="btn btn-sm btn-success">
             <span id="btn_upload_dist_val"></span>
           </button>
-        </div>                
+        </div>
       </div>
 
       <div class="row">
         <div class="col-lg-12 col-sm-12">
           <ul class="nav nav-tabs navtab-bg">
-            <li class="active">
+            <li class="active" style="display: <?=($_SESSION['role'] == 1) ? 'block' : 'none' ?>">
               <a href="#1" data-toggle="tab" aria-expanded="true">
                 <span class="visible-xs"></span>
                 <span class="hidden-xs">Terkirim</span>
               </a>
             </li>
-            <li>
+            <li style="display: <?=($_SESSION['role'] == 1) ? 'block' : 'none' ?>">
               <a href="#2" data-toggle="tab" aria-expanded="true">
                 <span class="visible-xs"></span>
                 <span class="hidden-xs">Upload</span>
               </a>
             </li>
-            <li>
+            <li style="display: <?=($_SESSION['role'] == 2) ? 'block' : 'none' ?>">
               <a href="#3" data-toggle="tab" aria-expanded="true">
                 <span class="visible-xs"></span>
                 <span class="hidden-xs">Diterima</span>
               </a>
             </li>
-            <li>
+            <li style="display: <?=($_SESSION['role'] == 2) ? 'block' : 'none' ?>">
               <a href="#4" data-toggle="tab" aria-expanded="true">
                 <span class="visible-xs"></span>
                 <span class="hidden-xs">Download</span>
               </a>
-            </li>            
+            </li>
           </ul>
           <div class="tab-content">
             <div class="tab-pane active" id="1">
             </div>
             <div class="tab-pane" id="2">
             </div>
-            <div class="tab-pane" id="3">              
+            <div class="tab-pane" id="3">
             </div>
-            <div class="tab-pane" id="4">              
+            <div class="tab-pane" id="4">
             </div>
           </div>
         </div>
@@ -134,7 +134,7 @@
         <div class="">
           <button type="button" id="btn_cancel_iaudit" class="btn btn-sm btn-danger" data-dismiss="modal">Close</button>
           <button type="submit" id="btn_add_iaudit" class="btn btn-sm btn-primary">Save</button>
-        </div>                        
+        </div>
       </div>
     </div>
 
@@ -177,7 +177,7 @@
         <div class="">
           <button type="button" id="btn_cancel_uaudit" class="btn btn-sm btn-danger" data-dismiss="modal">Close</button>
           <button type="submit" id="btn_add_uaudit" class="btn btn-sm btn-primary">Save</button>
-        </div>                        
+        </div>
       </div>
     </div>
 

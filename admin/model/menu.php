@@ -24,12 +24,13 @@
             <span>Distribusi</span>
           </a>
         </li>
-        <li>
+        <li style="display: <?=($_SESSION['role'] == 2) ? 'block' : 'none' ?>">
           <a href="?page=haudit">
             <i class="ti-files"></i>
             <span>Hasil Audit</span>
           </a>
         </li>
+        <?php if($_SESSION['role'] == 1) { ?>
         <li>
           <a href="?page=kompilasi">
             <i class="ti-package"></i>
@@ -57,8 +58,9 @@
             </li>
           </ul>
         </li>
-
+<?php } ?>
         <li class="text-muted menu-title">Data Master</li>
+        <?php if($_SESSION['role'] == 1) { ?>
         <li>
           <a href="?page=user">
             <i class="ti-user"></i>
@@ -113,12 +115,15 @@
             </li>
           </ul>
         </li>
+      <?php } ?>
+        <?php if($_SESSION['role'] == 2) { ?>
         <li>
           <a href="?page=artikel">
             <i class="ti-files"></i>
             <span>Artikel</span>
           </a>
         </li>
+      <?php } ?>
         <?php } else { ?>
         <li>
           <a href="?page=login">
