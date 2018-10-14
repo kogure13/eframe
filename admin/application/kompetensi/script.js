@@ -1,15 +1,26 @@
 
 $(document).ready(function() {
-  
+
+  var id = $('#pkompetensi').attr('data-id');
+  //get information employee
+  $.ajax({
+    url: 'application/kompetensi/data.php?id='+id,
+    type: 'post',
+    dataType: 'json',
+    success: function(data) {
+      $('#pkompetensi').html(data.nama);
+    }
+  });
+
   $('#pkompetensi').attr('style', 'cursor: pointer');
   $('#pkompetensi').on('click', function() {
-    alert($(this).attr('id'));
+
   });
-  
+
   $('#grid_table1').jsGrid({
     width: "100%",
     height: "auto",
-    
+
     filtering: true,
     inserting: true,
     editing: true,
@@ -19,7 +30,7 @@ $(document).ready(function() {
     pageSize: 10,
     pageButtonCount: 5,
     deleteConfirm: "Yakin hapus data ini ?",
-    
+
     fields: [
       {
         name: "id",
@@ -49,11 +60,11 @@ $(document).ready(function() {
       }
     ]
   });//grid table1
-  
+
   $('#grid_table2').jsGrid({
     width: "100%",
     height: "auto",
-    
+
     filtering: true,
     inserting: true,
     editing: true,
@@ -63,7 +74,7 @@ $(document).ready(function() {
     pageSize: 10,
     pageButtonCount: 5,
     deleteConfirm: "Yakin hapus data ini ?",
-    
+
     fields: [
       {
         name: "id",
@@ -93,11 +104,11 @@ $(document).ready(function() {
       }
     ]
   });//grid table2
-  
+
   $('#grid_table3').jsGrid({
     width: "100%",
     height: "auto",
-    
+
     filtering: true,
     inserting: true,
     editing: true,
@@ -107,7 +118,7 @@ $(document).ready(function() {
     pageSize: 10,
     pageButtonCount: 5,
     deleteConfirm: "Yakin hapus data ini ?",
-    
+
     fields: [
       {
         name: "id",

@@ -12,7 +12,7 @@
           </a>
         </li>
         <?php if(isset($_SESSION['eaudit_user'])) { ?>
-        <li>
+        <li style="display: <?=($_SESSION['role'] == 2) ? 'block' : 'none' ?>">
           <a href="?page=kompetensi">
             <i class="ti-bar-chart"></i>
             <span>Peta Kompetensi</span>
@@ -58,7 +58,7 @@
             </li>
           </ul>
         </li>
-<?php } ?>
+        <?php } ?>
         <li class="text-muted menu-title">Data Master</li>
         <?php if($_SESSION['role'] == 1) { ?>
         <li>

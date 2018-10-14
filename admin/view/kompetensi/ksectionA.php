@@ -11,12 +11,12 @@
       <td>
         <div class="radio radio-info radio-inline">
           <?=$userUI->rdck("radio", "ka11", "ya", "ka1")?>
-          
+
           <label for="ya"> Ya </label>
         </div>
         <div class="radio radio-info radio-inline">
           <?=$userUI->rdck("radio", "ka12", "tidak", "ka1")?>
-          
+
           <label for="tidak"> Tidak </label>
         </div>
       </td>
@@ -29,12 +29,12 @@
       <td>
         <div class="radio radio-info radio-inline">
           <?=$userUI->rdck("radio", "ka21", "ya", "ka2")?>
-          
+
           <label for="ya"> Ya </label>
         </div>
         <div class="radio radio-info radio-inline">
           <?=$userUI->rdck("radio", "ka22", "tidak", "ka2")?>
-          
+
           <label for="tidak"> Tidak </label>
         </div>
       </td>
@@ -46,12 +46,12 @@
       <td>:</td>
       <td><div class="radio radio-info radio-inline">
           <?=$userUI->rdck("radio", "ka31", "ya", "ka3")?>
-          
+
           <label for="ya"> Ya </label>
         </div>
         <div class="radio radio-info radio-inline">
           <?=$userUI->rdck("radio", "ka32", "tidak", "ka3")?>
-          
+
           <label for="tidak"> Tidak </label>
         </div></td>
     </tr>
@@ -62,12 +62,12 @@
       <td>:</td>
       <td><div class="radio radio-info radio-inline">
           <?=$userUI->rdck("radio", "ka41", "ya", "ka4")?>
-          
+
           <label for="ya"> Ya </label>
         </div>
         <div class="radio radio-info radio-inline">
           <?=$userUI->rdck("radio", "ka42", "tidak", "ka4")?>
-          
+
           <label for="tidak"> Tidak </label>
         </div></td>
     </tr>
@@ -78,12 +78,12 @@
       <td>:</td>
       <td><div class="radio radio-info radio-inline">
           <?=$userUI->rdck("radio", "ka51", "ya", "ka5")?>
-          
+
           <label for="ya"> Ya </label>
         </div>
         <div class="radio radio-info radio-inline">
           <?=$userUI->rdck("radio", "ka52", "tidak", "ka5")?>
-          
+
           <label for="tidak"> Tidak </label>
         </div></td>
     </tr>
@@ -112,12 +112,12 @@
       <td>
         <div class="radio radio-info radio-inline">
           <?=$userUI->rdck("radio", "kb11", "ya", "kb1")?>
-          
+
           <label for="ya"> Ya </label>
         </div>
         <div class="radio radio-info radio-inline">
           <?=$userUI->rdck("radio", "kb12", "tidak", "kb1")?>
-          
+
           <label for="tidak"> Tidak </label>
         </div>
       </td>
@@ -130,12 +130,12 @@
       <td>
         <div class="radio radio-info radio-inline">
           <?=$userUI->rdck("radio", "kb21", "ya", "kb2")?>
-          
+
           <label for="ya"> Ya </label>
         </div>
         <div class="radio radio-info radio-inline">
           <?=$userUI->rdck("radio", "kb22", "tidak", "kb2")?>
-          
+
           <label for="tidak"> Tidak </label>
         </div>
       </td>
@@ -153,12 +153,12 @@
       <td>
         <div class="radio radio-info radio-inline">
           <?=$userUI->rdck("radio", "kc11", "ya", "kc1")?>
-          
+
           <label for="ya"> Ya </label>
         </div>
         <div class="radio radio-info radio-inline">
-          <?=$userUI->rdck("radio", "kc12", "tidak", "kc2")?>
-          
+          <?=$userUI->rdck("radio", "kc12", "tidak", "kc1")?>
+
           <label for="tidak"> Tidak </label>
         </div>
       </td>

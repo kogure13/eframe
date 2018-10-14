@@ -7,8 +7,8 @@
           <div class="col-sm-12 hidden-xs">
             <div class="panel panel-primary">
               <div class="panel-heading">
-                <h4 class="panel-title" id="pkompetensi">
-                  <?= strtoupper("Joko Sapto Pratolo, M.Si") ?>                  
+                <h4 class="panel-title" id="pkompetensi"
+                    data-id="<?=$_SESSION['id_ref']?>">
                 </h4>
               </div>
             </div>
@@ -39,7 +39,7 @@
                 <span class="visible-xs"></span>
                 <span class="hidden-xs">Kegiatan Pelatihan</span>
               </a>
-            </li>            
+            </li>
           </ul>
           <div class="tab-content">
             <div class="tab-pane active" id="1">
@@ -61,7 +61,7 @@
                 <label for="ka3">Karya tulis</label>
                 <div id="grid_table2"></div>
               </div>
-            </div>            
+            </div>
           </div>
         </div>
       </div>

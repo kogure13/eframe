@@ -588,6 +588,18 @@ class karyawan {
     return $json_data;
   }
 
+  function dtKaryawan($id) {
+    $json_data = [];
+    $sql = "SELECT * FROM master_karyawan";
+    $sql .= " WHERE id = ".$id;
+
+    $query = mysqli_query($this->conn, $sql) or die('error to fecth data');
+    while ($row = mysqli_fetch_assoc($query)) {
+      $json_data = $row;
+    }
+    echo json_encode($json_data);
+  }
+
 }//end class karyawan
 //end class master karyawan
 
