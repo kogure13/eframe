@@ -3,11 +3,10 @@
 class dbObj {
 
   var $DB_Host = "localhost"; //koneksi localhost
-  // var $DB_Host = "192.168.0.128"; //koneksi ip\domain
   var $DB_Name = "db_itjen"; //nama database
   var $DB_User = "root"; //user database
   var $DB_Pass = "1234"; //password database
-  // var $DB_Pass = "password"; //password database
+
   var $conn;
 
   function getConstring() {
@@ -624,4 +623,31 @@ class distribusi {
   }
 
 }//end class distribusi
+
+class home {
+  protected $conn;
+  protected $data = [];
+  
+  function __construct($connString) {
+    $this->conn = $connString;
+  }
+
+  public function getKata($params) {
+    $sql = "SELECT * FROM master_kata_pengantar";
+    $result = mysqli_query($this->conn, $sql) or die('error to kata pengantar');
+    $row = mysqli_fetch_assoc($result);
+    
+    return $row['kata'];
+  }
+  
+  public function getPengumuman($params) {
+    $sql = "SELECT * FROM master_pengumuman";
+    $result = mysqli_query($this->conn, $sql) or die('error fetch pengumuman');
+    while ($row = mysqli_fetch_assoc($result)) {
+      $data[] = $row;
+    }
+    
+    return $data;
+  }
+}//end class home
 ?>

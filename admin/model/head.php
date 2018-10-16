@@ -41,7 +41,43 @@
   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
   <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
   <![endif]-->
+  <!--<script src="assets/js/modernizr.min.js"></script>-->
+  <style>
+    .fixed-panel {
+      max-height: 330px;
+      overflow-y: scroll;
+    }
+    ﻿.glyphicon
+    {
+      margin-right:4px !important; /*override*/
+    }
 
-    <!--<script src="assets/js/modernizr.min.js"></script>-->
+    .pagination .glyphicon
+    {
+      margin-right:0px !important; /*override*/
+    }
 
+    .pagination a
+    {
+      color:#555;
+    }
+
+    .panel ul
+    {
+      padding:0px;
+      margin:0px;
+      list-style:none;
+    }
+
+    .news-item
+    {
+      padding:4px 4px;
+      margin:0px;
+      border-bottom:1px dotted #555; 
+    }
+    
+    .demo1 {
+      min-height: 197px;
+    }
+  </style>
 </head>

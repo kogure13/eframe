@@ -67,6 +67,8 @@
     <script src="assets/plugins/counterup/jquery.counterup.min.js"></script>
     <script src="assets/plugins/jquery-knob/jquery.knob.js"></script>                
     <script src="assets/js/jquery.validate.min.js"></script>
+    
+    <script src="assets/js/jquery.bootstrap.newsbox.min.js"></script>
         
     <script src="assets/js/jquery.core.js"></script>
     <script src="assets/js/jquery.app.js"></script>    

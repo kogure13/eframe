@@ -1,5 +1,7 @@
 $(document).ready(function () {
   
+  $('#textSambutan').val('aaa');
+  
   if ($("#textSambutan").length > 0) {
     tinymce.init({
       selector: "textarea#textSambutan",
