@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-sm-12">
     <div class="card-box">
-      <form id="form_model" name="form_model" novalidate="novalidate">
+      <form id="form_model" name="form_model" method="post">
         <div class="modal-body">
           <input type="hidden" value="add" name="action" id="action">
           <input type="hidden" value="0" name="edit_id" id="edit_id">

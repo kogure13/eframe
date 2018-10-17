@@ -42,18 +42,13 @@
   <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
   <![endif]-->
   <!--<script src="assets/js/modernizr.min.js"></script>-->
-  <style>
+  <style>    
     .isi {
       font-size: 14px;
       font-weight: 300;
       line-height: 0.1em;
       text-justify: distribute;
-    }
-    
-    .fixed-panel {
-      max-height: 330px;
-      overflow-y: scroll;
-    }
+    }        
     ﻿.glyphicon
     {
       margin-right:4px !important; /*override*/

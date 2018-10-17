@@ -12,8 +12,7 @@ $(document).ready(function () {
       });
       $('#pengumuman').append(items_pengumuman);
     }
-  });
-  console.log(v_dump)
+  });  
 
   $('.demo1').bootstrapNews({
     newsPerPage: 2,

@@ -14,7 +14,13 @@
                 Sambutan Inspektorat
               </h3> 
             </div>
-            <div class="panel-body fixed-panel" id="kata"></div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div id="kata"></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-6">

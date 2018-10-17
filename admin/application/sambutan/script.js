@@ -1,7 +1,26 @@
 $(document).ready(function () {
-  
-  $('#textSambutan').val('aaa');
-  
+
+  $.ajax({
+    url: 'application/sambutan/data.php',
+    type: 'post',
+    dataType: 'json',
+    success: function (data, textStatus, jqXHR) {
+      $('#textSambutan').val(data.kata);
+    }
+  });
+
+  $('#form_model').validate({
+    submitHandler: function () {
+      var com_action = $('#action').val();
+      if (com_action == 'add') {
+        ajaxAction('add');
+      }
+    }
+  });
+
+//  var contentTiny = tinymce.activeEditor.getContent();
+//  console.log(tinyMCE.activeEditor.getContent())
+
   if ($("#textSambutan").length > 0) {
     tinymce.init({
       selector: "textarea#textSambutan",
@@ -21,7 +40,29 @@ $(document).ready(function () {
         {title: 'Example 2', inline: 'span', classes: 'example2'},
         {title: 'Table styles'},
         {title: 'Table row 1', selector: 'tr', classes: 'tablerow1'}
-      ]
+      ],
+      setup: function(editor) {
+        editor.on('change', function() {
+          editor.save();
+        });
+      }
     });
   }
 });
+
+function ajaxAction(action) {
+  data = $('#form_model').serializeArray();
+
+  v_dump = $.ajax({
+    url: 'application/sambutan/data.php',
+    type: 'post',
+    dataType: 'json',
+    data: data,
+    success: function (response) {
+      if (response == 1) {
+        location.reload();
+      }
+    }
+  });
+  console.log(data)
+}
