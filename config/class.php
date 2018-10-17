@@ -651,6 +651,109 @@ class home {
   }
 }//end class home
 
+class sambutan {
+
+  protected $conn;
+  protected $data = [];
+
+  function __construct($connString) {
+    $this->conn = $connString;
+  }
+
+  function getData() {
+    $sql = "SELECT * FROM master_kata_pengantar";
+    $result = mysqli_query($this->conn, $sql) or die('error to fetch sambutan');
+    while ($row = mysqli_fetch_assoc($result)) {
+      $data = $row;
+    }
+    echo json_encode($data);
+  }
+  
+  function insertData($params) {
+    $sql = "UPDATE master_kata_pengantar SET";
+    $sql .= " kata = '".  addslashes($params['textSambutan'])."'";
+    $result = mysqli_query($this->conn, $sql) or die('error update data');
+    echo 1;
+  }
+
+}//end class sambutan
+
+class pengumuman {
+  protected $ccnn;
+  protected $data = [];
+  
+  function __construct($connString) {
+    $this->conn = $connString;
+  }
+  
+  function getData($req, $col) {
+    $this->data = $this->getRecords($req, $col);
+    echo json_encode($this->data);
+  }
+  
+  function getRecords($req, $col) {
+    $sqlTot = "SELECT * ";
+    $sqlTot .= "FROM master_pengumuman ";
+
+    $sql = $sqlTot;
+
+    $qTot = mysqli_query($this->conn, $sqlTot) or die("error fetch data: ");
+
+    $totalData = mysqli_num_rows($qTot);
+    $totalFiltered = $totalData;
+
+    if (!empty($req['search']['value'])) {
+      $sql .= " WHERE nama LIKE '%" . $req['search']['value'] . "%' ";
+      $sql .= " OR nip LIKE '%" . $req['search']['value'] . "%'";
+
+      $query = mysqli_query($this->conn, $sql) or die("ajax-grid-data.php: get PO");
+      $totalFiltered = mysqli_num_rows($query);
+      $sql .=" ORDER BY " . $col[$req['order'][0]['column']] . " " .
+              $req['order'][0]['dir'] . " LIMIT " . $req['start'] . " ," . $req['length'] . " ";
+      $query = mysqli_query($this->conn, $sql) or die("ajax-grid-data.php: get PO");
+    } else {
+      $sql .=" ORDER BY " . $col[$req['order'][0]['column']] . "
+            " . $req['order'][0]['dir'] . " LIMIT " . $req['start'] . " ,
+            " . $req['length'] . " ";
+      $query = mysqli_query($this->conn, $sql) or die("ajax-grid-data.php: get PO");
+    }
+
+    $act = new userUI($this->conn);
+    $jabatan = new jabatan($this->conn);
+    $golongan = new golongan($this->conn);
+    $peran = new peran($this->conn);
+
+    while ($row = mysqli_fetch_assoc($query)) {
+      $nestedData = [];
+
+      $nestedData[] = $act->editLink($row['id']);
+      $nestedData[] = NULL;
+      $nestedData[] = $row['judul'];
+      $nestedData[] = $row['pengumuman'];
+      $nestedData[] = $row['createddate'];
+      $nestedData[] = $row['modifieddate'];      
+
+      $data[] = $nestedData;
+    }
+    if ($totalData > 0) {
+      $json_data = array(
+          "draw" => intval($req['draw']),
+          "recordsTotal" => intval($totalData),
+          "recordsFiltered" => intval($totalFiltered),
+          "data" => $data
+      );
+    } else {
+      $json_data = array(
+          "draw" => 0,
+          "recordsTotal" => 0,
+          "recordsFiltered" => 0,
+          "data" => []
+      );
+    }
+    return $json_data;
+  }
+}//end class pengumuman
+
 class read {
   protected $conn;
   protected $data = [];
@@ -671,5 +774,6 @@ class read {
     
     echo json_encode($data);
   }
-}
+}//end class read artikel/pengumuman
+
 ?>

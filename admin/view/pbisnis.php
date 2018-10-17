@@ -1,11 +1,25 @@
 <div class="row">
   <div class="col-sm-12">
     <div class="card-box">
-
+      <div class="pull-right" style="display: block;">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-primary">
+                  <i class="fa fa-plus"></i>
+                </button>
+                <button id="btn_add" class="btn btn-sm btn-primary">
+                  <span id="btn_add"></span>
+                </button>                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <h4 class="page-title">Upload SOP</h4>
       <h5 class="page-title-alt m-t-5"><?= company_name ?></h5>
-
 
       <table id="lookup"
              class="table table-striped table-bordered dt-responsive nowrap" 
@@ -54,7 +68,7 @@
               </div>
             </div>
           </div>
-          
+
           <div class="form-group">
             <div class="row">
               <div class="col-sm-6">
@@ -65,7 +79,7 @@
               </div>
             </div>
           </div>
-          
+
           <div class="form-group">
             <div class="row">
               <div class="col-sm-6">
@@ -74,7 +88,7 @@
               </div>
             </div>
           </div>
-          
+
           <div class="form-group">
             <div class="row">
               <div class="col-sm-6">

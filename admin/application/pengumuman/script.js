@@ -19,6 +19,71 @@ $(document).ready(function () {
     $form.find('.error').removeClass('error');
   });
   
+  var dataTable = $('#lookup').dataTable({
+    'bLengthChange': false,
+    'autoWidth': false,
+    'aoColumnDefs': [
+      {'bSortable': false, 'aTargets': ['nosort']}
+    ],
+    'processing': true,
+    'serverSide': true,
+    'ajax': {
+      type: 'POST',
+      dataType: 'JSON',
+      url: 'application/pengumuman/ajax.php',
+      error: function () {
+        $.Notification.notify(
+                'error', 'top center',
+                'Warning',
+                'Data tidak tersedia'
+                );
+      }
+    },
+    fnDrawCallback: function (oSettings) {      
+
+      $('.act_btn').each(function () {
+        $(this).tooltip({
+          html: true
+        });
+      });
+
+      $('.act_btn').on('click', function (e) {
+        e.preventDefault();
+        var com = $(this).attr('data-original-title');
+        var id = $(this).attr('id');
+
+        if (com == 'Edit') {
+          $('#add_model').modal({backdrop: 'static', keyboard: false});
+          $('.modal-title').html('Edit pengumuman');
+          $('#action').val('edit');
+          $('#edit_id').val(id);
+          tb_name = 'master_pengumuman';
+
+          v_edit = $.ajax({
+            url: 'application/data/edit.php?id=' + id + '&tb_name=' + tb_name,
+            type: 'GET',
+            dataType: 'JSON',
+            success: function (data) {
+              $('#judul').val(data.judul);
+              $('#textPengumuman').val(data.pengumuman);              
+            }
+          });
+
+        } else if (com == 'Delete') {
+          var conf = confirm('Delete this items ?');
+          var url = 'application/pengumuman/data.php';
+
+          if (conf) {
+            $.post(url, {id: id, action: com.toLowerCase()}, function () {
+              var table = $('#lookup').DataTable();
+              table.ajax.reload();
+            });
+          }
+        }
+      });
+    }
+  });
+  
   if ($("#textPengumuman").length > 0) {
     tinymce.init({
       selector: "textarea#textPengumuman",
