@@ -43,6 +43,13 @@
   <![endif]-->
   <!--<script src="assets/js/modernizr.min.js"></script>-->
   <style>
+    .isi {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 0.1em;
+      text-justify: distribute;
+    }
+    
     .fixed-panel {
       max-height: 330px;
       overflow-y: scroll;

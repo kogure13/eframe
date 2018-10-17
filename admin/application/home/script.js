@@ -7,7 +7,8 @@ $(document).ready(function () {
     success: function (data, textStatus, jqXHR) {
       $('#kata').html(data.kata);
       $.each(data.pengumuman, function (key, value) {
-        items_pengumuman += '<li class="news-item">' + value.judul + ' <a href="#">read more...</a></li>';
+        items_pengumuman += '<li class="news-item">' + value.judul 
+                + ' <a href="?page=read&text=pg&q='+value.id+'">read more...</a></li>';
       });
       $('#pengumuman').append(items_pengumuman);
     }

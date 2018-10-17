@@ -650,4 +650,26 @@ class home {
     return $data;
   }
 }//end class home
+
+class read {
+  protected $conn;
+  protected $data = [];
+  
+  function __construct($connString) {
+    $this->conn = $connString;
+  }
+  
+  public function readPg($id) {
+    $sql = "SELECT id, judul, pengumuman AS content, createddate AS tgl ";
+    $sql .= " FROM master_pengumuman";
+    $sql .= " WHERE id = '".$id."'";
+    
+    $result = mysqli_query($this->conn, $sql) or die('error fetch read pengumuman');
+    while ($row = mysqli_fetch_assoc($result)) {
+      $data = $row;
+    }
+    
+    echo json_encode($data);
+  }
+}
 ?>
