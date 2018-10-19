@@ -5,7 +5,7 @@ class dbObj {
   var $DB_Host = "localhost"; //koneksi localhost
   var $DB_Name = "db_itjen"; //nama database
   var $DB_User = "root"; //user database
-  var $DB_Pass = ""; //password database
+  var $DB_Pass = "1234"; //password database
 
   var $conn;
 

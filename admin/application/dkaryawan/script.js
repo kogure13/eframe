@@ -19,28 +19,78 @@ $(document).ready(function () {
     $form.find('.error').removeClass('error');
   });
 
+  var items_golongan = '';
+  var items_jabatan = '';
+  var items_peran = '';
+
+  $.ajax({
+    url: 'application/jabatan/option_jabatan.php',
+    type: 'post',
+    dataType: 'json',
+    success: function (data, textStatus, jqXHR) {
+      $.each(data, function (key, value) {
+        items_jabatan += '<option value="' + value.id + '">' + value.jabatan + '</option>';
+      });
+
+      $('#jabatan').append(items_jabatan);
+    }
+  });
+
+  $.ajax({
+    url: 'application/golongan/option_golongan.php',
+    type: 'post',
+    dataType: 'json',
+    success: function (data, textStatus, jqXHR) {
+      $.each(data, function (key, value) {
+        items_golongan += '<option value="' + value.id + '">' + value.golongan + '</option>';
+      });
+
+      $('#golongan').append(items_golongan);
+    }
+  });
+
+  $.ajax({
+    url: 'application/peran/option_peran.php',
+    type: 'post',
+    dataType: 'json',
+    success: function (data, textStatus, jqXHR) {
+      $.each(data, function (key, value) {
+        items_peran += '<option value="' + value.id + '">' + value.peran + '</option>';
+      });
+
+      $('#peran').append(items_peran);
+    }
+  });
+
   $('#form_model').validate({
     rules: {
-      karyawanname: {
-        required: true,
-        minlength: 4
-      },
-      password: {
+      nip: {
         required: true
       },
-      role: {
+      nama: {
+        required: true
+      },
+      jabatan: {
+        required: true
+      },
+      golongan: {
+        required: true
+      },
+      peran: {
         required: true
       }
     },
     messages: {
-      karyawanname: {
-        required: '*) field is required',
-        minlength: 'min 4 char'
-      },
-      password: {
+      nip: {
         required: '*) field is required'
       },
-      role: {
+      nama: {
+        required: '*) field is required'
+      },
+      golongan: {
+        required: '*) choose one'
+      },
+      peran: {
         required: '*) choose one'
       }
     },
@@ -110,12 +160,12 @@ $(document).ready(function () {
           $('#edit_id').val(id);
 
           v_edit = $.ajax({
-            url: 'application/edit.php?id=' + id + '&tb_name=master_karyawan',
+            url: 'application/dkaryawan/edit.php?id=' + id + '&tb_name=master_karyawan',
             type: 'POST',
             dataType: 'JSON',
             success: function (data) {
               $('#nip').val(data.nip);
-              $('#nama').val(data.nama);              
+              $('#nama').val(data.nama);
               $('#alamat').val(data.alamat);
               $('#tlp').val(data.tlp);
               $('#jabatan').val(data.id_jabatan);
@@ -138,26 +188,26 @@ $(document).ready(function () {
       });
     }
   });//end datatable
-  console.log(dataTable)
 
 });
 
 function ajaxAction(action) {
   data = $('#form_model').serializeArray();
   url = 'application/dkaryawan/data.php';
-  var dataTable = $('#lookup').dataTable();
+  var table = $('#lookup').DataTable();
 
-
-//  var v_dump = $.ajax({
-//    url: url,
-//    type: 'post',
-//    dataType: 'json',
-//    data: data,
-//    success: function () {
-//
-//    },
-//    error: function () {}
-//  });
-
-  console.log(data)
+  var v_dump = $.ajax({
+    url: url,
+    type: 'post',
+    dataType: 'json',
+    data: data,
+    success: function (response) {
+      if (response == 0) {
+        alert('data berhasil diupdate');
+        $('#add_model').modal('hide');
+        table.ajax.reload();
+      }
+      
+    }
+  });
 }

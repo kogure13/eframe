@@ -141,5 +141,4 @@ function ajaxAction(action) {
       }
     }
   });
-
 }

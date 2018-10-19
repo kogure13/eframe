@@ -8,8 +8,8 @@ $dataClass = new golongan($connString);
 
 $requestData = $_REQUEST;
 $columns = array(    
-    0 => 'id',
-    1 => 'golongan'
+    0 => 'golongan',
+    1 => 'id'
 );
 
 $dataClass->getData($requestData, $columns);

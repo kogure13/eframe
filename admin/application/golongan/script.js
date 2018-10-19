@@ -22,8 +22,7 @@ $(document).ready(function () {
   $('#form_model').validate({
     rules: {
       golongan: {
-        required: true,
-        minlength: 4
+        required: true
       }
     },
     messages: {
