@@ -494,7 +494,7 @@ class peran {
   }
 
   public function peranKelompok($id) {
-    $data = [];
+    //$data = [];
     $sql = "SELECT * FROM kelompok_peran WHERE id_peran = '" . $id . "'";
     $query = mysqli_query($this->conn, $sql) or die;
 
