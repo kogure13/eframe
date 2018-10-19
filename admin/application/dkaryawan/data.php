@@ -33,11 +33,25 @@ class CRUD {
     } else {
       $sql = "INSERT INTO " . $tb_name;
       $sql .= " (nip, nama, alamat, tlp, id_jabatan, id_golongan, id_peran)";
-      $sql .= " VALUES('".$params['nip']."', '".addslashes($params['nama'])."', "
-              . "'".addslashes($params['alamat'])."', '".$params['tlp']."', "
-              . "'".$params['jabatan']."', '".$params['golongan']."', '".$params['peran']."')";
-      
-      $result = mysqli_query($this->conn, $sql) or die("error to insert data");
+      $sql .= " VALUES('" . $params['nip'] . "', '" . addslashes($params['nama']) . "', "
+              . "'" . addslashes($params['alamat']) . "', '" . $params['tlp'] . "', "
+              . "'" . $params['jabatan'] . "', '" . $params['golongan'] . "', '" . $params['peran'] . "')";
+
+      //$result = mysqli_query($this->conn, $sql) or die("error to insert data");
+      if (mysqli_query($this->conn, $sql)) {
+        $last_id = mysqli_insert_id($this->conn);
+
+        $sq = "SELECT id, nip FROM " . $tb_name;
+        $sq .= " WHERE id = '" . $last_id . "'";
+
+        $rts = mysqli_query($this->conn, $sq) or die();
+        $rs = mysqli_fetch_assoc($rts);
+
+        $si = "INSERT INTO master_user (username, password, id_karyawan, role)";
+        $si .= " VALUES('" . $rs['nip'] . "', '" . $rs['nip'] . "', '" . $rs['id'] . "', '2')";
+
+        $qsi = mysqli_query($this->conn, $si);
+      }
       echo 0;
     }
   }
@@ -47,12 +61,12 @@ class CRUD {
     if ($numData > 1) {
       echo 1;
     } else {
-      $sql = "UPDATE " . $tb_name ." SET";
-      $sql .= " nip = '".$params['nip']."', nama = '".addslashes($params['nama'])."', "
-              . "alamat = '".addslashes($params['alamat'])."', tlp = '".$params['tlp']."', "
-              . "id_jabatan = '".$params['jabatan']."', id_golongan = '".$params['golongan']."', "
-              . "id_peran = '".$params['peran']."'";
-      $sql .= " WHERE id = ".$params['edit_id'];
+      $sql = "UPDATE " . $tb_name . " SET";
+      $sql .= " nip = '" . $params['nip'] . "', nama = '" . addslashes($params['nama']) . "', "
+              . "alamat = '" . addslashes($params['alamat']) . "', tlp = '" . $params['tlp'] . "', "
+              . "id_jabatan = '" . $params['jabatan'] . "', id_golongan = '" . $params['golongan'] . "', "
+              . "id_peran = '" . $params['peran'] . "'";
+      $sql .= " WHERE id = " . $params['edit_id'];
       $result = mysqli_query($this->conn, $sql) or die("error to update data");
       echo 0;
     }

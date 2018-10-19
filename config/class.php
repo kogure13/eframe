@@ -172,7 +172,7 @@ class user {
 
     $sqlTot = "SELECT master_user.id, username, nama, role ";
     $sqlTot .= "FROM master_user ";
-    $sqlTot .= "JOIN master_karyawan ON master_user.id_karyawan = master_karyawan.id";
+    $sqlTot .= "LEFT OUTER JOIN master_karyawan ON master_user.id_karyawan = master_karyawan.id";
 
     $sql = $sqlTot;
 
