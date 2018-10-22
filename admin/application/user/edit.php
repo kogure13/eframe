@@ -30,7 +30,7 @@ class edit {
   function getData($id, $tb_name) {
     $sql = "SELECT master_user.id, username, password, nama, role";
     $sql .= " FROM $tb_name";
-    $sql .= " JOIN master_karyawan ON master_user.id_karyawan = master_karyawan.id";
+    $sql .= " LEFT OUTER JOIN master_karyawan ON master_user.id_karyawan = master_karyawan.id";
     $sql .= " WHERE $tb_name.id = $id";
     
     $result = mysqli_query($this->conn, $sql) or die('error to fecth data');

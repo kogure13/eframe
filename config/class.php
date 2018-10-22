@@ -483,7 +483,7 @@ class peran {
     echo '<div class="row">';
     while ($row = mysqli_fetch_assoc($query)) {
       echo '<div class="col-sm-6">';
-      echo $userUI->rdck("checkbox", "idkelompok", $row['id'], "idkelompok");
+      echo $userUI->rdck("checkbox", "idkelompok", $row['id'], "idkelompok[]");
       echo $row['peran'];
       echo '<ol>';
       echo $this->peranKelompok($row['id']);
@@ -565,7 +565,6 @@ class karyawan {
       $nestedData[] = $row['alamat'];
       $nestedData[] = $row['tlp'];
       $nestedData[] = $peran->getPeran($row['id_peran']);
-      $nestedData[] = $row['is_kordinator'];
 
       $data[] = $nestedData;
     }
@@ -606,12 +605,23 @@ class distribusi {
 
   protected $conn;
   protected $data = [];
-
+  
+  function __construct($connString) {
+    $this->conn = $connString;
+  }
+  
+  function insert_iaudit($params) {
+    echo $params['idkelompok'];
+  }
+  
+  function insert_uaudit($params) {}
+  
+  
   public function sifat() {
 
     $sifat_distribusi = array(
         "Rahasia" => "Rahasia",
-        "Penting" => "penting",
+        "Penting" => "Penting",
         "Biasa" => "Biasa",
         "Segera" => "Segera",
         "Sangat Segera" => "Sangat Segera"

@@ -13,6 +13,7 @@ $hari = date("w");
 $hari_ini = $seminggu[$hari];
 
 $nospace_date = date("Ymd");
+$tgl_database = date("Y-m-d");
 $tgl_skrg     = date("d");
 $bln_sekarang = date("m");
 $thn_sekarang = date("Y");

@@ -15,8 +15,7 @@ $columns = array(
     4 => 'id_golongan',
     5 => 'alamat',
     6 => 'tlp',
-    7 => 'id_peran',
-    8 => 'is_kordinator'
+    7 => 'id_peran'
 );
 
 $dataClass->getData($requestData, $columns);
