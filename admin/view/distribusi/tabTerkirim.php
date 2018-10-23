@@ -2,7 +2,7 @@
            cellspacing="0" width="100%">
       <thead>
         <tr>
-          <th>Action</th>
+          <th class="nosort" width="40px">Action</th>
           <th>No. Agenda</th><th>Tgl. Agenda</th>
           <th>Perihal</th><th>Asal</th><th>Isi</th>
           <th>Sifat</th>

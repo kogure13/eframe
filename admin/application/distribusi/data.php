@@ -10,6 +10,8 @@ $params = $_REQUEST;
 $action = isset($params['action']) != '' ? $params['action'] : '';
 
 switch ($action) {
-  case 'iadd' : $distribusi->insert_iaudit($params);
+  case 'iadd': $distribusi->insert_iaudit($params);
+    break;
+  case 'uadd': $distribusi->insert_uaudit($params);
     break;
 }

@@ -2,9 +2,9 @@
        cellspacing="0" width="100%">
   <thead>
     <tr>
-      <th>Action</th>
-      <th>No/Tgl Agenda</th><th>Perihal</th>
-      <th>No/Tgl</th><th>Asal</th>
+      <th class="nosort" width="40px">Action</th>
+      <th>No. Agenda</th><th>Perihal</th>
+      <th>Asal</th><th>Isi Disposisi</th>
     </tr>
   </thead>
 </table>

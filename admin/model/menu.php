@@ -24,12 +24,21 @@
               <span>Distribusi</span>
             </a>
           </li>
-          <li style="display: <?= ($_SESSION['role'] == 2) ? 'block' : 'none' ?>">
+          <?php if($_SESSION['role'] == 2) { ?> 
+          <li>
+            <a href="?page=sop">
+              <i class="ti-reload"></i>
+              <span>Lembar SOP</span>
+            </a>
+          </li>
+          <li>
             <a href="?page=haudit">
               <i class="ti-files"></i>
               <span>Hasil Audit</span>
             </a>
-          </li>
+          </li>  
+            <?php }?>
+          
           <?php if ($_SESSION['role'] == 1) { ?>
             <li>
               <a href="?page=kompilasi">

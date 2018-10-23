@@ -206,8 +206,9 @@ function ajaxAction(action) {
         alert('data berhasil diupdate');
         $('#add_model').modal('hide');
         table.ajax.reload();
-      }
-      
+      } else if(response == 1) {
+        alert('data sudah tersedia');
+      }      
     }
   });
 }

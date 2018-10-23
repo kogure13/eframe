@@ -10,12 +10,6 @@
           <button id="btn_add_distribusi" class="btn btn-sm btn-primary">
             <span id="btn_add_dist_val"></span>
           </button>
-          <button type="button" class="btn btn-sm btn-success">
-            <i class="fa fa-upload"></i>
-          </button>
-          <button id="btn_upload_dist" class="btn btn-sm btn-success">
-            <span id="btn_upload_dist_val"></span>
-          </button>
         </div>
       </div>
 
@@ -28,22 +22,10 @@
                 <span class="hidden-xs">Terkirim</span>
               </a>
             </li>
-            <li style="display: <?= ($_SESSION['role'] == 1) ? 'block' : 'none' ?>">
-              <a href="#2" data-toggle="tab" aria-expanded="true">
-                <span class="visible-xs"></span>
-                <span class="hidden-xs">Upload</span>
-              </a>
-            </li>
             <li style="display: <?= ($_SESSION['role'] == 2) ? 'block' : 'none' ?>">
               <a href="#3" data-toggle="tab" aria-expanded="true">
                 <span class="visible-xs"></span>
                 <span class="hidden-xs">Diterima</span>
-              </a>
-            </li>
-            <li style="display: <?= ($_SESSION['role'] == 2) ? 'block' : 'none' ?>">
-              <a href="#4" data-toggle="tab" aria-expanded="true">
-                <span class="visible-xs"></span>
-                <span class="hidden-xs">Download</span>
               </a>
             </li>
           </ul>
@@ -51,14 +33,8 @@
             <div class="tab-pane <?= ($_SESSION['role'] == 1) ? 'active' : '' ?>" id="1">
               <?php include_once 'distribusi/tabTerkirim.php'; ?>
             </div>
-            <div class="tab-pane" id="2">
-              <?php include_once 'distribusi/tabUpload.php'; ?>
-            </div>
             <div class="tab-pane <?= ($_SESSION['role'] == 2) ? 'active' : '' ?>" id="3">
               <?php include_once 'distribusi/tabTerima.php'; ?>
-            </div>
-            <div class="tab-pane" id="4">
-              <?php include_once 'distribusi/tabDownload.php'; ?>
             </div>
           </div>
         </div>
@@ -73,7 +49,7 @@
 
   <div class="row">
     <form id="form_iaudit" name="form_iaudit" novalidate="novalidate">
-      <input type="hidden" value="add" name="action_iaudit" id="action">
+      <input type="hidden" value="iadd" name="action" id="action_iaudit">
       <input type="hidden" value="0" name="edit_id" id="edit_id_iaudit">
       <?php include_once 'distribusi/distForm.php'; ?>
     </form>
@@ -86,11 +62,9 @@
 
   <div class="row">
     <form id="form_uaudit" name="form_uaudit" novalidate="novalidate">
-      <input type="hidden" value="add" name="action_uaudit" id="action">
+      <input type="hidden" value="uadd" name="action" id="action_uaudit">
       <input type="hidden" value="0" name="edit_id" id="edit_id_uaudit">
       <?php include_once 'distribusi/distUpload.php'; ?>
     </form>
   </div>
 </div>
-
-<div id="testArea"></div>

@@ -29,15 +29,94 @@ $(document).ready(function () {
     $form.trigger('reset');
     $form.validate().resetForm();
     $form.find('.error').removeClass('error');
+    window.location.reload();
   });
 
   var current_date = new Date();
   $('.tanggal').datepicker("setDate", current_date);
 
-  $('#lookupDownload').DataTable();
   $('#lookupTerima').DataTable();
-  $('#lookupTerkirim').DataTable();
-  $('#lookupUpload').DataTable();
+  $('#lookupTerkirim').DataTable({
+    'bLengthChange': false,
+    'autoWidth': false,
+    'aoColumnDefs': [
+      {'bSortable': false, 'aTargets': ['nosort']}
+    ],
+    'processing': true,
+    'serverSide': true,
+    'ajax': {
+      type: 'POST',
+      dataType: 'JSON',
+      url: 'application/distribusi/ajax.php?data=terkirim',
+      error: function () {
+        $.Notification.notify(
+                'error', 'top center',
+                'Warning',
+                'Data tidak tersedia'
+                );
+      }
+    },
+    fnDrawCallback: function (oSettings) {
+
+      $('#lookupTerkirim td.sifat').each(function () {
+        var sifat = $(this).html();
+        switch (sifat) {
+          case 'Inactive':
+            $(this).addClass('status-inactive');
+            break;
+          case 'Active':
+            $(this).addClass('status-active');
+            break;
+          default:
+            return;
+        }
+      });
+
+      $('.act_btn').each(function () {
+        $(this).tooltip({
+          html: true
+        });
+      });
+
+      $('.act_btn').on('click', function (e) {
+        e.preventDefault();
+        var com = $(this).attr('data-original-title');
+        var id = $(this).attr('id');
+
+        if (com == 'Edit') {
+          
+          $('#action_iaudit').val('edit');
+          $('#edit_id_iaudit').val(id);
+
+          v_edit = $.ajax({
+            url: 'application/distribusi/edit.php?id=' + id + '&tb_name=distribusi',
+            type: 'POST',
+            dataType: 'JSON',
+            success: function (data) {
+              $('#nip').val(data.nip);
+              $('#nama').val(data.nama);
+              $('#alamat').val(data.alamat);
+              $('#tlp').val(data.tlp);
+              $('#jabatan').val(data.id_jabatan);
+              $('#golongan').val(data.id_golongan);
+              $('#peran').val(data.id_peran);
+            }
+          });
+
+        } else if (com == 'iDelete') {
+          var conf = confirm('Delete this items ?');
+          var url = 'application/distribusi/data.php';
+
+          if (conf) {
+            $.post(url, {id: id, action: com.toLowerCase()}, function () {
+              var table = $('#lookup').DataTable();
+              table.ajax.reload();
+            });
+          }
+        }
+      });
+    }
+  });
 
   $('#form_iaudit').validate({
     rules: {
@@ -108,51 +187,18 @@ $(document).ready(function () {
     },
     submitHandler: function(form) {
       var com_form = '';
-      var com_action = $('#action').val();
-      if (com_action == 'add') {
+      var com_action = $('#action_iaudit').val();
+      if (com_action == 'iadd') {
         com_form = 'iaudit';
         ajaxAction('iadd', com_form);
-      } else if (com_action == 'edit') {
+      } else if (com_action == 'iedit') {
         com_form = 'uaudit';
-        ajaxAction('edit', com_form);
+        ajaxAction('iedit', com_form);
       }
 
       $('#form_'+com_form).trigger('reset');
     }
-  });
-
-  $('#form_uaudit').validate({
-    rules: {
-      pengirim: {
-        required: true
-      },
-      namafile: {
-        required: true
-      },
-      'idkelompok[]': {
-        required: true,
-        minlength: 1
-      }
-    },
-    messages: {
-      pengirim: {
-        required: '*) field is required'
-      },
-      namafile: {
-        required: '*) field is required'
-      },
-      'idkelompok[]': {
-        required: 'at least 1 kelompok must checked',
-        minlength: 1
-      }
-    },
-    errorPlacement: function (error, element) {
-      if (element.attr("name") == "idkelompok[]")
-        error.insertAfter("#errPeranU");
-      else
-        error.insertAfter(element)
-    }
-  });
+  });//end validate iaudit
   
 });
 
@@ -162,11 +208,14 @@ function ajaxAction(action, form) {
   var v_ajax = $.ajax({
     url: 'application/distribusi/data.php',
     type: 'post',
-    dataType: 'json',
-    success: function (data, textStatus, jqXHR) {
-      $('#testArea').html(data);
+    data: data,
+    success: function (response) {
+      console.log(response)
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      console.log(textStatus)
     }
   });
   
-  console.log(v_ajax)
+  console.log(data)
 }

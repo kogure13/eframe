@@ -611,12 +611,86 @@ class distribusi {
   }
   
   function insert_iaudit($params) {
-    echo $params['idkelompok'];
+    //rubah tanggal datePicker -> database
+    $tglagenda = date('Y-m-d', strtotime($params['tglagenda']));
+    $tgltugas = date('Y-m-d', strtotime($params['tgltugas']));
+    
+    $sql = "INSERT INTO distribusi";
+    $sql .= " (no_agenda, no_penugasaan, tgl_agenda, asal, isi_disposisi, "
+            . "perihal, tgl_penugasaan, sifat)";
+    $sql .= " VALUES('".addslashes($params['noagenda'])."', '".addslashes($params['notugas'])."', "
+            . "'".$tglagenda."', '".  addslashes($params['asal'])."', "
+            . "'".  addslashes($params['pesan'])."', '".  addslashes($params['perihal'])."', "
+            . "'".$tgltugas."', '".  addslashes($params['sifat'])."')";
+    
+    $result = mysqli_query($this->conn, $sql) or die('error to insert data');
+    
   }
   
-  function insert_uaudit($params) {}
+  function getTerkirim($req, $col) {
+    
+    $sqlTot = "SELECT * ";
+    $sqlTot .= "FROM distribusi";
+
+    $sql = $sqlTot;
+
+    $qTot = mysqli_query($this->conn, $sqlTot) or die("error fetch data: ");
+
+    $totalData = mysqli_num_rows($qTot);
+    $totalFiltered = $totalData;
+
+    if (!empty($req['search']['value'])) {
+      $sql .= " WHERE no_agenda LIKE '%" . $req['search']['value'] . "%' ";
+      $sql .= " OR no_tugas LIKE '%" . $req['search']['value'] . "%'";
+
+      $query = mysqli_query($this->conn, $sql) or die("ajax-grid-data.php: get PO");
+      $totalFiltered = mysqli_num_rows($query);
+      $sql .=" ORDER BY " . $col[$req['order'][0]['column']] . " " .
+              $req['order'][0]['dir'] . " LIMIT " . $req['start'] . " ," . $req['length'] . " ";
+      $query = mysqli_query($this->conn, $sql) or die("ajax-grid-data.php: get PO");
+    } else {
+      $sql .=" ORDER BY " . $col[$req['order'][0]['column']] . "
+            " . $req['order'][0]['dir'] . " LIMIT " . $req['start'] . " ,
+            " . $req['length'] . " ";
+      $query = mysqli_query($this->conn, $sql) or die("ajax-grid-data.php: get PO");
+    }
+
+    $act = new userUI($this->conn);
+
+    while ($row = mysqli_fetch_assoc($query)) {
+      $nestedData = [];
+
+      $nestedData[] = NULL;
+      $nestedData[] = $row['no_agenda'];
+      $nestedData[] = $row['tgl_agenda'];
+      $nestedData[] = $row['perihal'];
+      $nestedData[] = $row['asal'];
+      $nestedData[] = $row['isi_disposisi'];
+      $nestedData[] = $row['sifat'];
+
+      $data[] = $nestedData;
+    }
+    if ($totalData > 0) {
+      $json_data = array(
+          "draw" => intval($req['draw']),
+          "recordsTotal" => intval($totalData),
+          "recordsFiltered" => intval($totalFiltered),
+          "data" => $data
+      );
+    } else {
+      $json_data = array(
+          "draw" => 0,
+          "recordsTotal" => 0,
+          "recordsFiltered" => 0,
+          "data" => []
+      );
+    }
+    echo json_encode($json_data);
+    
+  }
   
-  
+  function getTerima() {}
+    
   public function sifat() {
 
     $sifat_distribusi = array(
