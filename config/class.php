@@ -104,8 +104,8 @@ class userUI {
     echo '<meta http-equiv="refresh" content="0;url=index.php" >';
   }
 
-  public function centerDIV($obj) {
-    echo '<div align="center">';
+  public function centerDiv($obj) {
+    echo '<div align="btn-group">';
     foreach ($obj as $data) {
       echo $data;
     }
@@ -135,14 +135,14 @@ class userUI {
   }
 
   public function editLink($id) {
-    return '<a href="#" id="' . $id . '" class="act_btn" data-original-title="Edit">'
+    return '<a href="#" id="' . $id . '" class="act_btn text-success" data-original-title="Edit">'
             . '<i class="fa fa-edit fa-fw"></i>'
             . '</a>';
   }
 
   public function deleteLink($id) {
-    return '<a href="#" id="' . $id . '" class="act_btn" data-original-title="Delete">'
-            . '<i class="fa fa-delete fa-fw"></i>'
+    return '<a href="#" id="' . $id . '" class="act_btn text-danger" data-original-title="Delete">'
+            . '<i class="fa fa-trash fa-fw"></i>'
             . '</a>';
   }
 
@@ -623,8 +623,26 @@ class distribusi {
             . "'".  addslashes($params['pesan'])."', '".  addslashes($params['perihal'])."', "
             . "'".$tgltugas."', '".  addslashes($params['sifat'])."')";
     
-    $result = mysqli_query($this->conn, $sql) or die('error to insert data');
-    
+    //$result = mysqli_query($this->conn, $sql) or die('error to insert data');
+    if(mysqli_query($this->conn, $sql)) {
+      $last_id = mysqli_insert_id($this->conn);
+
+        $sq = "SELECT id FROM distribusi";
+        $sq .= " WHERE id = '" . $last_id . "'";
+
+        $rts = mysqli_query($this->conn, $sq) or die();
+        $rs = mysqli_fetch_assoc($rts);
+        
+        $length_peran = sizeof($params['idkelompok']);
+        
+        for($i=0; $i<$length_peran; $i++) {
+          $peranid = $params['idkelompok'][$i];
+          $si = "INSERT INTO disposisi_distribusi (id_distribusi, id_peran, status)";
+          $si .= " VALUES('" . $rs['id'] . "', '".$peranid."', '1')";
+          $qsi = mysqli_query($this->conn, $si);
+        }
+    }
+    echo 0;
   }
   
   function getTerkirim($req, $col) {
@@ -689,7 +707,9 @@ class distribusi {
     
   }
   
-  function getTerima() {}
+  function getTerima() {
+    
+  }
     
   public function sifat() {
 

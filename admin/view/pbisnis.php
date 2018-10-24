@@ -10,7 +10,7 @@
                   <i class="fa fa-plus"></i>
                 </button>
                 <button id="btn_add" class="btn btn-sm btn-primary">
-                  <span id="btn_add"></span>
+                  <span id="btn_add_val"></span>
                 </button>                
               </div>
             </div>
@@ -83,7 +83,7 @@
           <div class="form-group">
             <div class="row">
               <div class="col-sm-6">
-                <label for="nama files">NAama SOP</label>
+                <label for="nama files">Nama SOP</label>
                 <?= $userUI->inputText("text", "input-sm form-control", "namafiles", "namafiles", "") ?>
               </div>
             </div>

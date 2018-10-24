@@ -103,7 +103,7 @@ $(document).ready(function () {
             }
           });
 
-        } else if (com == 'iDelete') {
+        } else if (com === 'Delete') {
           var conf = confirm('Delete this items ?');
           var url = 'application/distribusi/data.php';
 

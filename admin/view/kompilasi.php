@@ -5,18 +5,16 @@
       <h4 class="page-title">Kompilasi Hasil Audit</h4>
       <h5 class="page-title-alt m-t-5"><?= company_name ?></h5>
 
-      <form class="form-inline" role="form">
-        <div class="form-group">
-          <div class="input-group">
-            <?= $userUI->inputText("text", "input-sm form-control", "", "", "Kode Temuan") ?>
-            <span class="input-group-btn">
-              <?= $userUI->pushBtn("button", "btn btn-sm btn-primary", "cari", "<i class=\"fa fa-search fa-fw\"></i>") ?>
-            </span>
+      <form>
+        <div class="input-group">
+          <?=$userUI->inputText("text", "input-sm form-control", "cari", "cari", "Silakan Pilih")?>
+          <div class="input-group-btn">
+            <?=$vSearch=$userUI->closeTags("i", "fa fa-search fa-fw", "", "")?>
+            <?=$vprint=$userUI->closeTags("i", "fa fa-print fa-fw", "", "")?>
+            <?=$vprint.=" Cetak"?>
+            <?=$userUI->pushBtn("submit", "btn btn-sm btn-default", "e", $vSearch)?>
+            <?=$userUI->pushBtn("submit", "btn btn-sm btn-danger", "e", $vprint)?>
           </div>
-        </div>
-        <div class="form-group">
-          <?= $userUI->pushBtn("button", "btn btn-sm btn-default", "cetak", ""
-                  . "<i class=\"fa fa-print fa-fw\"></i> Cetak") ?>
         </div>
       </form>
 
