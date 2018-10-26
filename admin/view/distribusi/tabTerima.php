@@ -3,8 +3,9 @@
   <thead>
     <tr>
       <th class="nosort" width="40px">Action</th>
-      <th>No. Agenda</th><th>Perihal</th>
+      <th>No. Penugasaan</th><th>Perihal</th>
       <th>Asal</th><th>Isi Disposisi</th>
+      <th>Sifat</th>
     </tr>
   </thead>
 </table>

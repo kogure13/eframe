@@ -1,4 +1,4 @@
-
+<input type="hidden" value="<?=$_SESSION['role']?>" id="active_user">
 <div class="row table-distribusi">
   <div class="col-sm-12">
     <div class="card-box">

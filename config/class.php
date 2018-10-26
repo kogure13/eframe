@@ -659,7 +659,7 @@ class distribusi {
 
     if (!empty($req['search']['value'])) {
       $sql .= " WHERE no_agenda LIKE '%" . $req['search']['value'] . "%' ";
-      $sql .= " OR no_tugas LIKE '%" . $req['search']['value'] . "%'";
+      $sql .= " OR no_penugasaan LIKE '%" . $req['search']['value'] . "%'";
 
       $query = mysqli_query($this->conn, $sql) or die("ajax-grid-data.php: get PO");
       $totalFiltered = mysqli_num_rows($query);
@@ -707,7 +707,77 @@ class distribusi {
     
   }
   
-  function getTerima() {
+  function getTerima($req, $col) {
+    session_start();
+    $idPeran = $_SESSION['id_ref'];
+    $qperan = "SELECT id_peran FROM master_karyawan";
+    $qperan .= " WHERE id = ".$idPeran;
+    
+    $rperan = mysqli_query($this->conn, $qperan) or die("error get peran karyawan");
+    $row = mysqli_fetch_assoc($rperan);
+    if($row['id_peran'] > 0) {
+      $idPeran = $row['id_peran'];
+    }else{
+      $idPeran = 0;
+    }
+    
+    $sqlTot = "SELECT * ";
+    $sqlTot .= "FROM disposisi_distribusi ";
+    $sqlTot .= "JOIN distribusi ON distribusi.id = disposisi_distribusi.id_distribusi ";
+    $sqlTot .= "WHERE disposisi_distribusi.id_peran = ".$idPeran;
+
+    $sql = $sqlTot;
+
+    $qTot = mysqli_query($this->conn, $sqlTot) or die("error fetch data: ");
+
+    $totalData = mysqli_num_rows($qTot);
+    $totalFiltered = $totalData;
+
+    if (!empty($req['search']['value'])) {
+      $sql .= " WHERE no_penugasaan LIKE '%" . $req['search']['value'] . "%' ";
+
+      $query = mysqli_query($this->conn, $sql) or die("ajax-grid-data.php: get PO");
+      $totalFiltered = mysqli_num_rows($query);
+      $sql .=" ORDER BY " . $col[$req['order'][0]['column']] . " " .
+              $req['order'][0]['dir'] . " LIMIT " . $req['start'] . " ," . $req['length'] . " ";
+      $query = mysqli_query($this->conn, $sql) or die("ajax-grid-data.php: get PO");
+    } else {
+      $sql .=" ORDER BY " . $col[$req['order'][0]['column']] . "
+            " . $req['order'][0]['dir'] . " LIMIT " . $req['start'] . " ,
+            " . $req['length'] . " ";
+      $query = mysqli_query($this->conn, $sql) or die("ajax-grid-data.php: get PO");
+    }
+
+    $act = new userUI($this->conn);
+
+    while ($row = mysqli_fetch_assoc($query)) {
+      $nestedData = [];
+
+      $nestedData[] = NULL;
+      $nestedData[] = $row['no_penugasaan'];
+      $nestedData[] = $row['perihal'];
+      $nestedData[] = $row['asal'];
+      $nestedData[] = $row['isi_disposisi'];
+      $nestedData[] = $row['sifat'];
+
+      $data[] = $nestedData;
+    }
+    if ($totalData > 0) {
+      $json_data = array(
+          "draw" => intval($req['draw']),
+          "recordsTotal" => intval($totalData),
+          "recordsFiltered" => intval($totalFiltered),
+          "data" => $data
+      );
+    } else {
+      $json_data = array(
+          "draw" => 0,
+          "recordsTotal" => 0,
+          "recordsFiltered" => 0,
+          "data" => []
+      );
+    }
+    echo json_encode($json_data);
     
   }
     
