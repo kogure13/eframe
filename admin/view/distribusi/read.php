@@ -38,7 +38,7 @@
                 <td width="5%">Nomor</td><td width="1%">:</td><td id="noagenda" width="70%">
                   <?=$at['no_penugasaan']?>
                 </td>
-                <td width="5%">Tanggal</td><td>:</td><td id="tglagenda"><?=tanggal_indo($at['tgl_agenda'])?></td>
+                <td width="10%">Tanggal</td><td>:</td><td id="tglagenda"><?=tanggal_indo($at['tgl_agenda'])?></td>
               </tr>
               <tr>
                 <td>Perihal</td><td>:</td><td id="perihal"><?=$at['perihal']?></td>
@@ -48,6 +48,7 @@
               </tr>
               <tr>
                 <td>Sifat</td><td>:</td><td id="sifat"><?=$at['sifat']?></td>
+                <td>Untuk penugasaan</td><td>:</td><td id="tgltugas"><?=tanggal_indo($at['tgl_penugasaan'])?></td>
               </tr>
             </table>
             <div id="isi_disposisi" class="m-t-20 text-justify">
