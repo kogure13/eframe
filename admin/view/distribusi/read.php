@@ -52,7 +52,9 @@
               </tr>
             </table>
             <div id="isi_disposisi" class="m-t-20 text-justify">
-              <?=$at['isi_disposisi']?>
+              <p style="white-space: pre-line">
+                <?=$at['isi_disposisi']?>
+              </p>              
             </div>
           </div>
         </div>        
