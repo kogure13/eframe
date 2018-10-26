@@ -5,7 +5,7 @@ class dbObj {
   var $DB_Host = "localhost"; //koneksi localhost
   var $DB_Name = "db_itjen"; //nama database
   var $DB_User = "root"; //user database
-  var $DB_Pass = "1234"; //password database
+  var $DB_Pass = ""; //password database
 
   var $conn;
 
@@ -147,8 +147,8 @@ class userUI {
   }
 
   public function detailLink($id) {
-    return '<a href="#" id="' . $id . '" class="act_btn" data-original-title="Detail">'
-            . '<i class="fa fa-detail fa-fw"></i>'
+    return '<a href="#" id="' . $id . '" class="act_btn text-info" data-original-title="Detail">'
+            . '<i class="fa fa-info-circle fa-fw"></i>'
             . '</a>';
   }
 
@@ -753,7 +753,7 @@ class distribusi {
     while ($row = mysqli_fetch_assoc($query)) {
       $nestedData = [];
 
-      $nestedData[] = NULL;
+      $nestedData[] = $act->detailLink($row['id']);
       $nestedData[] = $row['no_penugasaan'];
       $nestedData[] = $row['perihal'];
       $nestedData[] = $row['asal'];
@@ -777,8 +777,18 @@ class distribusi {
           "data" => []
       );
     }
-    echo json_encode($json_data);
+    echo json_encode($json_data);    
+  }
+  
+  function readDistribusi($id) {    
+    $sql = "SELECT * FROM distribusi";
+    $sql .= " WHERE id = ".$id;
     
+    $result = mysqli_query($this->conn, $sql) or die('error fetch data');
+    while ($row = mysqli_fetch_assoc($result)) {
+      $data = $row;
+    }
+    return $data;
   }
     
   public function sifat() {

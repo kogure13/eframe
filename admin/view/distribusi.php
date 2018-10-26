@@ -1,4 +1,7 @@
-<input type="hidden" value="<?=$_SESSION['role']?>" id="active_user">
+<?php
+if (!isset($_GET['read'])) {
+?>
+<input type="hidden" value="<?= $_SESSION['role'] ?>" id="active_user">
 <div class="row table-distribusi">
   <div class="col-sm-12">
     <div class="card-box">
@@ -68,3 +71,14 @@
     </form>
   </div>
 </div>
+<?php
+} else {
+  $id = $_GET['id'];
+  $db = new dbObj();
+  $connString = $db->getConstring();
+  $readDistribusi = new distribusi($connString);  
+  $at = $readDistribusi->readDistribusi($id);
+  
+  include_once 'distribusi/read.php';
+}
+?>

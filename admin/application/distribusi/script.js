@@ -195,6 +195,9 @@ $(document).ready(function () {
                 table.ajax.reload();
               });
             }
+          } else if(com === 'Detail') {
+            var url = '?page=distribusi&read=active&id='+id;
+            window.location.href = url;            
           }
         });
       }
