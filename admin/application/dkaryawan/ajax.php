@@ -1,5 +1,5 @@
 <?php
-require_once '../../../config/class.php';
+include '../../../config/class.php';
 
 $db = new dbObj();
 $connString = $db->getConstring();
@@ -13,9 +13,9 @@ $columns = array(
     2 => 'nama',
     3 => 'id_jabatan',
     4 => 'id_golongan',
-    5 => 'alamat',
-    6 => 'tlp',
-    7 => 'id_peran'
+    5 => 'id_peran',
+    6 => 'alamat',
+    7 => 'tlp'
 );
 
 $dataClass->getData($requestData, $columns);

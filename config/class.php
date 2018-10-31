@@ -105,7 +105,7 @@ class userUI {
   }
 
   public function centerDiv($obj) {
-    echo '<div align="btn-group">';
+    echo '<div align="center">';
     foreach ($obj as $data) {
       echo $data;
     }
@@ -535,7 +535,7 @@ class karyawan {
 
     if (!empty($req['search']['value'])) {
       $sql .= " WHERE nama LIKE '%" . $req['search']['value'] . "%' ";
-      $sql .= " OR nip LIKE '%" . $req['search']['value'] . "%'";
+      $sql .= " OR nip LIKE '%" . $req['search']['value'] . "%'";      
 
       $query = mysqli_query($this->conn, $sql) or die("ajax-grid-data.php: get PO");
       $totalFiltered = mysqli_num_rows($query);
@@ -555,16 +555,17 @@ class karyawan {
     $peran = new peran($this->conn);
 
     while ($row = mysqli_fetch_assoc($query)) {
-      $nestedData = [];
+      $nestedData = [];     
 
       $nestedData[] = $act->editLink($row['id']);
       $nestedData[] = $row['nip'];
       $nestedData[] = $row['nama'];
       $nestedData[] = $jabatan->getJabatan($row['id_jabatan']);
       $nestedData[] = $golongan->getGolongan($row['id_golongan']);
+      $nestedData[] = $peran->getPeran($row['id_peran']);
       $nestedData[] = $row['alamat'];
       $nestedData[] = $row['tlp'];
-      $nestedData[] = $peran->getPeran($row['id_peran']);
+      
 
       $data[] = $nestedData;
     }

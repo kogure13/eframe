@@ -20,8 +20,8 @@
           <tr>
             <th class="nosort" width="40px">Action</th>
             <th>NIP</th><th>Nama Karyawan</th><th>Jabatan</th>
-            <th>Golongan</th><th>Alamat</th><th>Telepon</th>
-            <th>Peran</th>
+            <th>Golongan</th><th>Peran</th>
+            <th>Alamat</th><th>Telepon</th>            
           </tr>
         </thead>
         <tbody></tbody>

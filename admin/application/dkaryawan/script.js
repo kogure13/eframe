@@ -110,7 +110,8 @@ $(document).ready(function () {
     'bLengthChange': false,
     'autoWidth': false,
     'aoColumnDefs': [
-      {'bSortable': false, 'aTargets': ['nosort']}
+      {'bSortable': false, 'aTargets': ['nosort']},
+      {targets:[5], class: "wrapThis"}
     ],
     'processing': true,
     'serverSide': true,
